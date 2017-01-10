@@ -2,9 +2,11 @@
 /config/app.php
 /tmp/*
 /logs/*
+<<<<<<< HEAD
 
 *.xml
 
-.idea/workspace.xml
+.idea/*
 
-.idea/workspace.xml
+=======
+>>>>>>> master
