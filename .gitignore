@@ -3,10 +3,14 @@
 /tmp/*
 /logs/*
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 *.xml
 
 .idea/*
 
 =======
+>>>>>>> master
+=======
+*.xml
 >>>>>>> master
