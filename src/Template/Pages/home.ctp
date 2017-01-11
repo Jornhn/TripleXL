@@ -13,6 +13,7 @@
     <?= $this->Html->css('style.css') ?>
 </head>
 <body class="home">
+
 <nav class="navbar navbar-fixed-top navbar-default">
     <div class="container">
         <div class="navbar-header">
