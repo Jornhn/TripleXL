@@ -91,6 +91,11 @@ a{
     border-radius: 0px;
 }
 
+.form-control {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
 .btn {
     border-radius: 0px;
 }
@@ -135,4 +140,8 @@ a{
     max-width: 500px;
     margin-left: calc(50% - 250px);
     background-color: white;
+}
+
+.register-step {
+    display: none;
 }

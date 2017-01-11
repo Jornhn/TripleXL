@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <b>Triple</b>XL
             </a>
         </div>
@@ -16,6 +16,7 @@
 <div class="offset"></div>
 <div class="container">
     <div class="col-md-12 login-container">
+        <h4>Inloggen</h4>
         <?= $this->Flash->render() ?>
         <?= $this->Form->create() ?>
         <div class="form-group">

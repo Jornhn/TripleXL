@@ -33,7 +33,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->set('Email of wachtwoord is onjuist, probeer het opnieuw', ['params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Het opgegeven email of wachtwoord is onjuist probeer het opnieuw', ['params' => ['class' => 'alert alert-danger']]);
         }
     }
 
@@ -50,7 +50,7 @@ class UsersController extends AppController
                 $this->Flash->success(__('Gebruiker is opgeslagen.'));
                 return $this->redirect(['action' => 'register']);
             }
-            $this->Flash->error(__('Kon de gebruiker niet toevoegen.'));
+            $this->Flash->set('Er ging iets mis! Controleer of alle velden zijn ingevuld.',  ['params' => ['class' => 'alert alert-danger']]);
         }
         $this->set('user', $user);
     }

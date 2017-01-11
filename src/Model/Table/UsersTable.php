@@ -18,6 +18,13 @@ class UsersTable extends Table
         return $validator
             ->notEmpty('email', 'E-mail is verplicht')
             ->notEmpty('password', 'Wachtwoord if verplicht')
-            ->notEmpty('account_type', 'Een account type is verplicht');
+            ->notEmpty('account_type', 'Een account type is verplicht')
+            ->notEmpty('salution', 'Een account type is verplicht')
+            ->notEmpty('firstname', 'Een account type is verplicht')
+            ->notEmpty('lastname', 'Een account type is verplicht')
+            ->notEmpty('adress', 'Een account type is verplicht')
+            ->notEmpty('zip_code', 'Een account type is verplicht')
+            ->notEmpty('place', 'Een account type is verplicht')
+            ->notEmpty('phone_number', 'Een account type is verplicht');
     }
 }
