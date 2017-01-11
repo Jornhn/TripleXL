@@ -1,0 +1,155 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+    ),
+    url(https://static.pexels.com/photos/30342/pexels-photo-30342.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a{
+    color: #FFFFFF;
+}
+
+/* NAVIGATION */
+
+.navbar-default {
+    color: #ffffff;
+    background-color: #ffffff;
+    border: none;
+    border-bottom: 1px solid;
+    border-color: #373737;
+    border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #737373;
+    font-size: 1.7em;
+}
+
+.navbar-default .navbar-brand b {
+    color: #199fd7; /*9b9b9b*/
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: #199fd7;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #9b9b9b;
+    border-bottom: 4px solid transparent;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #606060;
+    border-bottom: 4px solid #199fd7;
+}
+
+.navbar-default .navbar-nav > li > .active {
+    color: #606060;
+    font-weight: bold;
+    border-bottom: 4px solid #199fd7;
+}
+
+.offset {
+    height: 100px;
+}
+
+/* CONTENT */
+.header {
+    color: #ffffff;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.header h4 {
+    margin-bottom: 30px;
+}
+
+.btn-home {
+    height: 100px;
+    width: 250px;
+    font-size: 22px;
+
+    background-color: #199fd7;
+    border-radius: 0px;
+    border: 2px solid #ffffff;
+}
+
+.alert {
+    border-radius: 0px;
+}
+
+.form-control {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+.btn-home:hover, .btn-home:focus {
+    color: #ffffff;
+    background-color: #1986be;
+}
+
+.pull-down {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.info {
+    background-color: white;
+}
+
+.information {
+    margin-bottom: 10px;
+}
+
+.match-counter {
+    color: #FFFFFF;
+    text-align: center;
+    margin: auto;
+    margin-top: 25px;
+    padding: 10px;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.match-counter p {
+    font-size: 1.2em;
+}
+
+.login-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-width: 500px;
+    margin-left: calc(50% - 250px);
+    background-color: white;
+}
+
+
+.default-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-width: 1000px;
+    background-color: white;
+}
+
+.register-step {
+    display: none;
+}

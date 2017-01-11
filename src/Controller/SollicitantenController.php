@@ -12,16 +12,33 @@ namespace App\Controller;
 class SollicitantenController extends AppController
 {
     function index(){
-        //$users = $this->Users->find('all');
-        //$this->set(compact('users'));
+        $this->loadModel('Users');
+        $users = $this->Users->find('all');
+        $this->set(compact('users'));
     }
 
-    function view(){
-
+    function view($id){
+        //$id = $this->reques$idt->query['id'];
+        
+        $this->loadModel('Users');
+        $users = $this->Users->get($id);
+        $this->set('users', $users);
     }
 
-    function edit(){
-
+    function edit($id){
+        
+        //$id = $this->request->query['id'];
+        
+        $this->loadModel('Users');
+        $users = $this->Users->get($id);
+        if ($this->request->is(['post', 'put'])) {
+            $this->Users->patchEntity($users, $this->request->data);
+            if ($this->Users->save($users)) {
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to update your CV.'));
+        }
+        $this->set('users', $users);
     }
 
     function add(){

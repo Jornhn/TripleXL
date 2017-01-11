@@ -20,15 +20,15 @@
 
         <?php foreach($users as $user): ?>
             <tr>
-                <td><?= $user->user_id ?></td>
+                <td><?= $user->id ?></td>
                 <td><?= $user->salution ?></td>
                 <td><?= $user->firstname ?></td>
                 <td><?= $user->insertion ?></td>
                 <td><?= $user->lastname ?></td>
                 <td><?= $user->account_type ?></td>
-                <td><a href="view/" class="btn btn-default">Bekijken</a></td>
-                <td><a href="edit/" class="btn btn-default">Wijzigen</a></td>
-                <td><a id="" class="btn btn-danger sollicitant-delete">Verwijderen</a></td>
+                <td><?php echo $this->Html->link("View", ['action' => 'view', $user->id], ['class' => 'btn btn-primary'])?></td>
+                <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
+                <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
             </tr>
         <?php endforeach; ?>
 
