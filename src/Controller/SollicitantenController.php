@@ -12,7 +12,8 @@ namespace App\Controller;
 class SollicitantenController extends AppController
 {
     function index(){
-
+        //$users = $this->Users->find('all');
+        //$this->set(compact('users'));
     }
 
     function view(){

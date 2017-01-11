@@ -29,6 +29,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('custom.css') ?>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.0/sweetalert2.min.css">
+
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
@@ -39,6 +41,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('content') ?>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.0/sweetalert2.min.js"></script>
+
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('custom.js') ?>
 </body>
 </html>

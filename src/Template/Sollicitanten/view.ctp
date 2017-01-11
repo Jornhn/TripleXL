@@ -5,6 +5,10 @@
             <td>1</td>
         </tr>
         <tr>
+            <td>Aanhef: </td>
+            <td>Heer</td>
+        </tr>
+        <tr>
             <td>Voornaam: </td>
             <td>Jorn</td>
         </tr>

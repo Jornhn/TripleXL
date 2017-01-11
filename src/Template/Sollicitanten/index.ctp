@@ -1,10 +1,12 @@
 <h1>Sollicitanten</h1>
+<a href="add">Sollicitant toevoegen</a>
 <hr>
 
 <table class="table table-striped">
     <thead>
         <tr>
             <th>#</th>
+            <th>Aanhef</th>
             <th>Voornaam</th>
             <th>Tussenvoegsel</th>
             <th>Achternaam</th>
@@ -15,37 +17,20 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Jorn</td>
-            <td></td>
-            <td>Holterman</td>
-            <td>Solicitant</td>
-            <td><a href="/TripleXL/sollicitanten/view/" class="btn btn-default">Bekijken</a></td>
-            <td><a class="btn btn-default">Wijzigen</a></td>
-            <td><a class="btn btn-danger">Verwijderen</a></td>
-        </tr>
 
-        <tr>
-            <th scope="row">2</th>
-            <td>Jan</td>
-            <td>van</td>
-            <td>Dorderecht</td>
-            <td>Sollicitant</td>
-            <td><button class="btn btn-default">Bekijken</button></td>
-            <td><button class="btn btn-default">Wijzigen</button></td>
-            <td><button class="btn btn-danger">Verwijderen</button></td>
-        </tr>
+        <?php foreach($users as $user): ?>
+            <tr>
+                <td><?= $user->user_id ?></td>
+                <td><?= $user->salution ?></td>
+                <td><?= $user->firstname ?></td>
+                <td><?= $user->insertion ?></td>
+                <td><?= $user->lastname ?></td>
+                <td><?= $user->account_type ?></td>
+                <td><a href="view/" class="btn btn-default">Bekijken</a></td>
+                <td><a href="edit/" class="btn btn-default">Wijzigen</a></td>
+                <td><a id="" class="btn btn-danger sollicitant-delete">Verwijderen</a></td>
+            </tr>
+        <?php endforeach; ?>
 
-        <tr>
-            <th scope="row">3</th>
-            <td>Joop</td>
-            <td></td>
-            <td>Hansen</td>
-            <td>Sollicitant</td>
-            <td><button class="btn btn-default">Bekijken</button></td>
-            <td><button class="btn btn-default">Wijzigen</button></td>
-            <td><button class="btn btn-danger">Verwijderen</button></td>
-        </tr>
     </tbody>
 </table>
