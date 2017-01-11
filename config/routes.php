@@ -59,6 +59,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/cv/add', ['controller' => 'Cv', 'action' => 'add']);
     $routes->connect('/cv/delete', ['controller' => 'Cv', 'action' => 'delete']);
 
+
     /**
      * Connect catchall routes for all controllers.
      *
