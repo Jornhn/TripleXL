@@ -38,7 +38,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->error(__('Email of wachtwoord is ongeldig'));
+            $this->Flash->set('Email of wachtwoord is onjuist, probeer het opnieuw', ['params' => ['class' => 'alert alert-danger']]);
         }
     }
 
