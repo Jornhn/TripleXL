@@ -29,7 +29,6 @@
     </title>
     <?= $this->Html->meta('icon') ?>
 
-<<<<<<< HEAD
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('custom.css') ?>
 
@@ -52,12 +51,3 @@
     <?= $this->Html->script('custom.js') ?>
 </body>
 </html>
-=======
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <?= $this->Html->css('style.css') ?>
-</head>
-<body>
-
-
-<?= $this->fetch('content') ?>
->>>>>>> origin/Sven

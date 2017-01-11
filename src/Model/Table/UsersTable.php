@@ -20,4 +20,9 @@ class UsersTable extends Table
             ->notEmpty('password', 'Wachtwoord if verplicht')
             ->notEmpty('account_type', 'Een account type is verplicht');
     }
+    
+    public function initialize(array $config)
+    {
+        $this->addBehavior('Timestamp');
+    }
 }
