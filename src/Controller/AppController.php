@@ -43,7 +43,6 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-<<<<<<< HEAD
 //        $this->loadComponent('Auth', [
 //            'loginRedirect' => [
 //                'controller' => 'Dashboard',
@@ -55,9 +54,6 @@ class AppController extends Controller
 //                'home'
 //            ]
 //        ]);
-=======
-        
->>>>>>> 032319ca19addb6cbf32a6f5338b2bbdf061c2d7
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -69,11 +65,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-<<<<<<< HEAD
         //$this->Auth->allow(['display']);
-=======
-        
->>>>>>> 032319ca19addb6cbf32a6f5338b2bbdf061c2d7
     }
 
     /**
