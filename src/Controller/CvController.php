@@ -30,7 +30,6 @@ class CvController extends AppController
         $this->set('cv', $cv);
     }
 
-    // TODO: id moet cv_id worden van de user_id
     public function edit($id = 1)
     {
         $cv = $this->Cv->get($id);
@@ -45,7 +44,6 @@ class CvController extends AppController
         $this->set('cv', $cv);
     }
 
-    // TODO: id moet cv_id worden van de user_id
     public function delete($id = 1)
     {
         $this->request->allowMethod(['post', 'delete']);

@@ -2,7 +2,6 @@
 <hr>
 <?php echo $this->Form->create($cv,['class'=>'form-horizontal']);?>
 <fieldset>
-
     <!-- Text input-->
     <div class="form-group">
         <label class="col-md-3 control-label" for="title">Title</label>
@@ -34,6 +33,5 @@
             <button id="save" name="save" class="btn btn-primary">Save</button>
         </div>
     </div>
-
 </fieldset>
 <?php echo $this->Form->end(); ?>
