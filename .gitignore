@@ -1,0 +1,32 @@
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+*.xml
+
+.idea/*
+
+=======
+>>>>>>> master
+=======
+*.xml
+>>>>>>> master
+
+.idea/workspace.xml
+
+.idea/TripleXL.iml
+
+.idea/workspace.xml
+=======
+
+.idea/*
+.idea/workspace.xml
+<<<<<<< HEAD
+>>>>>>> Sven
+=======
+>>>>>>> origin/Sven
+>>>>>>> 032319ca19addb6cbf32a6f5338b2bbdf061c2d7
