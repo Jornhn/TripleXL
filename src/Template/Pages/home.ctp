@@ -13,16 +13,12 @@
     <?= $this->Html->css('style.css') ?>
 </head>
 <body class="home">
-<<<<<<< HEAD
     <header>
         <div class="header-image">
             <?= $this->Html->image('http://cakephp.org/img/logo-cake.png') ?>
-            <h1>TripleXL!</h1>
         </div>
     </header>
     <div id="content">
-
-=======
 <nav class="navbar navbar-fixed-top navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -53,7 +49,6 @@
                 <p>{count} CV's zijn al gematched met een vacature</p>
             </div>
         </div>
->>>>>>> Sven
     </div>
 </div>
 
