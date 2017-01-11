@@ -58,6 +58,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/cv/edit', ['controller' => 'Cv', 'action' => 'edit']);
     $routes->connect('/cv/add', ['controller' => 'Cv', 'action' => 'add']);
     $routes->connect('/cv/delete', ['controller' => 'Cv', 'action' => 'delete']);
+    
+    
+        $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
+
 
 
     /**

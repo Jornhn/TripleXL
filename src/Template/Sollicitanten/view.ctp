@@ -55,4 +55,4 @@
 
 </table>
 
-<a href="../" class="btn btn-default">Terug</a>
+<a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
