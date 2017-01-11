@@ -4,6 +4,7 @@
 /logs/*
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 *.xml
 
@@ -18,3 +19,8 @@
 .idea/workspace.xml
 
 .idea/TripleXL.iml
+=======
+
+.idea/*
+.idea/workspace.xml
+>>>>>>> Sven
