@@ -2,7 +2,7 @@
 <table class="top-space col-lg-12 table table-striped">
         <tr>
             <td>User ID:
-            <td><?= $users->user_id ?></td>
+            <td><?= $users->id ?></td>
         </tr>
         <tr>
             <td>Aanhef: </td>
