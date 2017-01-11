@@ -2,10 +2,10 @@
 <fieldset>
 
 <!-- Form Name -->
-<h1>Edit</h1>
+<h1>Edit: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
 
 <!-- Text input-->
-<div class="form-group">
+<div class="form-group top-space">
   <label class="col-md-3 control-label" for="user_id">#</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('user_id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
@@ -116,6 +116,7 @@
 <div class="form-group">
     <div class="col-lg-6">
         <button id="save" name="save" class="btn btn-primary">Save</button>
+        <a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
     </div>
 </div>
 

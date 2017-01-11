@@ -17,18 +17,17 @@ class SollicitantenController extends AppController
         $this->set(compact('users'));
     }
 
-    function view(){
-        $id = $this->request->query['id'];
+    function view($id){
+        //$id = $this->reques$idt->query['id'];
         
         $this->loadModel('Users');
         $users = $this->Users->get($id);
         $this->set('users', $users);
     }
 
-    function edit(){
+    function edit($id){
         
-        //$id = $this->params['url']['id'];
-        $id = $this->request->query['id'];
+        //$id = $this->request->query['id'];
         
         $this->loadModel('Users');
         $users = $this->Users->get($id);

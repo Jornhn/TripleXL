@@ -26,8 +26,8 @@
                 <td><?= $user->insertion ?></td>
                 <td><?= $user->lastname ?></td>
                 <td><?= $user->account_type ?></td>
-                <td><a href="http://localhost:8888/TripleXL/sollicitanten/view?id=<?php echo $user->user_id ?>" class="btn btn-default">Bekijken</a></td>
-                <td><a href="http://localhost:8888/TripleXL/sollicitanten/edit?id=<?php echo $user->user_id ?>" class="btn btn-default">Wijzigen</a></td>
+                <td><a href="http://localhost:8888/TripleXL/sollicitanten/view/<?php echo $user->user_id ?>" class="btn btn-default">Bekijken</a></td>
+                <td><a href="http://localhost:8888/TripleXL/sollicitanten/edit/<?php echo $user->user_id ?>" class="btn btn-default">Wijzigen</a></td>
                 <td><a id="" class="btn btn-danger sollicitant-delete">Verwijderen</a></td>
             </tr>
         <?php endforeach; ?>
