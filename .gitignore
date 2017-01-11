@@ -2,6 +2,25 @@
 /config/app.php
 /tmp/*
 /logs/*
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+*.xml
+
+.idea/*
+
+=======
+>>>>>>> master
+=======
+*.xml
+>>>>>>> master
+
+.idea/workspace.xml
+
+.idea/TripleXL.iml
+=======
 
 .idea/*
 .idea/workspace.xml
+>>>>>>> Sven
