@@ -23,8 +23,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a class="nav-link active" href="#">Home</a></li>
-                <li><a class="nav-link" href="#">Login</a></li>
-                <li><a class="nav-link" href="#">Contact</a></li>
+                <li><a class="nav-link" href="/users/login">Login</a></li>
             </ul>
         </div>
     </div>
@@ -36,7 +35,7 @@
             <div class="header">
                 <h1>Een baan die bij u past</h1>
                 <h4>De eerste stap naar een nieuwe baan!</h4>
-                <button type="button" class="btn btn-home">Word lid van TripleXL</button>
+                <a href="/users/register"><button type="button" class="btn btn-home">Word lid van TripleXL</button></a>
             </div>
         </div>
         <div class="col-md-6 col-md-offset-3">
