@@ -14,3 +14,7 @@
 =======
 *.xml
 >>>>>>> master
+
+.idea/workspace.xml
+
+.idea/TripleXL.iml
