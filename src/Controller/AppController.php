@@ -43,17 +43,24 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-//        $this->loadComponent('Auth', [
-//            'loginRedirect' => [
-//                'controller' => 'Dashboard',
-//                'action' => 'index'
-//            ],
-//            'logoutRedirect' => [
-//                'controller' => 'Pages',
-//                'action' => 'display',
-//                'home'
-//            ]
-//        ]);
+        $this->loadComponent('Auth', [
+            'loginRedirect' => [
+                'controller' => 'Dashboard',
+                'action' => 'index'
+            ], 'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'email',
+                        'password' => 'password',
+                    ]
+                ]
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ]
+        ]);
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -65,7 +72,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event)
     {
-        //$this->Auth->allow(['display']);
+        $this->Auth->allow(['display', 'login', 'register']);
     }
 
     /**

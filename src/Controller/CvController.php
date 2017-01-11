@@ -8,11 +8,15 @@
 
 namespace App\Controller;
 
+use Cake\Datasource\ConnectionManager;
+
 class CvController extends AppController
 {
     function index()
     {
-        $cv = $this->Cv->find('all');
+        $id = $this->Auth->user('id');
+
+        $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
         $this->set(compact('cv'));
     }
 
@@ -30,9 +34,12 @@ class CvController extends AppController
         $this->set('cv', $cv);
     }
 
-    public function edit($id = 1)
+    public function edit()
     {
-        $cv = $this->Cv->get($id);
+        $id = $this->Auth->user('id');
+
+        $cv = $this->Cv->find()->where(['user_id' => $id])->first();
+
         if ($this->request->is(['post', 'put'])) {
             $this->Cv->patchEntity($cv, $this->request->data);
             if ($this->Cv->save($cv)) {
@@ -44,12 +51,14 @@ class CvController extends AppController
         $this->set('cv', $cv);
     }
 
-    public function delete($id = 1)
+    public function delete()
     {
+        $id = $this->Auth->user('id');
+        $cv = $this->Cv->find()->where(['user_id' => $id])->first();
+
         $this->request->allowMethod(['post', 'delete']);
 
-        $article = $this->Cv->get($id);
-        if ($this->Cv->delete($article)) {
+        if ($this->Cv->delete($cv)) {
             $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
             return $this->redirect(['action' => 'index']);
         }
