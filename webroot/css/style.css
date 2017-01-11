@@ -91,6 +91,11 @@ a{
     border-radius: 0px;
 }
 
+.form-control {
+    border-radius: 0px;
+    box-shadow: none;
+}
+
 .btn {
     border-radius: 0px;
 }
@@ -137,9 +142,6 @@ a{
     background-color: white;
 }
 
-.default-container {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    max-width: 1000px;
-    background-color: white;
+.register-step {
+    display: none;
 }
