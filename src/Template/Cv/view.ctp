@@ -4,7 +4,7 @@
     <div class="col-md-12 default-container">
         <h1> Details CV
             <span class="pull-right">
-                <?= $this->Html->link("Back", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+                <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
         </h1>
         <hr>

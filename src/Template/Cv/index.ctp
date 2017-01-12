@@ -4,7 +4,7 @@
     <div class="col-md-12 default-container">
         <h1> Mijn CV('s)
             <span class="pull-right">
-                <?= $this->Html->link("Add", ['action' => 'add'], ['class' => 'btn btn-primary btn-lg']) ?>
+                <?= $this->Html->link("Toevoegen", ['action' => 'add'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
         </h1>
         <hr />
@@ -33,8 +33,8 @@
                     <td>-</td>
                     <td>-</td>
                     <td><?= $item->video ?></td>
-                    <td><?= $this->Html->link("Edit", ['action' => 'edit', $item->cv_id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $item->cv_id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
+                    <td><?= $this->Html->link("Aanpassen", ['action' => 'edit', $item->id], ['class' => 'btn btn-primary']) ?></td>
+                    <td><?= $this->Form->postLink('Verwijderen', ['action' => 'delete', $item->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

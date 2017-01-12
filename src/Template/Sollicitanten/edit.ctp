@@ -15,12 +15,14 @@
   </div>
 </div>
 
-<!-- Text input-->
+<!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-3 control-label" for="salution">Aanhef</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('salution', ['type'=>'text', 'id'=>'salution', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-    
+    <?php echo $this->Form->input('salution',['type'=>'select','class'=>'form-control ','options'=> [
+      'Dhr.'=>'Dhr.',
+      'Mevr.'=>'Mevr.',
+    ],'div'=>false,'label'=>false]); ?>
   </div>
 </div>
 

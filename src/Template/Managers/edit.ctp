@@ -2,10 +2,8 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerder wijzigen</h1>
+        <h1>Beheerder wijzigen <?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
         <hr>
-        <?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary']).' ';?>
-        <br>
         <?=$this->Flash->render()?>
         <?=$this->Form->create($manager,['class'=>'form-horizontal']);?>
 
