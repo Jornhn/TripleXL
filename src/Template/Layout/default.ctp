@@ -24,7 +24,7 @@
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
                         <li><?php echo $this->Html->link("Dashboard", ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'nav-link'])?></li>
-                        <li><?php echo $this->Html->link("Cv", ['controller' => 'Cv', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?php echo $this->Html->link("Mijn CV('s)", ['controller' => 'Cv', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                         <li><?php echo $this->Html->link("Logout", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'nav-link'])?></li>
                         <p class="navbar-text"><b>Ingelogd als:  <?php echo $this->request->session()->read('Auth.User.email'); ?></b></p>
                     <?php   }
