@@ -13,7 +13,9 @@ class SollicitantenController extends AppController
 {
     function index(){
         $this->loadModel('Users');
-        $users = $this->Users->find('all');
+        $users = $this->Users->find('threaded', array(
+        'conditions' => array('account_type' => 0)
+    ));
         $this->set(compact('users'));
     }
 
@@ -26,7 +28,6 @@ class SollicitantenController extends AppController
     }
 
     function edit($id){
-        
         //$id = $this->request->query['id'];
         
         $this->loadModel('Users');
