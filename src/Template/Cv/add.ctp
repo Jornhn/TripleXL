@@ -12,31 +12,34 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'Title...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="title">Title</label>
+            <div class="col-md-6">
+                <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            </div>
+        </div>
 
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="text">Text</label>
+            <div class="col-md-6">
+                <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Textarea -->
         <div class="form-group">
-            <div class="col-md-12">
-                <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'placeholder'=>'Tekst...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-            </div>
-        </div>
-
-        <!-- Textarea -->
-        <div class="form-group">
-            <div class="col-md-12">
-                <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'placeholder'=>'Motivatie...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="motivation">Motivation</label>
+            <div class="col-md-6">
+                <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Select Basic -->
         <div class="form-group">
-            <div class="col-md-3">
+            <label class="col-md-3 control-label" for="category">Category</label>
+            <div class="col-md-6">
                 <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
-                    'Select a category!'=>'Select a category!',
                     'Option one'=>'Option one',
                     'Option two'=>'Option two',
                 ],'div'=>false,'label'=>false]); ?>
@@ -45,9 +48,9 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <div class="col-md-3">
+            <label class="col-md-3 control-label" for="competention">Competention</label>
+            <div class="col-md-6">
                 <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
-                    'Select a competention!'=>'Select a competention!',
                     'Option one'=>'Option one',
                     'Option two'=>'Option two',
                 ],'div'=>false,'label'=>false]); ?>
@@ -56,13 +59,12 @@
 
         <!-- Text input -->
         <div class="form-group">
-            <div class="col-md-12">
-                <?php echo $this->Form->input('video', ['type'=>'text', 'id'=>'video', 'placeholder'=>'Video...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="video">Video</label>
+            <div class="col-md-6">
+                <?php echo $this->Form->input('video', ['type'=>'text', 'id'=>'video', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
-
         <hr>
-
         <!-- Button -->
         <div class="form-group">
             <div class="col-lg-12">
