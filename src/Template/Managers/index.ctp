@@ -1,36 +1,41 @@
-<p>Klik <a href="managers/create">hier</a> om een beheerder toe te voegen</p>
+<div class="offset"></div>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Aanhef</th>
-        <th>Voornaam</th>
-        <th>Tussenvoegsel</th>
-        <th>Achternaam</th>
-        <th>Straat</th>
-        <th>Postcode</th>
-        <th>Woonplaats</th>
-        <th>Telefoon nummer</th>
-        <th>Email</th>
-        <th>Account type</th>
-        <th>Wijzigen</th>
-        <th>Verwijderen</th>
-    </tr>
-    <?php
-    foreach($managers as $manager){
-        echo "<tr><td>" . $manager->id . "</td>";
-        echo "<td>" . $manager->salutation . "</td>";
-        echo "<td>" . $manager->firstname . "</td>";
-        echo "<td>" . $manager->insertion . "</td>";
-        echo "<td>" . $manager->lastname . "</td>";
-        echo "<td>" . $manager->adress . "</td>";
-        echo "<td>" . $manager->zip_code . "</td>";
-        echo "<td>" . $manager->place . "</td>";
-        echo "<td>" . $manager->phone_number . "</td>";
-        echo "<td>" . $manager->email . "</td>";
-        echo "<td>" . $manager->account_type . "</td>";
-        echo "<td><a href='managers/edit/" . $manager->id . "'>Wijzig</i></a></td>";
-        echo "<td><a href='managers/delete/" . $manager->id . "'>Verwijderen</i></a></td>";
-    }
-?>
-</table>
+<div class="container">
+    <div class="col-md-12 default-container">
+        <h1>Beheerders overzicht</h1>
+        <hr>
+        <?=$this->Html->link("Nieuwe Beheerder", ['action' => 'create'], ['class' => 'btn btn-primary']).' ';?>
+        <hr>
+        <?= $this->Flash->render() ?>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Aanhef</th>
+                        <th>Voornaam</th>
+                        <th>Tussenvoegsel</th>
+                        <th>Achternaam</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <?php
+                foreach($managers as $manager){
+                    echo "<tr><td>" . $manager->id . "</td>";
+                    echo "<td>" . $manager->salutation . "</td>";
+                    echo "<td>" . $manager->firstname . "</td>";
+                    echo "<td>" . $manager->insertion . "</td>";
+                    echo "<td>" . $manager->lastname . "</td>";
+                    echo "<td>" . $manager->email . "</td>";
+                    echo "<td>" . $this->Html->link("View", ['action' => 'view/' . $manager->id], ['class' => 'btn btn-info']) . "</td>";
+                    echo "<td>" . $this->Html->link("Edit", ['action' => 'edit/' . $manager->id], ['class' => 'btn btn-primary']) . "</td>";
+                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger']) . "</td>";
+                }
+                ?>
+            </table>
+        </div>
+    </div>
+</div>
