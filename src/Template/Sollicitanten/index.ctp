@@ -1,5 +1,5 @@
 <div class="offset"></div>
-<div class="container bg-custom">
+<div class="container default-container">
 <h1>Sollicitanten</h1>
 <?php echo $this->Html->link("Add", ['action' => 'add'])?>
 <hr>
