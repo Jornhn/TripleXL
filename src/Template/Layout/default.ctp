@@ -19,18 +19,18 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><?php echo $this->Html->link("Home", [''], ['class' => 'nav-link'])?></li>
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
-                        <li><a class="nav-link" href="/dashboard">Dashboard</a></li>
-                        <li><a class="nav-link" href="/cv">Mijn CV('s)</a></li>
-                        <li><a class="nav-link" href="/users/logout">Logout</a></li>
+                        <li><?php echo $this->Html->link("Dashboard", ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?php echo $this->Html->link("Mijn CV('s)", ['controller' => 'Cv', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?php echo $this->Html->link("Logout", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'nav-link'])?></li>
                         <p class="navbar-text"><b>Ingelogd als:  <?php echo $this->request->session()->read('Auth.User.email'); ?></b></p>
                     <?php   }
                     else {
                         ?>
-                        <li><a class="nav-link active" href="/">Home</a></li>
-                        <li><a class="nav-link" href="/users/login">Login</a></li>
+                        <li><?php echo $this->Html->link("Login", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -39,6 +39,7 @@
     <?= $this->fetch('content') ?>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('custom.js') ?>
     <script>
         $(function() {
             var pgurl = window.location.href.substr(window.location.href
