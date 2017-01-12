@@ -16,12 +16,7 @@ body {
     background-attachment: fixed;
 }
 
-a{
-    color: #FFFFFF;
-}
-
-/* NAVIGATION */
-
+/* NAVIGATION  */
 .navbar-default {
     color: #ffffff;
     background-color: #ffffff;

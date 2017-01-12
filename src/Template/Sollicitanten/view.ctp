@@ -1,3 +1,5 @@
+<div class="offset"></div>
+<div class="container bg-custom">
 <h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
@@ -54,5 +56,28 @@
         </tr>
 
 </table>
+<button class="vacature-button btn btn-default">Bekijk vacature</button>
+    
+<div class="vacature-table">    
+    <h3>Bij behorende vacature</h3>
+    <table class="col-lg-12 table table-striped">
+        <?php foreach($cv as $cvs): ?>
+            <tr>
+                <td>Title:
+                <td><?= $cvs->title ?></td>
+            </tr>
+            <tr>
+                <td>Text: </td>
+                <td><?= $cvs->text ?></td>
+            </tr>
+            <tr>
+                <td>Motivation: </td>
+                <td><?= $cvs->motivation ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>
 
 <a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
+</div>
+

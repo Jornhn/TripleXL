@@ -19,3 +19,9 @@ $(".sollicitant-delete").click(function(){
         )
     })
 });
+
+$(".vacature-button").click(function(){
+    console.log("geeft vacature weer");
+    $( ".vacature-table" ).show();
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+});
