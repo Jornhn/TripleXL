@@ -6,9 +6,9 @@
 
 <!-- Text input-->
 <div class="form-group top-space">
-  <label class="col-md-3 control-label" for="user_id">#</label>
+  <label class="col-md-3 control-label" for="id">#</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('user_id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
+    <?php echo $this->Form->input('id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
     
   </div>
 </div>
@@ -115,8 +115,8 @@
 <!-- Button -->
 <div class="form-group">
     <div class="col-lg-6">
-        <button id="save" name="save" class="btn btn-primary">Save</button>
-        <a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
+        <button id="save" name="save" class="btn btn-primary">Save</button> 
+        <?php echo $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary'])?>
     </div>
 </div>
 

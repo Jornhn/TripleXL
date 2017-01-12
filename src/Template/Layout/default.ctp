@@ -6,30 +6,18 @@
     <title>
         TripleXL
     </title>
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('bootstrap.min.css') ?>
-
-    <?= $this->Html->css('bootstrap.min.css') ?>
-    <?= $this->Html->css('custom.css') ?>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.0/sweetalert2.min.css">
-
-    <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
-    <?= $this->fetch('script') ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <?= $this->Html->css('style.css') ?>
 </head>
 <body>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
-    </div>
+<?= $this->fetch('content') ?>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.0/sweetalert2.min.js"></script>
-
-    <?= $this->Html->script('bootstrap.min.js') ?>
-
-    <?= $this->Html->script('custom.js') ?>
+<?= $this->Html->script('bootstrap.min.js') ?>
 </body>
 </html>
+
