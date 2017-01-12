@@ -17,9 +17,9 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-3 control-label" for="salution">Aanhef</label>
+  <label class="col-md-3 control-label" for="salutation">Aanhef</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('salution', ['type'=>'text', 'id'=>'salution', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+    <?php echo $this->Form->input('salutation', ['type'=>'text', 'id'=>'salution', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
     
   </div>
 </div>
@@ -110,13 +110,16 @@
   <label class="col-md-3 control-label" for="website">Website</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('website', ['type'=>'text', 'id'=>'website', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-    
 </div>
-</div>
+
+
 <div class="form-group">
-    <?php echo $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false]) ?>
+  <label class="col-md-3 control-label" for="password">Password</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
+  </div>
 </div>
-    
+
 <!-- Button -->
 <div class="form-group">
     <div class="col-lg-6">

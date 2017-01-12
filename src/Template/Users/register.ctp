@@ -19,7 +19,7 @@
             <h4>Registeren - Stap 2</h4>
             <p>Uw contact gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('salution', ['class' => 'form-control', 'id' => 'inputSalutation', 'error' => false]) ?>
+                <?= $this->Form->input('salutation', ['class' => 'form-control', 'id' => 'inputSalutation', 'error' => false]) ?>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false]) ?>
