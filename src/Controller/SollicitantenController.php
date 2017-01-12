@@ -41,9 +41,9 @@ class SollicitantenController extends AppController
         }
         $this->set('users', $users);
     }
-
+    
     function add(){
-
+        
     }
 
 }

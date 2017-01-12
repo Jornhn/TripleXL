@@ -1,3 +1,4 @@
+<div class="container bg-custom">
 <h1>Sollicitanten</h1>
 <a href="add">Sollicitant toevoegen</a>
 <hr>
@@ -34,3 +35,4 @@
 
     </tbody>
 </table>
+</div>

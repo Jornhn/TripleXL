@@ -1,3 +1,4 @@
+<div class="container bg-custom">
 <?php echo $this->Form->create($users,['class'=>'form-horizontal']);?>
 <fieldset>
 
@@ -122,3 +123,4 @@
 
 </fieldset>
 <?php echo $this->Form->end(); ?>
+</div>

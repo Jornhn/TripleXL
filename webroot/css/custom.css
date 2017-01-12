@@ -1,3 +1,9 @@
 .top-space {
     margin-top: 40px !important;
 }
+
+.bg-custom {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}

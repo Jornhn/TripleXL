@@ -1,3 +1,4 @@
+<div class="container bg-custom">
 <h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
@@ -56,3 +57,4 @@
 </table>
 
 <a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
+</div>

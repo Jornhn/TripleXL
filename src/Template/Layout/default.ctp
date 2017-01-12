@@ -13,11 +13,12 @@
     <?= $this->Html->meta('icon') ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <?= $this->Html->css('style.css') ?>
+    <?= $this->Html->css('custom.css') ?>
 </head>
 <body>
-<?= $this->fetch('content') ?>
+        <?= $this->fetch('content') ?>
 
-<?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
 </body>
 </html>
 
