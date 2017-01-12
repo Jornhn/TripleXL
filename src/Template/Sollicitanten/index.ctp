@@ -12,7 +12,6 @@
             <th>Voornaam</th>
             <th>Tussenvoegsel</th>
             <th>Achternaam</th>
-            <th>Account type</th>
             <th></th>
             <th></th>
             <th></th>
@@ -27,7 +26,6 @@
                 <td><?= $user->firstname ?></td>
                 <td><?= $user->insertion ?></td>
                 <td><?= $user->lastname ?></td>
-                <td><?= $user->account_type ?></td>
                 <td><?php echo $this->Html->link("View", ['action' => 'view', $user->id], ['class' => 'btn btn-primary'])?></td>
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
                 <td><?php echo $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?'])?></td>

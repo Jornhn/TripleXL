@@ -25,6 +25,10 @@ class SollicitantenController extends AppController
         $this->loadModel('Users');
         $users = $this->Users->get($id);
         $this->set('users', $users);
+        
+        $this->loadModel('Cv');
+        $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
+        $this->set(compact('cv'));
     }
 
     function edit($id){
@@ -48,14 +52,6 @@ class SollicitantenController extends AppController
         $users = $this->Users->get($id);
         $result = $this->Users->delete($users);
         return $this->redirect(['action' => 'index']);
-        
-        //$users = $this->Users->find()->where(['id' => $id])->first();
-        //$this->request->allowMethod(['post', 'delete']);
-
-        //if ($this->Users->delete($users)) {
-        //    $this->Flash->success(__('The article with id: {0} has been deleted.', ($id)));
-        //    return $this->redirect(['action' => 'index']);
-        //}
         
     }
     

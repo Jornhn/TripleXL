@@ -2,6 +2,15 @@
     margin-top: 40px !important;
 }
 
+.top-space-p {
+    padding-top: 40px !important;
+}
+
+.vacature-table {
+    display: none;
+}
+
+
 .bg-custom {
     padding: 20px;
     background-color: white;
