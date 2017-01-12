@@ -13,7 +13,6 @@
         <div class="form-group">
             <div class="col-md-12">
                 <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'Title...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-
             </div>
         </div>
 
@@ -31,8 +30,14 @@
             </div>
         </div>
 
-        <hr>
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php echo $this->Form->input('video', ['type'=>'text', 'id'=>'title', 'placeholder'=>'Video...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            </div>
+        </div>
 
+        <hr>
         <!-- Button -->
         <div class="form-group">
             <div class="col-lg-12">
