@@ -180,3 +180,25 @@ body {
 .login-register a{
     color: #2a6496;
 }
+
+
+
+
+
+/* Custom style for Sollicitant pages */
+
+.top-space {
+    margin-top: 40px !important;
+}
+
+.top-space-p {
+    padding-top: 40px !important;
+}
+
+.vacature-table {
+    display: none;
+}
+
+.vacature-button-closed {
+    display: none;
+}
