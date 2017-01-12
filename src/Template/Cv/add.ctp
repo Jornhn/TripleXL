@@ -2,9 +2,9 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1> Add CV
+        <h1> Voeg een CV toe
             <span class="pull-right">
-                <?= $this->Html->link("Back", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+                <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
         </h1>
         <hr>
@@ -12,7 +12,7 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="title">Title</label>
+            <label class="col-md-3 control-label" for="title">Titel</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
@@ -21,7 +21,7 @@
 
         <!-- Textarea -->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="text">Text</label>
+            <label class="col-md-3 control-label" for="text">Tekst</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
@@ -29,7 +29,7 @@
 
         <!-- Textarea -->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="motivation">Motivation</label>
+            <label class="col-md-3 control-label" for="motivation">Motivatie</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
@@ -37,7 +37,7 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="category">Category</label>
+            <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
                     'Option one'=>'Option one',
@@ -48,7 +48,7 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="competention">Competention</label>
+            <label class="col-md-3 control-label" for="competention">Competenties</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
                     'Option one'=>'Option one',
@@ -68,7 +68,7 @@
         <!-- Button -->
         <div class="form-group">
             <div class="col-lg-12">
-                <button id="save" name="save" class="btn btn-primary">Save</button>
+                <button id="save" name="save" class="btn btn-primary">Opslaan</button>
             </div>
         </div>
         <?php echo $this->Form->end(); ?>
