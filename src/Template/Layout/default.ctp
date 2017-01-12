@@ -19,7 +19,6 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><?php echo $this->Html->link("Home", [''], ['class' => 'nav-link'])?></li>
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
