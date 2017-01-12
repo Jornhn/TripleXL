@@ -16,10 +16,6 @@ body {
     background-attachment: fixed;
 }
 
-a{
-    color: #FFFFFF;
-}
-
 /* NAVIGATION */
 
 .navbar-default {
@@ -34,6 +30,11 @@ a{
 .navbar-default .navbar-brand {
     color: #737373;
     font-size: 1.7em;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
 }
 
 .navbar-default .navbar-brand b {
@@ -48,6 +49,11 @@ a{
 .navbar-default .navbar-nav > li > a {
     color: #9b9b9b;
     border-bottom: 4px solid transparent;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -81,10 +87,18 @@ a{
     height: 100px;
     width: 250px;
     font-size: 22px;
-
     background-color: #199fd7;
     border-radius: 0px;
     border: 2px solid #ffffff;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    -ms-transition: all .1s;
+    -o-transition: all .1s;
+    transition: all .1s;
+}
+
+#register-button {
+    color: #FFFFFF;
 }
 
 .alert {
@@ -98,6 +112,11 @@ a{
 
 .btn {
     border-radius: 0px;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    -ms-transition: all .1s;
+    -o-transition: all .1s;
+    transition: all .1s;
 }
 
 .btn-home:hover, .btn-home:focus {
@@ -144,8 +163,8 @@ a{
 
 
 .default-container {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 1px;
+    padding-bottom: 3px;
     background-color: white;
 }
 
@@ -153,6 +172,11 @@ a{
     display: none;
 }
 
-.margin-top {
-    margin-top: 50px!important;
+.login-register {
+    float: right;
+    margin-top: 10px;
+}
+
+.login-register a{
+    color: #2a6496;
 }

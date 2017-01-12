@@ -33,7 +33,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->set('Het opgegeven email of wachtwoord is onjuist probeer het opnieuw', ['params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Het opgegeven email of wachtwoord is onjuist probeer het opnieuw', ['key' => 'login-error','params' => ['class' => 'alert alert-danger']]);
         }
     }
 
@@ -47,10 +47,10 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Gebruiker is opgeslagen.'));
-                return $this->redirect(['action' => 'register']);
+                $this->Flash->set('Uw account is succesvol aangemaakt. Log in om door te gaan.', ['key' => 'register-success', 'params' => ['class' => 'alert alert-success']]);
+                return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->set('Er ging iets mis! Controleer of alle velden zijn ingevuld.',  ['params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Er ging iets mis! Controleer of alle velden zijn ingevuld.',  ['key' => 'register-error', 'params' => ['class' => 'alert alert-danger']]);
         }
         $this->set('user', $user);
     }
