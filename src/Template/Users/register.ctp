@@ -114,5 +114,15 @@
             $(this).parent().prev().show();
             e.preventDefault();
         });
+
+        $('#inputPassword, #inputEmail').keyup(function(e){
+            e.preventDefault();
+           if(e.keyCode == 13)
+           {
+               $('#register-form').submit();
+           }
+
+           return false;
+        });
     });
 </script>

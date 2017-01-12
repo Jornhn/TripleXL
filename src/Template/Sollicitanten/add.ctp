@@ -17,7 +17,7 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-3 control-label" for="salutation">Aanhef</label>
+  <label class="col-md-3 control-label" for="salution">Aanhef</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('salution',['type'=>'select','class'=>'form-control ','options'=> [
       'Dhr.'=>'Dhr.',
@@ -112,7 +112,10 @@
   <label class="col-md-3 control-label" for="website">Website</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('website', ['type'=>'text', 'id'=>'website', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+    
 </div>
+</div>
+<<<<<<< HEAD
 
 <!-- Text input-->
 
@@ -120,9 +123,17 @@
   <label class="col-md-3 control-label" for="password">Password</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('password', ['type'=>'password', 'class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
+=======
+    
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="password">wachtwoord</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('password', ['type'=>'text', 'id'=>'password', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+>>>>>>> master
   </div>
 </div>
-
+    
 <!-- Button -->
 <div class="form-group">
     <div class="col-lg-6">

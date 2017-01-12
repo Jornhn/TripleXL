@@ -2,10 +2,9 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerders overzicht</h1>
+        <h1>Beheerders overzicht<?=$this->Html->link("Nieuwe Beheerder", ['action' => 'create'], ['class' => 'btn btn-primary brn-lg pull-right']).' ';?></h1>
         <hr>
-        <?=$this->Html->link("Nieuwe Beheerder", ['action' => 'create'], ['class' => 'btn btn-primary']).' ';?>
-        <hr>
+        <br>
         <?= $this->Flash->render() ?>
         <div class="table-responsive">
             <table class="table table-striped">

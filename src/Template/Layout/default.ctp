@@ -19,7 +19,11 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                     
+=======
+                    <li><?php echo $this->Html->link("Home", [''], ['class' => 'nav-link'])?></li>
+>>>>>>> master
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
@@ -31,7 +35,10 @@
                     else {
                         ?>
                         <li><?php echo $this->Html->link("Login", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
+<<<<<<< HEAD
                         <li><?php echo $this->Html->link("Home", [''], ['class' => 'nav-link'])?></li>
+=======
+>>>>>>> master
                     <?php } ?>
                 </ul>
             </div>
