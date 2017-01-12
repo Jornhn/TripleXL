@@ -20,8 +20,23 @@ $(".sollicitant-delete").click(function(){
     })
 });
 
-$(".vacature-button").click(function(){
-    console.log("geeft vacature weer");
-    $( ".vacature-table" ).show();
-    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+//tijdelijk omdat css niet pakt
+$( ".vacature-button-closed" ).hide();
+
+$(".vacature-button-open").click(function(){
+    
+        $( ".vacature-table" ).show();
+        $( ".vacature-button-open" ).hide();
+        $( ".vacature-button-closed" ).show();
+        
+        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    
+});
+
+$(".vacature-button-closed").click(function(){
+    
+        $( ".vacature-table" ).hide();
+        $( ".vacature-button-closed" ).hide();
+        $( ".vacature-button-open" ).show();
+    
 });

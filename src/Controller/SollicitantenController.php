@@ -15,12 +15,11 @@ class SollicitantenController extends AppController
         $this->loadModel('Users');
         $users = $this->Users->find('threaded', array(
         'conditions' => array('account_type' => 0)
-    ));
+        ));
         $this->set(compact('users'));
     }
 
     function view($id){
-        //$id = $this->reques$idt->query['id'];
         
         $this->loadModel('Users');
         $users = $this->Users->get($id);
@@ -29,10 +28,10 @@ class SollicitantenController extends AppController
         $this->loadModel('Cv');
         $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
         $this->set(compact('cv'));
+        
     }
 
     function edit($id){
-        //$id = $this->request->query['id'];
         
         $this->loadModel('Users');
         $users = $this->Users->get($id);
@@ -56,6 +55,7 @@ class SollicitantenController extends AppController
     }
     
     function add(){
+        
         $this->loadModel('Users');
         $users = $this->Users->newEntity();
         if ($this->request->is('post')) {
@@ -67,7 +67,6 @@ class SollicitantenController extends AppController
             $this->Flash->error(__('Unable to add your CV.'));
         }
         $this->set('users', $users);
-        
         
     }
 
