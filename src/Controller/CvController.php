@@ -66,16 +66,20 @@ class CvController extends AppController
         }
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = $this->Auth->user('id');
-        $cv = $this->Cv->find()->where(['user_id' => $id])->first();
-
-        $this->request->allowMethod(['post', 'delete']);
-
-        if ($this->Cv->delete($cv)) {
-            $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
-            return $this->redirect(['action' => 'index']);
+        $cv = $this->Cv->get($id);
+        if ($this->Auth->user('id') === $cv['user_id']) {
+            $this->request->allowMethod(['post', 'delete']);
+            if ($this->Cv->delete($cv)) {
+                $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
+                return $this->redirect(['action' => 'index']);
+            }
+        }
+        else {
+            return $this->redirect(
+                ['controller' => 'Cv', 'action' => 'index']
+            );
         }
     }
 }

@@ -31,7 +31,7 @@
                     <td>-</td>
                     <td><?= $item->video ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $item->cv_id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Html->link("Delete", ['action' => 'delete'], ['class' => 'btn btn-danger']) ?></td>
+                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $item->cv_id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
