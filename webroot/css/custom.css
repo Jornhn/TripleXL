@@ -10,8 +10,6 @@
     display: none;
 }
 
-
-.bg-custom {
-    padding: 20px;
-    background-color: white;
+.vacature-button-closed {
+    display: none;
 }

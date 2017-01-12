@@ -1,5 +1,5 @@
 <div class="offset"></div>
-<div class="container bg-custom">
+<div class="container default-container">
 <h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
@@ -56,7 +56,9 @@
         </tr>
 
 </table>
-<button class="vacature-button btn btn-default">Bekijk vacature</button>
+<button class="vacature-button-open btn btn-default">Bekijk vacature</button>
+<button class="vacature-button-closed btn btn-default">Sluit vacature</button>
+    
     
 <div class="vacature-table">    
     <h3>Bij behorende vacature</h3>

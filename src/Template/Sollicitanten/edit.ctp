@@ -1,5 +1,5 @@
 <div class="offset"></div>
-<div class="container bg-custom">
+<div class="container default-container">
 <?php echo $this->Form->create($users,['class'=>'form-horizontal']);?>
 <fieldset>
 
