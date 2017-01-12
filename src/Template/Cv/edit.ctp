@@ -2,7 +2,11 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Edit CV</h1>
+        <h1> Edit CV
+            <span class="pull-right">
+                <?= $this->Html->link("Back", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+            </span>
+        </h1>
         <hr>
         <?php echo $this->Form->create($cv,['class'=>'form-horizontal']);?>
         <!-- Text input-->
