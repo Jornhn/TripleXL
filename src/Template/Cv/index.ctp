@@ -22,6 +22,9 @@
             </tr>
             </thead>
             <tbody>
+            <?php if ($cv->isEmpty()) { ?>
+                <tr><td>U heeft nog geen CV('s) toegevoegd.</td></tr>
+            <?php } ?>
             <?php foreach ($cv as $item): ?>
                 <tr>
                     <td><?= $item->title ?></td>
