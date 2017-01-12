@@ -1,38 +1,40 @@
-<h1>Edit CV</h1>
-<hr>
-<?php echo $this->Form->create($cv,['class'=>'form-horizontal']);?>
-<fieldset>
-    <!-- Text input-->
-    <div class="form-group">
-        <label class="col-md-3 control-label" for="title">Title</label>
-        <div class="col-md-6">
-            <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'titl', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+<div class="offset"></div>
 
+<div class="container">
+    <div class="col-md-12 default-container">
+        <h1>Edit CV</h1>
+        <hr>
+        <?php echo $this->Form->create($cv,['class'=>'form-horizontal']);?>
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'Title...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+
+            </div>
         </div>
-    </div>
 
-    <!-- Textarea -->
-    <div class="form-group">
-        <label class="col-md-3 control-label" for="text">Text</label>
-        <div class="col-md-6">
-            <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+        <!-- Textarea -->
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'placeholder'=>'Tekst...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            </div>
         </div>
-    </div>
 
-    <!-- Textarea -->
-    <div class="form-group">
-        <label class="col-md-3 control-label" for="motivation">Motivation</label>
-        <div class="col-md-6">
-            <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+        <!-- Textarea -->
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'placeholder'=>'Motivatie...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            </div>
         </div>
-    </div>
 
-    <!-- Button -->
-    <div class="form-group">
-        <div class="col-lg-6">
-            <button id="save" name="save" class="btn btn-primary">Save</button>
+        <hr>
+
+        <!-- Button -->
+        <div class="form-group">
+            <div class="col-lg-12">
+                <button id="save" name="save" class="btn btn-primary">Save</button>
+            </div>
         </div>
+        <?php echo $this->Form->end(); ?>
     </div>
-
-</fieldset>
-<?php echo $this->Form->end(); ?>
+</div>

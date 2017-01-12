@@ -27,4 +27,9 @@ class UsersTable extends Table
             ->notEmpty('place', 'Een account type is verplicht')
             ->notEmpty('phone_number', 'Een account type is verplicht');
     }
+    
+    public function initialize(array $config)
+    {
+        $this->addBehavior('Timestamp');
+    }
 }
