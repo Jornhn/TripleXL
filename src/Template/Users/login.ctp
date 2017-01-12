@@ -27,6 +27,7 @@
         </div>
 
         <?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
+        <p class="login-register">Nog geen account? Registreer dan <a href="/users/register">hier</a> gratis!</p>
         <?= $this->Form->end() ?>
     </div>
 </div>
