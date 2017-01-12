@@ -16,10 +16,6 @@ body {
     background-attachment: fixed;
 }
 
-a{
-    color: #FFFFFF;
-}
-
 /* NAVIGATION */
 
 .navbar-default {
@@ -101,6 +97,10 @@ a{
     transition: all .1s;
 }
 
+#register-button {
+    color: #FFFFFF;
+}
+
 .alert {
     border-radius: 0px;
 }
@@ -163,8 +163,8 @@ a{
 
 
 .default-container {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 1px;
+    padding-bottom: 3px;
     background-color: white;
 }
 

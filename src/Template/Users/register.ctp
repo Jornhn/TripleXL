@@ -1,22 +1,7 @@
-<nav class="navbar navbar-fixed-top navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                <b>Triple</b>XL
-            </a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-link" href="/">Home</a></li>
-                <li><a class="nav-link" href="/users/login">Login</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
 <div class="offset"></div>
 <div class="container">
     <div class="col-xs-12 login-container">
-        <?= $this->Flash->render() ?>
+        <?= $this->Flash->render('register-error') ?>
         <?= $this->Form->create($user, ['id' => 'register-form']) ?>
         <div class="register-step" id="step-1">
             <h4>Registeren - Stap 1</h4>
