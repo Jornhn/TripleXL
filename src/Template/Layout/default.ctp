@@ -19,7 +19,6 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="nav-link" href="#">Home</a></li>
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
@@ -30,7 +29,7 @@
                     <?php   }
                     else {
                         ?>
-                        <li><a class="nav-link active" href="#">Home</a></li>
+                        <li><a class="nav-link" href="/">Home</a></li>
                         <li><a class="nav-link" href="/users/login">Login</a></li>
                     <?php } ?>
                 </ul>

@@ -5,9 +5,7 @@
             <h2>Dashboard</h2>
             <hr />
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
             <h3>Activeiten</h3>
             <table class="table table-striped">
                 <?php
@@ -21,5 +19,4 @@
 
         </div>
     </div>
-
 </div>
