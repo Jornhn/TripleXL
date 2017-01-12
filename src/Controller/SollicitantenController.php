@@ -42,7 +42,36 @@ class SollicitantenController extends AppController
         $this->set('users', $users);
     }
     
+    function delete($id){
+        
+        $this->loadModel('Users');
+        $users = $this->Users->get($id);
+        $result = $this->Users->delete($users);
+        return $this->redirect(['action' => 'index']);
+        
+        //$users = $this->Users->find()->where(['id' => $id])->first();
+        //$this->request->allowMethod(['post', 'delete']);
+
+        //if ($this->Users->delete($users)) {
+        //    $this->Flash->success(__('The article with id: {0} has been deleted.', ($id)));
+        //    return $this->redirect(['action' => 'index']);
+        //}
+        
+    }
+    
     function add(){
+        $this->loadModel('Users');
+        $users = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $users = $this->Users->patchEntity($users, $this->request->data);
+            if ($this->Users->save($users)) {
+                $this->Flash->success(__('Your CV has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('Unable to add your CV.'));
+        }
+        $this->set('users', $users);
+        
         
     }
 

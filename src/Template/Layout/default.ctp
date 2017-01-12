@@ -10,14 +10,6 @@
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('custom.css') ?>
 </head>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<body>
-        <?= $this->fetch('content') ?>
-
-=======
-=======
->>>>>>> master
 <body class="home">
     <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container">
@@ -46,10 +38,6 @@
     </nav>
     <?= $this->fetch('content') ?>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
     <?= $this->Html->script('bootstrap.min.js') ?>
 </body>
 </html>

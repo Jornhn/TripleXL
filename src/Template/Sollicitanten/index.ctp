@@ -1,6 +1,7 @@
+<div class="offset"></div>
 <div class="container bg-custom">
 <h1>Sollicitanten</h1>
-<a href="add">Sollicitant toevoegen</a>
+<?php echo $this->Html->link("Add", ['action' => 'add'])?>
 <hr>
 
 <table class="table table-striped">
@@ -29,10 +30,18 @@
                 <td><?= $user->account_type ?></td>
                 <td><?php echo $this->Html->link("View", ['action' => 'view', $user->id], ['class' => 'btn btn-primary'])?></td>
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
-                <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
+                <td><?php echo $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?'])?></td>
             </tr>
         <?php endforeach; ?>
 
     </tbody>
 </table>
+    
+    <p> account_type 0 = Sollicitant<br>
+        account_type 1 = Bedrijf<br>
+        account_type 2 = Beheerder<br>
+        account_type 3 = SuperUser
+    
+    
+    </p>
 </div>

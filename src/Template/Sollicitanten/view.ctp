@@ -1,3 +1,4 @@
+<div class="offset"></div>
 <div class="container bg-custom">
 <h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
 <table class="top-space col-lg-12 table table-striped">
