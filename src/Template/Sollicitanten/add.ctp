@@ -11,15 +11,24 @@
   <label class="col-md-3 control-label" for="id">#</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
-    
   </div>
 </div>
-
+    
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-3 control-label" for="account-type">account-type</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('account_type',['type'=>'select','class'=>'form-control ','options'=> [
+      '0'=>'0',
+    ],'div'=>false,'label'=>false]); ?>
+  </div>
+</div>
+    
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-3 control-label" for="salution">Aanhef</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('salution',['type'=>'select','class'=>'form-control ','options'=> [
+    <?php echo $this->Form->input('salutation',['type'=>'select','class'=>'form-control ','options'=> [
       'Dhr.'=>'Dhr.',
       'Mevr.'=>'Mevr.',
     ],'div'=>false,'label'=>false]); ?>
@@ -117,16 +126,15 @@
 </div>
     
 <!-- Text input-->
+
 <div class="form-group">
-  <label class="col-md-3 control-label" for="password">wachtwoord</label>
+  <label class="col-md-3 control-label" for="password">Password</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('password', ['type'=>'text', 'id'=>'password', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-  </div>
-</div>
+    <?php echo $this->Form->input('password', ['type'=>'password', 'class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
     
 <!-- Button -->
-<div class="form-group">
-    <div class="col-lg-6">
+<div class="form-group">    
+    <div class="col-md-6">
         <button id="save" name="save" class="btn btn-primary">Save</button> 
         <?php echo $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary'])?>
     </div>

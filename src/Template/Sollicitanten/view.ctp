@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td>Aanhef: </td>
-            <td><?= $users->salution ?></td>
+            <td><?= $users->salutation ?></td>
         </tr>
         <tr>
             <td>Voornaam: </td>
@@ -59,7 +59,6 @@
 <button class="vacature-button-open btn btn-default">Bekijk vacature</button>
 <button class="vacature-button-closed btn btn-default">Sluit vacature</button>
     
-    
 <div class="vacature-table">    
     <h3>Bij behorende vacature</h3>
     <table class="col-lg-12 table table-striped">
@@ -80,6 +79,6 @@
     </table>
 </div>
 
-<a href="http://localhost:8888/TripleXL/sollicitanten/" class="btn btn-default">Terug</a>
+<a href="../" class="btn btn-default">Terug</a>
 </div>
 

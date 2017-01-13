@@ -4,7 +4,7 @@
     <div class="col-md-12 default-container">
         <h1>Beheerder toevoegen<?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
         <hr>
-        <?= $this->Flash->render() ?>
+        <?= $this->Flash->render('manager-error') ?>
         <?php echo $this->Form->create('',['class'=>'form-horizontal']);?>
 
         <!-- Text input-->
@@ -16,64 +16,73 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('salutation', ['type'=>'text', 'id'=>'salutation', 'placeholder'=>'Aanhef...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="salutation">Aanhef</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('salutation', ['type'=>'text', 'id'=>'salutation', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('firstname', ['type'=>'text', 'id'=>'firstname', 'placeholder'=>'Voornaam...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="firstname">Voornaam</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('firstname', ['type'=>'text', 'id'=>'firstname', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('insertion', ['type'=>'text', 'id'=>'insertion', 'placeholder'=>'Tussenvoegsel...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="insertion">Tussenvoegsel</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('insertion', ['type'=>'text', 'id'=>'insertion', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('lastname', ['type'=>'text', 'id'=>'lastname', 'placeholder'=>'Achternaam...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="lastname">Achternaam</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('lastname', ['type'=>'text', 'id'=>'lastname', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('adress', ['type'=>'text', 'id'=>'adress', 'placeholder'=>'Straat...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="adress">Straat</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('adress', ['type'=>'text', 'id'=>'adress', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('zip_code', ['type'=>'text', 'id'=>'zip_code', 'placeholder'=>'Postcode...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="zip_code">Postcode</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('zip_code', ['type'=>'text', 'id'=>'zip_code', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('place', ['type'=>'text', 'id'=>'place', 'placeholder'=>'Woonplaats...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="place">Woonplaats</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('place', ['type'=>'text', 'id'=>'place', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('phone_number', ['type'=>'text', 'id'=>'phone_number', 'placeholder'=>'Telefoon nummer...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="phone_number">Telefoon nummer</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('phone_number', ['type'=>'text', 'id'=>'phone_number', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('email', ['type'=>'text', 'id'=>'email', 'placeholder'=>'E-mail...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="email">E-mail</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('email', ['type'=>'text', 'id'=>'email', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
@@ -86,15 +95,16 @@
 
         <!-- Text input-->
         <div class="form-group">
-            <div class="col-md-12">
-                <?=$this->Form->input('password', ['type'=>'password', 'id'=>'password', 'placeholder'=>'Wachtwoord...', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <label class="col-md-3 control-label" for="password">Wachtwoord</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('password', ['type'=>'password', 'id'=>'password', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
         <hr>
 
         <!-- Button -->
         <div class="form-group">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
                 <?=$this->Form->button('Opslaan', ['class'=>'btn btn-primary']);?>
             </div>
         </div>

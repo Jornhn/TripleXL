@@ -2,9 +2,8 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerder<?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
+        <h1>Details: <?= $manager->firstname . " " . $manager->lastname?><?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
         <hr>
-        <br>
         <br>
         <?= $this->Flash->render() ?>
         <div class="table-responsive">
