@@ -5,7 +5,7 @@
             <div class="header">
                 <h1>Een baan die bij u past</h1>
                 <h4>De eerste stap naar een nieuwe baan!</h4>
-                <a id="register-button" href="/users/register"><button type="button" class="btn btn-home">Word lid van TripleXL</button></a>
+                <a id="register-button" href="users/register"><button type="button" class="btn btn-home">Word lid van TripleXL</button></a>
             </div>
         </div>
         <div class="col-md-6 col-md-offset-3">

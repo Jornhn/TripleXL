@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1> Voeg een CV toe
+        <h1> CV toevoegen
             <span class="pull-right">
                 <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
