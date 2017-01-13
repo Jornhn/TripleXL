@@ -115,22 +115,20 @@
     
 </div>
 </div>
-<<<<<<< HEAD
-
+    
 <!-- Text input-->
 
 <div class="form-group">
   <label class="col-md-3 control-label" for="password">Password</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('password', ['type'=>'password', 'class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
-=======
+
     
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-3 control-label" for="password">wachtwoord</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('password', ['type'=>'text', 'id'=>'password', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
->>>>>>> master
   </div>
 </div>
     
