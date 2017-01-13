@@ -2,6 +2,7 @@
 <div class="container default-container">
 <h1>Sollicitanten</h1>
 <?php echo $this->Html->link("Add", ['action' => 'add'])?>
+    
 <hr>
 
 <table class="table table-striped">
@@ -39,7 +40,5 @@
         account_type 1 = Bedrijf<br>
         account_type 2 = Beheerder<br>
         account_type 3 = SuperUser
-    
-    
     </p>
 </div>

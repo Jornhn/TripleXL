@@ -15,10 +15,7 @@ class CvController extends AppController
     function index()
     {
         $id = $this->Auth->user('id');
-
         $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
-
-
 
         $this->set(compact('cv'));
     }
