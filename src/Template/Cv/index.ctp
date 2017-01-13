@@ -4,10 +4,13 @@
     <div class="col-md-12 default-container">
         <h1> Mijn CV('s)
             <span class="pull-right">
-                <?= $this->Html->link("Toevoegen", ['action' => 'add'], ['class' => 'btn btn-primary btn-lg']) ?>
+                <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
         </h1>
         <hr />
+        <br />
+        <?= $this->Flash->render('cv-error') ?>
+        <?= $this->Flash->render('cv-success') ?>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -17,6 +20,7 @@
                 <th>Categorieën</th>
                 <th>Compententies</th>
                 <th>Video</th>
+                <th></th>
                 <th></th>
                 <th></th>
             </tr>
@@ -33,8 +37,9 @@
                     <td>-</td>
                     <td>-</td>
                     <td><?= $item->video ?></td>
-                    <td><?= $this->Html->link("Aanpassen", ['action' => 'edit', $item->id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Form->postLink('Verwijderen', ['action' => 'delete', $item->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
+                    <td><?= $this->Html->link("View", ['action' => 'view', $item->id], ['class' => 'btn btn-info']) ?></td>
+                    <td><?= $this->Html->link("Edit", ['action' => 'edit', $item->id], ['class' => 'btn btn-primary']) ?></td>
+                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $item->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
