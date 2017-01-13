@@ -10,31 +10,31 @@
         <hr>
         <table class="top-space col-lg-12 table table-striped">
             <tr>
-                <td>Title: </td>
+                <th>Title: </th>
                 <td><?= $cv->title ?></td>
             </tr>
             <tr>
-                <td>Tekst: </td>
+                <th>Tekst: </th>
                 <td><?= $cv->text ?></td>
             </tr>
             <tr>
-                <td>Motivatie: </td>
+                <th>Motivatie: </th>
                 <td><?= $cv->motivation ?></td>
             </tr>
             <tr>
-                <td>Categorieën</td>
+                <th>Categorieën</th>
                 <td>
                     <?php foreach ($cv->category as $category): ?>
-                        <?= $category->category ?>,
+                        <?= $category->category ?>
                     <?php endforeach; ?>
                 </td>
             </tr>
+<!--            <tr>-->
+<!--                <td>Compententies</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
             <tr>
-                <td>Compententies</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Video: </td>
+                <th>Video: </th>
                 <td>
                     <?php
                     if(strlen($cv->video)<10 ) {
