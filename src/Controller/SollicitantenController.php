@@ -21,6 +21,7 @@ class SollicitantenController extends AppController
     
     public function isAuthorized($user)
     {
+        
         if (isset($user['account_type']) && $user['account_type'] === '2') {
             return true;
         }
@@ -32,9 +33,10 @@ class SollicitantenController extends AppController
     }
     
     
-    function index(){
+    function index()
+    {
         
-        if($this->isAuthorized($this->Auth->user())){
+        if($this->isAuthorized($this->Auth->user())) {
             
             $users = $this->Users->find('threaded', array(
             'conditions' => array('account_type' => 0)
@@ -45,9 +47,10 @@ class SollicitantenController extends AppController
         
     }
 
-    function view($id){
+    function view($id)
+    {
         
-        if($this->isAuthorized($this->Auth->user())){
+        if($this->isAuthorized($this->Auth->user())) {
             
             $users = $this->Users->get($id);
             $this->set('users', $users);
@@ -59,9 +62,10 @@ class SollicitantenController extends AppController
         
     }
 
-    function edit($id){
+    function edit($id)
+    {
     
-        if($this->isAuthorized($this->Auth->user())){
+        if($this->isAuthorized($this->Auth->user())) {
             
             $users = $this->Users->get($id);
             if ($this->request->is(['post', 'put'])) {
@@ -76,15 +80,19 @@ class SollicitantenController extends AppController
         }
     }
     
-    function delete($id){
+    function delete($id)
+    {
+        
+        if($this->isAuthorized($this->Auth->user())) {
             
-        //$this->loadModel('Cv');
-        //$cv = $this->Cv->get($id);
-        //$result = $this->Cv->delete($cv)->where(['user_id =' => $id]);
-        
-        if($this->isAuthorized($this->Auth->user())){
-        
-            //$this->Users->delete($id, true);
+            //* Deleting CV *// 
+            
+            //$results = $this->Cv->find('all')->where(['user_id =' => $id]);
+            //$cv = $result->first();
+            //$result = $this->Cv->delete($results);
+            
+            //* Deleting User *//   
+            
             $users = $this->Users->get($id);
             $result = $this->Users->delete($users);
             return $this->redirect(['action' => 'index']);
@@ -93,9 +101,10 @@ class SollicitantenController extends AppController
         
     }
     
-    function add(){
+    function add()
+    {
         
-        if($this->isAuthorized($this->Auth->user())){
+        if($this->isAuthorized($this->Auth->user())) {
         
             $users = $this->Users->newEntity();
             if ($this->request->is('post')) {
