@@ -24,6 +24,12 @@ class CvController extends AppController
     function view($id)
     {
         $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category']]);
+
+        if ($this->Auth->user('id') !== $cv['user_id']) {
+            return $this->redirect(
+                ['controller' => 'Cv', 'action' => 'index']
+            );
+        }
         $this->set('cv', $cv);
     }
 
@@ -62,27 +68,36 @@ class CvController extends AppController
         $cv = $this->Cv->get($id, [
             'contain' => ['Category']
         ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
-            $arr_ext = array("mp3", "mp4", "wma");
-            $setNewFileName = time() . "_" . rand(000000, 999999);
 
-            if (in_array($ext, $arr_ext)) {
-                move_uploaded_file(($this->request->data['video']['tmp_name']), WWW_ROOT . '/videos/' . $setNewFileName . '.' . $ext);
-                $this->video = $setNewFileName . '.' . $ext;
-            }
+        if ($this->Auth->user('id') === $cv['user_id']) {
+            if ($this->request->is(['patch', 'post', 'put'])) {
+                $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
+                $arr_ext = array("mp3", "mp4", "wma");
+                $setNewFileName = time() . "_" . rand(000000, 999999);
 
-            $cv->video = $this->video;
+                if (in_array($ext, $arr_ext)) {
+                    move_uploaded_file(($this->request->data['video']['tmp_name']), WWW_ROOT . '/videos/' . $setNewFileName . '.' . $ext);
+                    $this->video = $setNewFileName . '.' . $ext;
+                }
 
-            $cv = $this->Cv->patchEntity($cv, $this->request->data);
-            if ($this->Cv->save($cv)) {
-                $this->Flash->success(__('The cv has been saved.'));
+                $cv->video = $this->video;
 
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The cv could not be saved. Please, try again.'));
+                $cv = $this->Cv->patchEntity($cv, $this->request->data);
+                if ($this->Cv->save($cv)) {
+                    $this->Flash->success(__('The cv has been saved.'));
+
+                    return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The cv could not be saved. Please, try again.'));
+                }
             }
         }
+        else {
+            return $this->redirect(
+                ['controller' => 'Cv', 'action' => 'index']
+            );
+        }
+
         $users = $this->Cv->Users->find('list', ['limit' => 200]);
         $category = $this->Cv->Category->find('list', ['limit' => 200]);
         $this->set(compact('cv', 'users', 'category'));

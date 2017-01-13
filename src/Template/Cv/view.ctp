@@ -22,7 +22,7 @@
                 <td><?= $cv->motivation ?></td>
             </tr>
             <tr>
-                <th>Categorieën</th>
+                <th>Categorie(ën)</th>
                 <td>
                     <?php foreach ($cv->category as $category): ?>
                         <?= $category->category ?>
