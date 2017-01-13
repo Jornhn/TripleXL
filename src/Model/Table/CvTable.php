@@ -15,4 +15,10 @@ class CvTable extends Table
     {
         $this->addBehavior('Timestamp');
     }
+    
+    var $belongsTo = array('Cv'=>array('className'=>'Cv',
+                                     'foreignKey'=>'user_id'
+                             )
+    );
+    
 }

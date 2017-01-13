@@ -19,7 +19,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="salution">Aanhef</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('salution',['type'=>'select','class'=>'form-control ','options'=> [
+    <?php echo $this->Form->input('salutation',['type'=>'select','class'=>'form-control ','options'=> [
       'Dhr.'=>'Dhr.',
       'Mevr.'=>'Mevr.',
     ],'div'=>false,'label'=>false]); ?>

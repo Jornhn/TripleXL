@@ -8,7 +8,7 @@
         </tr>
         <tr>
             <td>Aanhef: </td>
-            <td><?= $users->salution ?></td>
+            <td><?= $users->salutation ?></td>
         </tr>
         <tr>
             <td>Voornaam: </td>

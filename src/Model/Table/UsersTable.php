@@ -32,4 +32,15 @@ class UsersTable extends Table
     {
         $this->addBehavior('Timestamp');
     }
+    
+    var $hasMany=array('Users'=>array('className'=>'Users',
+                                 'foreignKey'=>'id',
+                                 'dependent'=>true,
+                                 'exclusive'=>true
+                                )
+                    );
+
+
+    
+    
 }

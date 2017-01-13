@@ -22,7 +22,7 @@
         <?php foreach($users as $user): ?>
             <tr>
                 <td><?= $user->id ?></td>
-                <td><?= $user->salution ?></td>
+                <td><?= $user->salutation ?></td>
                 <td><?= $user->firstname ?></td>
                 <td><?= $user->insertion ?></td>
                 <td><?= $user->lastname ?></td>
