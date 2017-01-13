@@ -10,7 +10,8 @@
                 <?= $this->Form->input('account_type', [
                     'options' => ['Sollicitant', 'Bedrijf'],
                     'class' => 'form-control',
-                    'error' => false
+                    'error' => false,
+                    'label' => false
                 ]) ?>
             </div>
             <button class="btn btn-default next pull-right">Volgende</button>
@@ -19,25 +20,25 @@
             <h4>Registeren - Stap 2</h4>
             <p>Uw contact gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('salutation', ['class' => 'form-control', 'id' => 'inputSalutation', 'error' => false]) ?>
+                <?= $this->Form->input('salutation', ['class' => 'form-control', 'id' => 'inputSalutation', 'error' => false, 'label' => 'Aanhef']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false]) ?>
+                <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false, 'label' => 'Voornaam']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('insertion', ['class' => 'form-control', 'id' => 'inputInsrtion', 'error' => false]) ?>
+                <?= $this->Form->input('insertion', ['class' => 'form-control', 'id' => 'inputInsrtion', 'error' => false, 'label' => 'Tussenvoegsel']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('lastname', ['class' => 'form-control', 'id' => 'inputLastname', 'error' => false]) ?>
+                <?= $this->Form->input('lastname', ['class' => 'form-control', 'id' => 'inputLastname', 'error' => false, 'label' => 'Achternaam']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('phone_number', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputPhonenumber', 'error' => false]) ?>
+                <?= $this->Form->input('phone_number', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputPhonenumber', 'error' => false, 'label' => 'Telefoonnummer']) ?>
             </div>
             <div class="form-group company">
-                <?= $this->Form->input('company_name', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputCompany', 'error' => false]) ?>
+                <?= $this->Form->input('company_name', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputCompany', 'error' => false, 'label' => 'Bedrijfsnaam']) ?>
             </div>
             <div class="form-group company">
-                <?= $this->Form->input('website', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputWebsite', 'error' => false]) ?>
+                <?= $this->Form->input('website', ['class' => 'form-control', 'id' => 'inputWebsite', 'error' => false, 'label' => 'Website URL']) ?>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
             <button class="btn btn-default next pull-right">Volgende</button>
@@ -47,13 +48,13 @@
             <h4>Registeren - Stap 3</h4>
             <p>Uw adres gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('adress', ['class' => 'form-control', 'id' => 'inputAdress', 'error' => false]) ?>
+                <?= $this->Form->input('adress', ['class' => 'form-control', 'id' => 'inputAdress', 'error' => false, 'label' => 'Adres']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('zip_code', ['class' => 'form-control', 'id' => 'inputZipcode', 'error' => false]) ?>
+                <?= $this->Form->input('zip_code', ['class' => 'form-control', 'id' => 'inputZipcode', 'error' => false, 'label' => 'Postcode']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('place', ['class' => 'form-control', 'id' => 'inputPlace', 'error' => false]) ?>
+                <?= $this->Form->input('place', ['class' => 'form-control', 'id' => 'inputPlace', 'error' => false, 'label' => 'Plaatsnaam']) ?>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
             <button class="btn btn-default next pull-right">Volgende</button>
@@ -63,10 +64,10 @@
             <h4>Registeren - Laatste stap</h4>
             <p>Uw login gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'inputEmail', 'error' => false]) ?>
+                <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'inputEmail', 'error' => false, 'label' => 'E-mail']) ?>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false]) ?>
+                <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label' => 'Wachtwoord']) ?>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
             <?= $this->Form->button(__('Registreer'), ['class' => 'btn btn-primary pull-right register']); ?>

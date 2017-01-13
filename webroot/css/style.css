@@ -181,9 +181,9 @@ body {
     color: #2a6496;
 }
 
-
-
-
+.menu-logout {
+    color: red !important;
+}
 
 /* Custom style for Sollicitant pages */
 

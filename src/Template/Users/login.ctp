@@ -6,10 +6,10 @@
         <?= $this->Flash->render('register-success') ?>
         <?= $this->Form->create() ?>
         <div class="form-group">
-            <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'inputEmail']) ?>
+            <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'inputEmail', 'label' => 'E-mail']) ?>
         </div>
         <div class="form-group">
-            <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword']) ?>
+            <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'label' => 'Wachtwoord']) ?>
         </div>
 
         <?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
