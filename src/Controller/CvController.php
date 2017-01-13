@@ -16,14 +16,14 @@ class CvController extends AppController
 
     function index()
     {
-        $id = $this->Auth->user('id');
-        $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
-        $this->set(compact('cv'));
+        $cv = $this->Cv->find()->contain(['Users'])->where(['cv.user_id' => $this->Auth->user('id')]);
+        $category = $this->Cv->Category->find('list', ['limit' => 200]);
+        $this->set(compact('cv', 'category'));
     }
 
     function view($id)
     {
-        $cv = $this->Cv->get($id);
+        $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category']]);
         $this->set('cv', $cv);
     }
 
@@ -45,12 +45,16 @@ class CvController extends AppController
             $cv->video = $this->video;
 
             if ($this->Cv->save($cv)) {
-                $this->Flash->set('Uw CV is succesvol opgeslagen!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
+                $this->Flash->success(__('The cv has been saved.'));
+
                 return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The cv could not be saved. Please, try again.'));
             }
-            $this->Flash->set('Er ging iets mis! Probeer het opnieuw!', ['key' => 'cv-danger','params' => ['class' => 'alert alert-danger']]);
         }
-        $this->set('cv', $cv);
+        $category = $this->Cv->Category->find('list', ['keyField' => 'category._ids', 'valueField' => 'category']);
+        $this->set(compact('cv', 'category'));
+        $this->set('_serialize', ['cv']);
     }
 
     public function edit($id)

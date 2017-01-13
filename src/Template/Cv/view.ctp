@@ -23,7 +23,11 @@
             </tr>
             <tr>
                 <td>Categorieën</td>
-                <td></td>
+                <td>
+                    <?php foreach ($cv->category as $category): ?>
+                        <?= $category->category ?>,
+                    <?php endforeach; ?>
+                </td>
             </tr>
             <tr>
                 <td>Compententies</td>

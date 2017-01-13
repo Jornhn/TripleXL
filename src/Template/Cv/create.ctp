@@ -39,23 +39,17 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
-                    'Option one'=>'Option one',
-                    'Option two'=>'Option two',
-                ],'div'=>false,'label'=>false]); ?>
+                <?php echo $this->Form->input('category._ids',['class'=>'form-control ','options'=> $category,'div'=>false,'label'=>false]); ?>
             </div>
         </div>
 
         <!-- Select Basic -->
-        <div class="form-group">
-            <label class="col-md-3 control-label" for="competention">Competenties</label>
-            <div class="col-md-6">
-                <?php echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=> [
-                    'Option one'=>'Option one',
-                    'Option two'=>'Option two',
-                ],'div'=>false,'label'=>false]); ?>
-            </div>
-        </div>
+<!--        <div class="form-group">-->
+<!--            <label class="col-md-3 control-label" for="competention">Competenties</label>-->
+<!--            <div class="col-md-6">-->
+<!--                --><?php //echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=>$category,'div'=>false,'label'=>false]); ?>
+<!--            </div>-->
+<!--        </div>-->
 
         <!-- File Button -->
         <div class="form-group">
@@ -72,6 +66,7 @@
                 <button id="save" name="save" class="btn btn-primary">Opslaan</button>
             </div>
         </div>
-        <?php echo $this->Form->end(); ?>
+        <?php echo $this->Form->end();
+        ?>
     </div>
 </div>
