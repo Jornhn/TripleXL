@@ -46,10 +46,10 @@ class ManagersController extends AppController
             if ($this->request->is("post")) {
                 $entity = $this->Users->newEntity($this->request->data());
                 if ($this->Users->save($entity)) {
-                    $this->Flash->set('De gegevens zijn succesvol opgeslagen.', ['params' => ['class' => 'alert alert-success']]);
+                    $this->Flash->set('De gegevens zijn succesvol opgeslagen.', ['key' => 'manager-success', 'params' => ['class' => 'alert alert-success']]);
                     return $this->redirect(['controller' => 'managers', 'action' => 'index']);
                 }
-                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['params' => ['class' => 'alert alert-danger']]);
+                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
     }
@@ -65,10 +65,10 @@ class ManagersController extends AppController
             if ($this->request->is("put")) {
                 $entity = $this->Users->patchEntity($manager, $this->request->data);
                 if ($this->Users->save($entity)) {
-                    $this->Flash->set('De beheerder met id: ' . $id . ' is succesvol gewijzigd.', ['params' => ['class' => 'alert alert-success']]);
+                    $this->Flash->set('De beheerder met id: ' . $id . ' is succesvol gewijzigd.', ['key' => 'manager-success', 'params' => ['class' => 'alert alert-success']]);
                     return $this->redirect(['controller' => 'managers', 'action' => 'index']);
                 }
-                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['params' => ['class' => 'alert alert-danger']]);
+                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
     }
@@ -82,10 +82,10 @@ class ManagersController extends AppController
             $this->set('manager', $manager);
 
             if ($this->Users->delete($manager)) {
-                $this->Flash->set('De beheerder met id: ' . $id . ' is verwijderd.', ['params' => ['class' => 'alert alert-success']]);
+                $this->Flash->set('De beheerder met id: ' . $id . ' is verwijderd.', ['key' => 'manager-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['controller' => 'managers', 'action' => 'index']);
             }
-            $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
 
         }
     }
