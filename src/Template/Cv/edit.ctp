@@ -8,7 +8,7 @@
             </span>
         </h1>
         <hr>
-        <?php echo $this->Form->create($cv,['class'=>'form-horizontal']);?>
+        <?php echo $this->Form->create($cv,['class'=>'form-horizontal' ,'type'=>'file']);?>
 
         <!-- Text input-->
         <div class="form-group">
@@ -57,13 +57,14 @@
             </div>
         </div>
 
-        <!-- Text input -->
+        <!-- File Button -->
         <div class="form-group">
             <label class="col-md-3 control-label" for="video">Video</label>
-            <div class="col-md-6">
-                <?php echo $this->Form->input('video', ['type'=>'text', 'id'=>'video', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+            <div class="col-lg-6">
+                <?php echo $this->Form->file('video'); ?>
             </div>
         </div>
+
         <hr>
         <!-- Button -->
         <div class="form-group">

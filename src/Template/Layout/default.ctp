@@ -19,18 +19,42 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><?php echo $this->Html->link("Home", [''], ['class' => 'nav-link'])?></li>
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
                         ?>
-                        <li><?php echo $this->Html->link("Dashboard", ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'nav-link'])?></li>
-                        <li><?php echo $this->Html->link("Mijn CV('s)", ['controller' => 'Cv', 'action' => 'index'], ['class' => 'nav-link'])?></li>
-                        <li><?php echo $this->Html->link("Logout", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'nav-link'])?></li>
-                        <p class="navbar-text"><b>Ingelogd als:  <?php echo $this->request->session()->read('Auth.User.email'); ?></b></p>
+                        <li><?= $this->Html->link("Dashboard", ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beheren <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Sollicitanten', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Bedrijven", ['controller' => 'Bedrijven', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("CV('s)", ['controller' => 'Cv', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
+                                    <?php if ($this->request->session()->read('Auth.User.account_type') == 3) { ?>
+                                    <li role="separator" class="divider"></li>
+                                    <li><?= $this->Html->link("Beheerders", ['controller' => 'Managers', 'action' => 'index'])?></li>
+                                <?php } ?>
+                                </ul>
+                            </li>
+                        <?php } ?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->request->session()->read('Auth.User.email'); ?> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <?php if ($this->request->session()->read('Auth.User.account_type') == 0 || $this->request->session()->read('Auth.User.account_type') > 1) { ?>
+                                    <li><?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cv', 'action' => 'index'])?></li>
+                                <?php } if ($this->request->session()->read('Auth.User.account_type') >= 1) { ?>
+                                    <li><?= $this->Html->link("Mijn Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
+                                <?php } ?>
+                                <li role="separator" class="divider"></li>
+                                <li><?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'menu-logout'])?></li>
+                            </ul>
+                        </li>
                     <?php   }
                     else {
                         ?>
-                        <li><?php echo $this->Html->link("Login", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
+                        <li><?= $this->Html->link("Inloggen", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
                     <?php } ?>
                 </ul>
             </div>
@@ -44,9 +68,6 @@
         $(function() {
             var pgurl = window.location.href.substr(window.location.href
                     .lastIndexOf("/")+1);
-
-
-
             $("nav ul li a").each(function(){
                 if($(this).attr("href") == '/' + pgurl || $(this).attr("href") == '' )
                     $(this).addClass("active");

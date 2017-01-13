@@ -27,6 +27,11 @@ class UsersController extends AppController
 
     public function login()
     {
+        if ($this->Auth->user())
+        {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+
         if ($this->request->is('post')) {
             $user = $this->Auth->identify();
             if ($user) {
@@ -43,6 +48,12 @@ class UsersController extends AppController
     }
 
     public function register(){
+
+        if ($this->Auth->user())
+        {
+            return $this->redirect($this->Auth->redirectUrl());
+        }
+
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
@@ -54,4 +65,5 @@ class UsersController extends AppController
         }
         $this->set('user', $user);
     }
+    
 }
