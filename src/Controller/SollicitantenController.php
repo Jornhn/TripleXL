@@ -47,12 +47,15 @@ class SollicitantenController extends AppController
     
     function delete($id){
         
-        $this->loadModel('Users');
-        $this->Users->delete($id, true);
+        //$this->loadModel('Cv');
+        //$cv = $this->Cv->get($id);
+        //$result = $this->Cv->delete($cv)->where(['user_id =' => $id]);
         
-        //$users = $this->Users->get($id);
-        //$result = $this->Users->delete($users);
-        //return $this->redirect(['action' => 'index']);
+        $this->loadModel('Users');
+        //$this->Users->delete($id, true);
+        $users = $this->Users->get($id);
+        $result = $this->Users->delete($users);
+        return $this->redirect(['action' => 'index']);
         
     }
     
