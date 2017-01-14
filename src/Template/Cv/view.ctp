@@ -22,17 +22,21 @@
                 <td><?= $cv->motivation ?></td>
             </tr>
             <tr>
-                <th>Categorie(ën)</th>
+                <th>Categorie</th>
                 <td>
                     <?php foreach ($cv->category as $category): ?>
                         <?= $category->category ?>
                     <?php endforeach; ?>
                 </td>
             </tr>
-<!--            <tr>-->
-<!--                <td>Compententies</td>-->
-<!--                <td></td>-->
-<!--            </tr>-->
+            <tr>
+                <th>Compententies</th>
+                <td>
+                    <?php foreach ($cv->competence as $competence): ?>
+                        <?= $competence->competence ?>
+                    <?php endforeach; ?>
+                </td>
+            </tr>
             <tr>
                 <th>Video: </th>
                 <td>

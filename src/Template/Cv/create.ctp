@@ -44,12 +44,12 @@
         </div>
 
         <!-- Select Basic -->
-<!--        <div class="form-group">-->
-<!--            <label class="col-md-3 control-label" for="competention">Competenties</label>-->
-<!--            <div class="col-md-6">-->
-<!--                --><?php //echo $this->Form->input('selectbasic',['type'=>'select','class'=>'form-control ','options'=>$category,'div'=>false,'label'=>false]); ?>
-<!--            </div>-->
-<!--        </div>-->
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="competention">Competenties</label>
+            <div class="col-md-6">
+                <?php echo $this->Form->input('competence._ids',['class'=>'form-control ','options'=> $competence,'div'=>false,'label'=>false]); ?>
+            </div>
+        </div>
 
         <!-- File Button -->
         <div class="form-group">

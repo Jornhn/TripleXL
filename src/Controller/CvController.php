@@ -23,7 +23,7 @@ class CvController extends AppController
 
     function view($id)
     {
-        $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category']]);
+        $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category', 'Competence']]);
 
         if ($this->Auth->user('id') !== $cv['user_id']) {
             return $this->redirect(
@@ -58,8 +58,9 @@ class CvController extends AppController
                 $this->Flash->error(__('The cv could not be saved. Please, try again.'));
             }
         }
-        $category = $this->Cv->Category->find('list', ['keyField' => 'category._ids', 'valueField' => 'category']);
-        $this->set(compact('cv', 'category'));
+        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+        $competence = $this->Cv->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
+        $this->set(compact('cv', 'category', 'competence'));
         $this->set('_serialize', ['cv']);
     }
 
@@ -97,10 +98,9 @@ class CvController extends AppController
                 ['controller' => 'Cv', 'action' => 'index']
             );
         }
-
-        $users = $this->Cv->Users->find('list', ['limit' => 200]);
-        $category = $this->Cv->Category->find('list', ['limit' => 200]);
-        $this->set(compact('cv', 'users', 'category'));
+        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+        $competence = $this->Cv->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
+        $this->set(compact('cv', 'category', 'competence'));
         $this->set('_serialize', ['cv']);
     }
 

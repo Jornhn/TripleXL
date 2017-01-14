@@ -50,6 +50,14 @@ class CvTable extends Table
             'targetForeignKey' => 'category_id',
             'joinTable' => 'cv_category'
         ]);
+
+        $this->belongsToMany('Competence', [
+            'foreignKey' => 'cv_id',
+            'targetForeignKey' => 'competence_id',
+            'joinTable' => 'cv_competence'
+        ]);
+
+
     }
 
     /**
@@ -72,9 +80,6 @@ class CvTable extends Table
             ->requirePresence('motivation', 'create')
             ->notEmpty('motivation');
 
-        $validator
-            ->requirePresence('video', 'create')
-            ->notEmpty('video');
 
         return $validator;
     }
