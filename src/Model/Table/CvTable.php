@@ -45,10 +45,10 @@ class CvTable extends Table
         $this->hasMany('VacatureCv', [
             'foreignKey' => 'cv_id'
         ]);
-        $this->belongsToMany('Category', [
-            'foreignKey' => 'cv_id',
-            'targetForeignKey' => 'category_id',
-            'joinTable' => 'cv_category'
+
+        $this->belongsTo('Category', [
+            'foreignKey' => 'category_id',
+            'joinType' => 'INNER'
         ]);
 
         $this->belongsToMany('Competence', [

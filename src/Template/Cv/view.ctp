@@ -22,6 +22,10 @@
                 <td><?= $cv->motivation ?></td>
             </tr>
             <tr>
+                <th>Categorie</th>
+                <td><?= $cv->category->category ?></td>
+            </tr>
+            <tr>
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($cv->competence as $competence): ?>

@@ -37,7 +37,7 @@ $('.vacature-button-closed').click(function(){
     $('.vacature-button-open').show();
 });
 
-$('#category-ids').on('change', function() {
+$('#category-id').on('change', function() {
     var categoryId = $(this).val();
     var url = $(this).attr('data-url');
 

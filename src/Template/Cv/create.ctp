@@ -41,7 +41,7 @@
             <div class="col-md-6">
                 <?php
                 $uri = $this->Url->build(['controller' => 'Cv', 'action' => 'getCompetences']);
-                echo $this->Form->input('category._ids',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => '<- Kies een categorie ->']]);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => '<- Kies een categorie ->']]);
                 ?>
             </div>
         </div>

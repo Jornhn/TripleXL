@@ -41,13 +41,13 @@
             <div class="col-md-6">
                 <?php
                 $uri = $this->Url->build(['controller' => 'Cv', 'action' => 'getCompetences']);
-                echo $this->Form->input('category._ids',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => '<- Kies een categorie ->']]);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => '<- Kies een categorie ->']]);
                 ?>
             </div>
         </div>
 
         <!-- Select Basic -->
-        <div class="form-group hidden" id="competence-container">
+        <div class="form-group" id="competence-container">
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('competence._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
