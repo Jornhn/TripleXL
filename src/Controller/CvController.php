@@ -67,10 +67,10 @@ class CvController extends AppController
     public function edit($id = null)
     {
         $cv = $this->Cv->get($id, [
-            'contain' => ['Category']
+            'contain' => ['Category', 'Competence']
         ]);
-
-        if ($this->Auth->user('id') === $cv['user_id']) {
+        
+        if ($this->Auth->user('id') == $cv['user_id']) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");
@@ -107,7 +107,7 @@ class CvController extends AppController
     public function delete($id)
     {
         $cv = $this->Cv->get($id);
-        if ($this->Auth->user('id') === $cv['user_id']) {
+        if ($this->Auth->user('id') == $cv['user_id']) {
             $this->request->allowMethod(['post', 'delete']);
             if ($this->Cv->delete($cv)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
