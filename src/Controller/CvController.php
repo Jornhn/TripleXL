@@ -14,21 +14,19 @@ class CvController extends AppController
 {
     public $video = null;
 
-    function index()
+    public function index()
     {
         $cv = $this->Cv->find()->contain(['Users'])->where(['cv.user_id' => $this->Auth->user('id')]);
         $category = $this->Cv->Category->find('list', ['limit' => 200]);
         $this->set(compact('cv', 'category'));
     }
 
-    function view($id)
+    public function view($id)
     {
         $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category', 'Competence']]);
 
         if ($this->Auth->user('id') !== $cv['user_id']) {
-            return $this->redirect(
-                ['controller' => 'Cv', 'action' => 'index']
-            );
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
         $this->set('cv', $cv);
     }
@@ -52,14 +50,14 @@ class CvController extends AppController
 
             if ($this->Cv->save($cv)) {
                 $this->Flash->success(__('The cv has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
-            } else {
+            }
+            else {
                 $this->Flash->error(__('The cv could not be saved. Please, try again.'));
             }
         }
         $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
-        $competence = $this->Cv->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
+
         $this->set(compact('cv', 'category', 'competence'));
         $this->set('_serialize', ['cv']);
     }
@@ -67,10 +65,10 @@ class CvController extends AppController
     public function edit($id = null)
     {
         $cv = $this->Cv->get($id, [
-            'contain' => ['Category', 'Competence']
+            'contain' => ['Category']
         ]);
-        
-        if ($this->Auth->user('id') == $cv['user_id']) {
+
+        if ($this->Auth->user('id') === $cv['user_id']) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");
@@ -94,12 +92,12 @@ class CvController extends AppController
             }
         }
         else {
-            return $this->redirect(
-                ['controller' => 'Cv', 'action' => 'index']
-            );
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
+
         $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
-        $competence = $this->Cv->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
+        $competence = $this->Cv->Category->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
+
         $this->set(compact('cv', 'category', 'competence'));
         $this->set('_serialize', ['cv']);
     }
@@ -107,7 +105,7 @@ class CvController extends AppController
     public function delete($id)
     {
         $cv = $this->Cv->get($id);
-        if ($this->Auth->user('id') == $cv['user_id']) {
+        if ($this->Auth->user('id') === $cv['user_id']) {
             $this->request->allowMethod(['post', 'delete']);
             if ($this->Cv->delete($cv)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
@@ -115,9 +113,17 @@ class CvController extends AppController
             }
         }
         else {
-            return $this->redirect(
-                ['controller' => 'Cv', 'action' => 'index']
-            );
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
+    }
+
+    public function getCompetences()
+    {
+        $formData = $this->request->data;
+        $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
+        $competences = $this->loadModel('CategoryCompetence')->findByCategory($categoryId);
+
+        header('Content-type: application/json');
+        die(json_encode(['result' => $competences]));
     }
 }

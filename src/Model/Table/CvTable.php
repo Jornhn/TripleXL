@@ -56,8 +56,6 @@ class CvTable extends Table
             'targetForeignKey' => 'competence_id',
             'joinTable' => 'cv_competence'
         ]);
-
-
     }
 
     /**

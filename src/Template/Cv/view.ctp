@@ -22,14 +22,6 @@
                 <td><?= $cv->motivation ?></td>
             </tr>
             <tr>
-                <th>Categorie</th>
-                <td>
-                    <?php foreach ($cv->category as $category): ?>
-                        <?= $category->category ?>
-                    <?php endforeach; ?>
-                </td>
-            </tr>
-            <tr>
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($cv->competence as $competence): ?>
@@ -41,7 +33,7 @@
                 <th>Video: </th>
                 <td>
                     <?php
-                    if(strlen($cv->video)<10 ) {
+                    if(strlen($cv->video) < 10 ) {
                         echo 'U heeft helaas geen video! :(';
                     }
                     else {

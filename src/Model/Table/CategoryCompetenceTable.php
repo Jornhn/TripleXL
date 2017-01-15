@@ -76,4 +76,12 @@ class CategoryCompetenceTable extends Table
 
         return $rules;
     }
+
+    public function findByCategory($categoryId)
+    {
+        return $this->find('all', ['keyField' => 'competence.id', 'valueField' => 'competence.competence'])
+            ->hydrate(false)
+            ->contain(['Competence'])
+            ->where(['CategoryCompetence.category_id' => $categoryId]);
+    }
 }

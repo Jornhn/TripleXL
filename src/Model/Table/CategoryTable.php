@@ -41,6 +41,7 @@ class CategoryTable extends Table
         $this->hasMany('VacatureCategory', [
             'foreignKey' => 'category_id'
         ]);
+
         $this->belongsToMany('Competence', [
             'foreignKey' => 'category_id',
             'targetForeignKey' => 'competence_id',
