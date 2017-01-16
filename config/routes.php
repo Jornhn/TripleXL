@@ -74,7 +74,13 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/categorieën/edit/*', ['controller' => 'categories', 'action' => 'edit']);
     $routes->connect('/categorieën/delete/*', ['controller' => 'categories', 'action' => 'delete']);
 
-    $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
+
+    // Vacatures
+    $routes->connect('/vacatures', ['controller' => 'vacancies', 'action' => 'index']);
+    $routes->connect('/vacatures/view/*', ['controller' => 'vacancies', 'action' => 'view']);
+    $routes->connect('/vacatures/create', ['controller' => 'vacancies', 'action' => 'create']);
+    $routes->connect('/vacatures/edit/*', ['controller' => 'vacancies', 'action' => 'edit']);
+    $routes->connect('/vacatures/delete/*', ['controller' => 'vacancies', 'action' => 'delete']);
 
 
 
