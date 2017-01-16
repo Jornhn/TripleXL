@@ -30,7 +30,7 @@
                     echo "<td>" . $manager->email . "</td>";
                     echo "<td>" . $this->Html->link("View", ['action' => 'view/' . $manager->id], ['class' => 'btn btn-info']) . "</td>";
                     echo "<td>" . $this->Html->link("Edit", ['action' => 'edit/' . $manager->id], ['class' => 'btn btn-primary']) . "</td>";
-                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger']) . "</td>";
+                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) . "</td>";
                 }
                 ?>
             </table>
