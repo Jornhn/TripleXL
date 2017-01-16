@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Details: <?= $category->categoy?><?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
+        <h1>Details: <?= $category->category?><?=$this->Html->link("Terug", ['controller' => 'categorieën', 'action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
         <hr>
         <br>
         <?= $this->Flash->render() ?>
