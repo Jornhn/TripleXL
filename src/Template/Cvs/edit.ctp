@@ -3,9 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> CV wijzigen
-            <span class="pull-right">
-                <?php $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
-            </span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <?php echo $this->Form->create($cvs,['class'=>'form-horizontal' ,'type'=>'file']);?>
