@@ -6,24 +6,8 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-/**
- * Users Model
- *
- * @property \Cake\ORM\Association\HasMany $Activity
- * @property \Cake\ORM\Association\HasMany $Cv
- * @property \Cake\ORM\Association\HasMany $Vacatures
- *
- * @method \App\Model\Entity\User get($primaryKey, $options = [])
- * @method \App\Model\Entity\User newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\User[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\User|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\User patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\User[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\User findOrCreate($search, callable $callback = null, $options = [])
- */
 class UsersTable extends Table
 {
-
     /**
      * Initialize method
      *
@@ -34,19 +18,9 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('users');
-        $this->displayField('id');
-        $this->primaryKey('id');
-
-        $this->hasMany('Activity', [
-            'foreignKey' => 'user_id'
-        ]);
-        $this->hasMany('Cv', [
-            'foreignKey' => 'user_id'
-        ]);
-        $this->hasMany('Vacatures', [
-            'foreignKey' => 'user_id'
-        ]);
+        $this->hasMany('Activities');
+        $this->hasMany('Cvs');
+        $this->hasMany('Vacatures');
     }
 
     /**
