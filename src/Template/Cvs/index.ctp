@@ -26,15 +26,15 @@
             <?php if ($cvs->isEmpty()) { ?>
                 <tr><td>U heeft nog geen CV('s) toegevoegd.</td></tr>
             <?php } ?>
-            <?php foreach ($cvs as $item): ?>
+            <?php foreach ($cvs as $cv): ?>
                 <tr>
-                    <td><?= $item->id ?></td>
-                    <td><?= $item->title ?></td>
-                    <td><?= $item->text ?></td>
-                    <td><?= $item->motivation ?></td>
-                    <td><?= $this->Html->link("View", ['action' => 'view', $item->id], ['class' => 'btn btn-info']) ?></td>
-                    <td><?= $this->Html->link("Edit", ['action' => 'edit', $item->id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $item->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
+                    <td><?= $cv->id ?></td>
+                    <td><?= $cv->title ?></td>
+                    <td><?= $cv->text ?></td>
+                    <td><?= $cv->motivation ?></td>
+                    <td><?= $this->Html->link("View", ['action' => 'view', $cv->id], ['class' => 'btn btn-info']) ?></td>
+                    <td><?= $this->Html->link("Edit", ['action' => 'edit', $cv->id], ['class' => 'btn btn-primary']) ?></td>
+                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $cv->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
