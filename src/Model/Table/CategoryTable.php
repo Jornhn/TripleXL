@@ -21,7 +21,7 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Category[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Category findOrCreate($search, callable $callback = null, $options = [])
  */
-class CategoriesTable extends Table
+class CategoryTable extends Table
 {
 
     /**
@@ -34,11 +34,11 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('categories');
+        $this->table('category');
         $this->displayField('id');
         $this->primaryKey('id');
 
-        $this->hasMany('VacatureCategorie', [
+        $this->hasMany('VacatureCategory', [
             'foreignKey' => 'category_id'
         ]);
 

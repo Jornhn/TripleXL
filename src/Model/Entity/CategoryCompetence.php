@@ -3,16 +3,6 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-/**
- * CategoryCompetence Entity
- *
- * @property int $id
- * @property int $category_id
- * @property int $competence_id
- *
- * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\Competence $competence
- */
 class CategoryCompetence extends Entity
 {
 

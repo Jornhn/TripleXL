@@ -8,7 +8,7 @@
             </span>
         </h1>
         <hr>
-        <?php echo $this->Form->create($cv,['class'=>'form-horizontal' ,'type'=>'file']);?>
+        <?php echo $this->Form->create($cvs,['class'=>'form-horizontal' ,'type'=>'file']);?>
 
         <!-- Text input-->
         <div class="form-group">
@@ -40,8 +40,8 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cv', 'action' => 'getCompetences']);
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
+                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group" id="competence-container">
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('competence._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
+                <?php echo $this->Form->input('competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
             </div>
         </div>
 
@@ -73,3 +73,17 @@
         ?>
     </div>
 </div>
+<script>
+        var categoryId = $('#category-id').val();
+        var url = $('#category-id').attr('data-url');
+
+        $.post(url, { categoryId: categoryId }, function(result) {
+            var html = [];
+            for (var i = 0; i < result.result.length; i++) {
+                html.push('<option value="'+result.result[i].competence.id+'">'+result.result[i].competence.competence+'</option>');
+            }
+
+            $('#competence-container').removeClass('hidden');
+            $('#competences-ids').html(html.join(''));
+        });
+</script>
