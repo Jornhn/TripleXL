@@ -9,7 +9,7 @@
 namespace App\Controller;
 
 
-class SollicitantenController extends AppController
+class ApplicantsController extends AppController
 {
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null){
         parent::__construct($request, $response, $name, $eventManager, $components);
