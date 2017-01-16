@@ -12,26 +12,15 @@ class CvsController extends AppController
 {
     public $video = null;
 
-    public function isAuthorized($user)
-    {
-        if (isset($user->account_type) && $user->account_type === '2' or '3') {
-            return true;
-        }
-
-        $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
-        return false;
-    }
-
     public function index()
     {
         $cvs = $this->Cvs->find()->contain(['Users'])->where(['cvs.user_id' => $this->Auth->user('id')]);
-        $categories = $this->Cvs->Categories->find('list', ['limit' => 200]);
-        $this->set(compact('cvs', 'categories'));
+        $this->set(compact('cvs'));
     }
 
     public function view($id)
     {
-        $cvs = $this->Cvs->get($id, ['contain' => ['Users', 'Categories', 'Competences']]);
+        $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'Competences']]);
 
         if ($this->Auth->user('id') !== $cvs->user_id) {
             return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
@@ -57,11 +46,11 @@ class CvsController extends AppController
             $cvs->video = $this->video;
             
             if ($this->Cvs->save($cvs)) {
-                $this->Flash->success(__('The cv has been saved.'));
+                $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
             else {
-                $this->Flash->error(__('The cv could not be saved. Please, try again.'));
+                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
@@ -91,11 +80,11 @@ class CvsController extends AppController
 
                 $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
                 if ($this->Cvs->save($cvs)) {
-                    $this->Flash->success(__('The cv has been saved.'));
+                    $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
 
                     return $this->redirect(['action' => 'index']);
                 } else {
-                    $this->Flash->error(__('The cv could not be saved. Please, try again.'));
+                    $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
                 }
             }
         }
@@ -127,7 +116,7 @@ class CvsController extends AppController
     {
         $formData = $this->request->data;
         $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
-        $competences = $this->loadModel('CategoryCompetences')->findByCategory($categoryId);
+        $competences = $this->loadModel('CategoriesCompetences')->findByCategory($categoryId);
 
         header('Content-type: application/json');
         die(json_encode(['result' => $competences]));
