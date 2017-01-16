@@ -41,14 +41,30 @@ class CategoriesController extends AppController{
         if($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
                 $entity = $this->Categories->newEntity($this->request->data());
-                debug($this->request->data());
-                debug($entity);
-                if ($this->Users->save($entity)) {
+                if ($this->Categories->save($entity)) {
                     $this->Flash->set('De gegevens zijn succesvol opgeslagen.', ['key' => 'category-success', 'params' => ['class' => 'alert alert-success']]);
                     return $this->redirect(['controller' => 'categories', 'action' => 'index']);
                 }
                 $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'category-error', 'params' => ['class' => 'alert alert-danger']]);
             }
+        }
+    }
+
+
+    public function delete($id = null){
+        if ($this->isAuthorized($this->Auth->user())) {
+            if (empty($id)) {
+                throw new NotFoundException;
+            }
+            $category = $this->Categories->get($id);
+            $this->set('category', $category);
+
+            if ($this->Categories->delete($category)) {
+                $this->Flash->set('De categorie met id: ' . $id . ' is verwijderd.', ['key' => 'category-success', 'params' => ['class' => 'alert alert-success']]);
+                return $this->redirect(['controller' => 'categories', 'action' => 'index']);
+            }
+            $this->Flash->set('Er ging iets mis!', ['key' => 'category-error', 'params' => ['class' => 'alert alert-danger']]);
+
         }
     }
 
