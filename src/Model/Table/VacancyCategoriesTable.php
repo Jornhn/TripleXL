@@ -6,7 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacatureCategoriesTable extends Table
+class VacancyCategoriesTable extends Table
 {
     /**
      * Initialize method
@@ -18,7 +18,7 @@ class VacatureCategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->belongsTo('Vacatures');
+        $this->belongsTo('Vacancies');
         $this->belongsTo('Categories');
     }
 

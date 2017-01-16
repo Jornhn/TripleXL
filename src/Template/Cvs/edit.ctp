@@ -74,16 +74,16 @@
     </div>
 </div>
 <script>
-        var categoryId = $('#category-id').val();
-        var url = $('#category-id').attr('data-url');
+    var categoryId = $('#category-id').val();
+    var url = $('#category-id').attr('data-url');
 
-        $.post(url, { categoryId: categoryId }, function(result) {
-            var html = [];
-            for (var i = 0; i < result.result.length; i++) {
-                html.push('<option value="'+result.result[i].competence.id+'">'+result.result[i].competence.competence+'</option>');
-            }
+    $.post(url, { categoryId: categoryId }, function(result) {
+        var html = [];
+        for (var i = 0; i < result.result.length; i++) {
+            html.push('<option value="'+result.result[i].competence.id+'">'+result.result[i].competence.competence+'</option>');
+        }
 
-            $('#competence-container').removeClass('hidden');
-            $('#competences-ids').html(html.join(''));
-        });
+        $('#competence-container').removeClass('hidden');
+        $('#competences-ids').html(html.join(''));
+    });
 </script>

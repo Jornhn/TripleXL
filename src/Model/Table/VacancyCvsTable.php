@@ -6,7 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacatureCvsTable extends Table
+class VacancyCvsTable extends Table
 {
     /**
      * Initialize method
@@ -19,7 +19,7 @@ class VacatureCvsTable extends Table
         parent::initialize($config);
 
         $this->belongsTo('Cvs');
-        $this->belongsTo('Vacatures');
+        $this->belongsTo('Vacancies');
     }
 
     /**
@@ -46,8 +46,8 @@ class VacatureCvsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['cv_id'], 'Cv'));
-        $rules->add($rules->existsIn(['vacature_id'], 'Vacatures'));
+        $rules->add($rules->existsIn(['cv_id'], 'Cvs'));
+        $rules->add($rules->existsIn(['vacature_id'], 'Vacancies'));
 
         return $rules;
     }
