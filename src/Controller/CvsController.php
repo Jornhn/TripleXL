@@ -8,8 +8,6 @@
 
 namespace App\Controller;
 
-use Cake\Datasource\ConnectionManager;
-
 class CvsController extends AppController
 {
     public $video = null;
@@ -57,9 +55,7 @@ class CvsController extends AppController
             $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
             $cvs->user_id = $this->Auth->user('id');
             $cvs->video = $this->video;
-
-            dump($cvs);
-
+            
             if ($this->Cvs->save($cvs)) {
                 $this->Flash->success(__('The cv has been saved.'));
                 return $this->redirect(['action' => 'index']);
