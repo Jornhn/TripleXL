@@ -163,8 +163,10 @@ body {
 
 
 .default-container {
+    padding: 10px;
     padding-top: 1px;
-    padding-bottom: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: white;
 }
 
@@ -183,6 +185,119 @@ body {
 
 .menu-logout {
     color: red !important;
+}
+
+.user-image {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.user-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+}
+
+.info-username {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.info-email {
+    text-align: center;
+    font-size: 1em;
+    color: #767676;
+}
+
+.info-location {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.info-matches {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.info-matches a {
+    margin-bottom: 5px;
+}
+
+.info-matches .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.info-matches .badge {
+    background-color: #199fd7;
+}
+
+.info-matches .logout {
+    margin-top: 20px;
+}
+
+.micropost {
+    margin-top: 10px;
+}
+
+.update-wrapper {
+    margin-top: 15px;
+}
+
+.update-post {
+    height: 55px;
+    margin: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.update-post:last-child {
+    margin-bottom: 5px;
+}
+
+.update-post .update-image {
+    width: 55px;
+    float: left;
+}
+
+.update-post .update-info {
+    float: left;
+    width: calc(100% - 80px);
+    margin-left: 10px;
+}
+
+.update-post .update-info .name {
+    font-weight: 700;
+    float: left;
+}
+
+.update-post .update-info .date {
+    float: right;
+    color: #767676;
+}
+
+.update-post .update-info .message {
+    width: 100%;
+    float: right;
+}
+
+.update-post .update-image .identifier {
+    width: 100%;
+    height: 55px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 2.5em;
+    color: white;
+    background-color: #2aabd2;
 }
 
 /* Custom style for Sollicitant pages */

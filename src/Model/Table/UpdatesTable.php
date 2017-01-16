@@ -10,7 +10,7 @@ namespace App\Model\Table;
 
 use Cake\ORM\Table;
 
-class ActivitiesTable extends Table
+class UpdatesTable extends Table
 {
     public function initialize(array $config)
     {

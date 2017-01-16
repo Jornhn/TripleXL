@@ -13,11 +13,30 @@ class DashboardController extends AppController
 {
     public function index()
     {
-        $this->loadModel('Activities');
-        $this->set('activities', $this->Activities->find('all', [
-            'conditions' => ['Activities.user_id' => $this->Auth->user('id')],
-            'order' => ['Activities.date' => 'DESC'],
+        $this->loadModel('Updates');
+        $this->loadModel('Users');
+
+        $username = $this->Auth->user()['firstname'] . ' ';
+
+        if (!empty($this->Auth->user()['insertion'])) {
+            $username .= $this->Auth->user()['insertion'] . ' ';
+        }
+
+        $username .= $this->Auth->user()['lastname'];
+
+        $this->set('fullname', $username);
+        $this->set('globalUpdates', $this->Updates->find('all', [
+            'conditions' => ['Updates.global' => 1],
+            'order' => ['Updates.date' => 'DESC'],
             'limit' => 20
         ]));
+
+        $this->set('userUpdates', $this->Updates->find('all', [
+            'conditions' => ['Updates.user_id' => $this->Auth->user('id'), 'Updates.global' => 0],
+            'order' => ['Updates.date' => 'DESC'],
+            'limit' => 20
+        ]));
+
+
     }
 }
