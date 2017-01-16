@@ -28,7 +28,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beheren <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Applicants', 'action' => 'index'])?></li>
-                                    <li><?= $this->Html->link("Bedrijven", ['controller' => 'Bedrijven', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Bedrijven", ['controller' => 'Companies', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacancies', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
