@@ -43,10 +43,6 @@
             <td><?= $users->email ?></td>
         </tr>
         <tr>
-            <td>Bedrijfs naam: </td>
-            <td><?= $users->company_name ?></td>
-        </tr>
-        <tr>
             <td>Website: </td>
             <td><?= $users->website ?></td>
         </tr>

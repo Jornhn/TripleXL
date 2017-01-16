@@ -108,7 +108,7 @@
 </div>
 
 <!-- Text input-->
-<div class="form-group">
+<div class="form-group hidden">
   <label class="col-md-3 control-label" for="company_name">Bedrijfsnaam</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('company_name', ['type'=>'text', 'id'=>'company_name', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>

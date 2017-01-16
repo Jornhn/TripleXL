@@ -32,7 +32,7 @@
                 <td><?= $user->lastname ?></td>
                 <td><?php echo $this->Html->link("View", ['action' => 'view', $user->id], ['class' => 'btn btn-info'])?></td>
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
-                <td> <?= $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
+                <td> <?= $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['confirm' => 'Weet u zeker dat u ' . $user->firstname .' wilt verwijderen?', 'class' => 'btn btn-danger']) ?></td>
             </tr>
         <?php endforeach; ?>
 

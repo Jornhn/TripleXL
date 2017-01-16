@@ -22,10 +22,7 @@ class SollicitantenController extends AppController
     public function isAuthorized($user)
     {
         
-        if (isset($user['account_type']) && $user['account_type'] === '2') {
-            return true;
-        }
-        if (isset($user['account_type']) && $user['account_type'] === '3') {
+        if (isset($user['account_type']) && $user['account_type'] === '2' or '3') {
             return true;
         }
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
