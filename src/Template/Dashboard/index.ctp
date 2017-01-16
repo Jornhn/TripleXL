@@ -19,8 +19,8 @@
 
                 <div class="info-matches">
 
-                    <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cv', 'action' => 'index'], ['class' => 'btn btn-default'])?>
-                    <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacature', 'action' => 'index'], ['class' => 'btn btn-default'])?>
+                    <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
+                    <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
                     <?= $this->Html->link("Mijn Matches <span class=\"badge\">420</span>", ['controller' => 'Matches', 'action' => 'index'], ['class' => 'btn btn-default', 'escape' => false])?>
                     <?= $this->Html->link("Instellingen", ['controller' => 'Users', 'action' => 'settings'], ['class' => 'btn btn-default'])?>
                     <?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'btn btn-danger logout'])?>

@@ -9,23 +9,20 @@
 namespace App\Controller;
 
 
-class SollicitantenController extends AppController
+class ApplicantsController extends AppController
 {
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null){
         parent::__construct($request, $response, $name, $eventManager, $components);
 
         $this->loadModel('Users');
-        $this->loadModel('Cv');
+        $this->loadModel('Cvs');
     }
     
     
     public function isAuthorized($user)
     {
         
-        if (isset($user['account_type']) && $user['account_type'] === '2') {
-            return true;
-        }
-        if (isset($user['account_type']) && $user['account_type'] === '3') {
+        if (isset($user['account_type']) && $user['account_type'] === '2' or '3') {
             return true;
         }
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
@@ -55,7 +52,7 @@ class SollicitantenController extends AppController
             $users = $this->Users->get($id);
             $this->set('users', $users);
 
-            $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
+            $cv = $this->Cvs->find('all')->where(['user_id =' => $id]);
             $this->set(compact('cv'));
             
         }
@@ -87,11 +84,16 @@ class SollicitantenController extends AppController
             
             //* Deleting CV *// 
             
-            //$results = $this->Cv->find('all')->where(['user_id =' => $id]);
-            //$cv = $result->first();
-            //$result = $this->Cv->delete($results);
+            $results = $this->Cvs->find('all')->where(['user_id =' => $id]);
+            $cv = $results->first();
             
-            //* Deleting User *//   
+            if ($cv != ''){
+                
+                $result = $this->Cvs->delete($cv);
+                
+            }
+        
+            //* Deleting USER *//   
             
             $users = $this->Users->get($id);
             $result = $this->Users->delete($users);

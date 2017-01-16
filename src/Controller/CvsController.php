@@ -8,32 +8,40 @@
 
 namespace App\Controller;
 
-use Cake\Datasource\ConnectionManager;
-
-class CvController extends AppController
+class CvsController extends AppController
 {
     public $video = null;
 
+    public function isAuthorized($user)
+    {
+        if (isset($user->account_type) && $user->account_type === '2' or '3') {
+            return true;
+        }
+
+        $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
+    }
+
     public function index()
     {
-        $cv = $this->Cv->find()->contain(['Users'])->where(['cv.user_id' => $this->Auth->user('id')]);
-        $category = $this->Cv->Category->find('list', ['limit' => 200]);
-        $this->set(compact('cv', 'category'));
+        $cvs = $this->Cvs->find()->contain(['Users'])->where(['cvs.user_id' => $this->Auth->user('id')]);
+        $categories = $this->Cvs->Categories->find('list', ['limit' => 200]);
+        $this->set(compact('cvs', 'categories'));
     }
 
     public function view($id)
     {
-        $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category', 'Competence']]);
+        $cvs = $this->Cvs->get($id, ['contain' => ['Users', 'Categories', 'Competences']]);
 
-        if ($this->Auth->user('id') !== $cv['user_id']) {
+        if ($this->Auth->user('id') !== $cvs->user_id) {
             return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
-        $this->set('cv', $cv);
+        $this->set('cvs', $cvs);
     }
 
     public function create()
     {
-        $cv = $this->Cv->newEntity();
+        $cvs = $this->Cvs->newEntity();
         if ($this->request->is('post')) {
             $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
             $arr_ext = array("mp3", "mp4", "wma");
@@ -44,11 +52,11 @@ class CvController extends AppController
                 $this->video = $setNewFileName . '.' . $ext;
             }
 
-            $cv = $this->Cv->patchEntity($cv, $this->request->data);
-            $cv->user_id = $this->Auth->user('id');
-            $cv->video = $this->video;
-
-            if ($this->Cv->save($cv)) {
+            $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
+            $cvs->user_id = $this->Auth->user('id');
+            $cvs->video = $this->video;
+            
+            if ($this->Cvs->save($cvs)) {
                 $this->Flash->success(__('The cv has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
@@ -56,19 +64,19 @@ class CvController extends AppController
                 $this->Flash->error(__('The cv could not be saved. Please, try again.'));
             }
         }
-        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+        $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        $this->set(compact('cv', 'category', 'competence'));
-        $this->set('_serialize', ['cv']);
+        $this->set(compact('cvs', 'categories', 'competences'));
+        $this->set('_serialize', ['cvs']);
     }
 
     public function edit($id = null)
     {
-        $cv = $this->Cv->get($id, [
-            'contain' => ['Category']
+        $cvs = $this->Cvs->get($id, [
+            'contain' => ['Categories']
         ]);
 
-        if ($this->Auth->user('id') === $cv['user_id']) {
+        if ($this->Auth->user('id') === $cvs->user_id) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");
@@ -79,10 +87,10 @@ class CvController extends AppController
                     $this->video = $setNewFileName . '.' . $ext;
                 }
 
-                $cv->video = $this->video;
+                $cvs->video = $this->video;
 
-                $cv = $this->Cv->patchEntity($cv, $this->request->data);
-                if ($this->Cv->save($cv)) {
+                $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
+                if ($this->Cvs->save($cvs)) {
                     $this->Flash->success(__('The cv has been saved.'));
 
                     return $this->redirect(['action' => 'index']);
@@ -92,26 +100,26 @@ class CvController extends AppController
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
-        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+        $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        $this->set(compact('cv', 'category', 'competence'));
-        $this->set('_serialize', ['cv']);
+        $this->set(compact('cvs', 'categories', 'competences'));
+        $this->set('_serialize', ['cvs']);
     }
 
     public function delete($id)
     {
-        $cv = $this->Cv->get($id);
-        if ($this->Auth->user('id') === $cv['user_id']) {
+        $cvs = $this->Cvs->get($id);
+        if ($this->Auth->user('id') === $cvs->user_id) {
             $this->request->allowMethod(['post', 'delete']);
-            if ($this->Cv->delete($cv)) {
+            if ($this->Cvs->delete($cvs)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
     }
 
@@ -119,7 +127,7 @@ class CvController extends AppController
     {
         $formData = $this->request->data;
         $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
-        $competences = $this->loadModel('CategoryCompetence')->findByCategory($categoryId);
+        $competences = $this->loadModel('CategoryCompetences')->findByCategory($categoryId);
 
         header('Content-type: application/json');
         die(json_encode(['result' => $competences]));

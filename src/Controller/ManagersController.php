@@ -85,7 +85,7 @@ class ManagersController extends AppController
                 $this->Flash->set('De beheerder met id: ' . $id . ' is verwijderd.', ['key' => 'manager-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['controller' => 'managers', 'action' => 'index']);
             }
-            $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Er ging iets mis!', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
 
         }
     }

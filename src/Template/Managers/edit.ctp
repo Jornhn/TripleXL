@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerder wijzigen <?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
+        <h1>Beheerder wijzigen <?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('manager-error') ?>
         <?=$this->Form->create($manager,['class'=>'form-horizontal']);?>
@@ -14,11 +14,14 @@
             </div>
         </div>
 
-        <!-- Text input-->
+        <!-- Select field-->
         <div class="form-group">
-            <label class="col-md-3 control-label" for="salutation">Aanhef</label>
+            <label class="col-md-3 control-label" for="salution">Aanhef</label>
             <div class="col-md-6">
-                <?=$this->Form->input('salutation', ['type'=>'text', 'id'=>'salutation', 'placeholder'=>'Aanhef...', 'class'=>'form-control ', 'div'=> false, 'label'=> false]); ?>
+                <?php echo $this->Form->input('salutation',['type'=>'select','class'=>'form-control ','options'=> [
+                    'Dhr.'=>'Dhr.',
+                    'Mevr.'=>'Mevr.',
+                ],'div'=>false,'label'=>false]); ?>
             </div>
         </div>
 

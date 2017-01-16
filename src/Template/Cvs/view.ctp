@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1> Details: <?= $cv->title ?>
+        <h1> Details: <?= $cvs->title ?>
             <span class="pull-right">
                 <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
@@ -11,24 +11,24 @@
         <table class="top-space col-lg-12 table table-striped">
             <tr>
                 <th>Title: </th>
-                <td><?= $cv->title ?></td>
+                <td><?= $cvs->title ?></td>
             </tr>
             <tr>
                 <th>Tekst: </th>
-                <td><?= $cv->text ?></td>
+                <td><?= $cvs->text ?></td>
             </tr>
             <tr>
                 <th>Motivatie: </th>
-                <td><?= $cv->motivation ?></td>
+                <td><?= $cvs->motivation ?></td>
             </tr>
             <tr>
                 <th>Categorie</th>
-                <td><?= $cv->category->category ?></td>
+                <td><?= $cvs->category->category ?></td>
             </tr>
             <tr>
                 <th>Compententies</th>
                 <td>
-                    <?php foreach ($cv->competence as $competence): ?>
+                    <?php foreach ($cvs->competences as $competence): ?>
                         <li><?= $competence->competence ?></li>
                     <?php endforeach; ?>
                 </td>
@@ -37,13 +37,13 @@
                 <th>Video: </th>
                 <td>
                     <?php
-                    if(strlen($cv->video) < 10 ) {
+                    if(strlen($cvs->video) < 10 ) {
                         echo 'U heeft helaas geen video! :(';
                     }
                     else {
                         echo '
                          <video width="320" height="240" controls>
-                            <source src="../../videos/'.$cv->video.'" type="video/mp4">
+                            <source src="../../videos/'.$cvs->video.'" type="video/mp4">
                         </video>';
                     }
                     ?>
