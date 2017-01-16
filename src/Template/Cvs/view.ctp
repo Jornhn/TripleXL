@@ -28,7 +28,6 @@
             <tr>
                 <th>Compententies</th>
                 <td>
-                    <?php dump($cvs->competences); ?>
                     <?php foreach ($cvs->competences as $competence): ?>
                         <li><?= $competence->competence ?></li>
                     <?php endforeach; ?>

@@ -6,10 +6,6 @@ use Cake\Network\Response;
 
 class CategoriesController extends AppController{
 
-    public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null){
-        parent::__construct($request, $response, $name, $eventManager, $components);
-    }
-
     public function isAuthorized($user){
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
             return true;
@@ -79,7 +75,7 @@ class CategoriesController extends AppController{
 
             if ($this->Categories->delete($category)) {
                 $this->Flash->set('De categorie met id: ' . $id . ' is verwijderd.', ['key' => 'category-success', 'params' => ['class' => 'alert alert-success']]);
-                return $this->redirect(['controller' => 'categories', 'action' => 'index']);
+                return $this->redirect(['controller' => 'categorieën', 'action' => 'index']);
             }
             $this->Flash->set('Er ging iets mis!', ['key' => 'category-error', 'params' => ['class' => 'alert alert-danger']]);
 
