@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
         <!-- Textarea -->
         <div class="form-group">
             <label class="col-md-3 control-label" for="text">Tekst</label>
@@ -61,7 +60,6 @@
                 <?php echo $this->Form->file('video'); ?>
             </div>
         </div>
-
         <hr>
         <!-- Button -->
         <div class="form-group">
