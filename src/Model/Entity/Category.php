@@ -4,20 +4,13 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Cv Entity
+ * Category Entity
  *
  * @property int $id
- * @property int $user_id
- * @property \Cake\I18n\Time $date
- * @property string $title
- * @property string $text
- * @property string $motivation
- * @property string $video
- *
- * @property \App\Model\Entity\User $user
- * @property \App\Model\Entity\Category $category
+ * @property string $category
+ * @property string $category_description
  */
-class Cv extends Entity
+class Category extends Entity
 {
 
     /**

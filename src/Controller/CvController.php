@@ -14,16 +14,20 @@ class CvController extends AppController
 {
     public $video = null;
 
-    function index()
+    public function index()
     {
-        $id = $this->Auth->user('id');
-        $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
-        $this->set(compact('cv'));
+        $cv = $this->Cv->find()->contain(['Users'])->where(['cv.user_id' => $this->Auth->user('id')]);
+        $category = $this->Cv->Category->find('list', ['limit' => 200]);
+        $this->set(compact('cv', 'category'));
     }
 
-    function view($id)
+    public function view($id)
     {
-        $cv = $this->Cv->get($id);
+        $cv = $this->Cv->get($id, ['contain' => ['Users', 'Category', 'Competence']]);
+
+        if ($this->Auth->user('id') !== $cv['user_id']) {
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
+        }
         $this->set('cv', $cv);
     }
 
@@ -45,47 +49,55 @@ class CvController extends AppController
             $cv->video = $this->video;
 
             if ($this->Cv->save($cv)) {
-                $this->Flash->set('Uw CV is succesvol opgeslagen!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
+                $this->Flash->success(__('The cv has been saved.'));
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->set('Er ging iets mis! Probeer het opnieuw!', ['key' => 'cv-danger','params' => ['class' => 'alert alert-danger']]);
+            else {
+                $this->Flash->error(__('The cv could not be saved. Please, try again.'));
+            }
         }
-        $this->set('cv', $cv);
+        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+
+        $this->set(compact('cv', 'category', 'competence'));
+        $this->set('_serialize', ['cv']);
     }
 
-    public function edit($id)
+    public function edit($id = null)
     {
-        $cv = $this->Cv->get($id);
+        $cv = $this->Cv->get($id, [
+            'contain' => ['Category']
+        ]);
+
         if ($this->Auth->user('id') === $cv['user_id']) {
-            if ($this->request->is(['post', 'put'])) {
+            if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
-                $arr_ext = array("png", "mp3", "mp4", "wma");
+                $arr_ext = array("mp3", "mp4", "wma");
                 $setNewFileName = time() . "_" . rand(000000, 999999);
 
                 if (in_array($ext, $arr_ext)) {
                     move_uploaded_file(($this->request->data['video']['tmp_name']), WWW_ROOT . '/videos/' . $setNewFileName . '.' . $ext);
                     $this->video = $setNewFileName . '.' . $ext;
                 }
-                else {
-                    $this->video = '';
-                }
 
-                $cv = $this->Cv->patchEntity($cv, $this->request->data);
                 $cv->video = $this->video;
 
+                $cv = $this->Cv->patchEntity($cv, $this->request->data);
                 if ($this->Cv->save($cv)) {
-                    $this->Flash->set('Uw CV is succesvol opgeslagen!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
+                    $this->Flash->success(__('The cv has been saved.'));
+
                     return $this->redirect(['action' => 'index']);
+                } else {
+                    $this->Flash->error(__('The cv could not be saved. Please, try again.'));
                 }
-                $this->Flash->set('Er ging iets mis! Probeer het opnieuw!', ['key' => 'cv-danger','params' => ['class' => 'alert alert-danger']]);
             }
         }
         else {
-            return $this->redirect(
-                ['controller' => 'Cv', 'action' => 'index']
-            );
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
-        $this->set('cv', $cv);
+        $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+
+        $this->set(compact('cv', 'category', 'competence'));
+        $this->set('_serialize', ['cv']);
     }
 
     public function delete($id)
@@ -99,9 +111,17 @@ class CvController extends AppController
             }
         }
         else {
-            return $this->redirect(
-                ['controller' => 'Cv', 'action' => 'index']
-            );
+            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
+    }
+
+    public function getCompetences()
+    {
+        $formData = $this->request->data;
+        $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
+        $competences = $this->loadModel('CategoryCompetence')->findByCategory($categoryId);
+
+        header('Content-type: application/json');
+        die(json_encode(['result' => $competences]));
     }
 }
