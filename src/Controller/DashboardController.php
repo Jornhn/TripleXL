@@ -13,10 +13,10 @@ class DashboardController extends AppController
 {
     public function index()
     {
-        $this->loadModel('Activity');
-        $this->set('activities', $this->Activity->find('all', [
-            'conditions' => ['Activity.user_id' => $this->Auth->user('id')],
-            'order' => ['Activity.date' => 'DESC'],
+        $this->loadModel('Activities');
+        $this->set('activities', $this->Activities->find('all', [
+            'conditions' => ['Activities.user_id' => $this->Auth->user('id')],
+            'order' => ['Activities.date' => 'DESC'],
             'limit' => 20
         ]));
     }
