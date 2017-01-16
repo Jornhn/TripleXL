@@ -67,6 +67,12 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/beheerders/edit/*', ['controller' => 'Managers', 'action' => 'edit']);
     $routes->connect('/beheerders/delete', ['controller' => 'Managers', 'action' => 'delete']);
 
+    // Categorieën
+    $routes->connect('/categorieën', ['controller' => 'categories', 'action' => 'index']);
+    $routes->connect('/categorieën/view/*', ['controller' => 'categories', 'action' => 'view']);
+    $routes->connect('/categorieën/create', ['controller' => 'categories', 'action' => 'create']);
+    $routes->connect('/categorieën/edit/*', ['controller' => 'categories', 'action' => 'edit']);
+    $routes->connect('/categorieën/delete', ['controller' => 'categories', 'action' => 'delete']);
 
 
     $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
