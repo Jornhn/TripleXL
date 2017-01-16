@@ -50,6 +50,24 @@ class CategoriesController extends AppController{
         }
     }
 
+    public function edit($id = null){
+        if($this->isAuthorized($this->Auth->user())) {
+            if (empty($id)) {
+                throw new NotFoundException;
+            }
+            $category = $this->Categories->get($id);
+            $this->set('category', $category);
+
+            if ($this->request->is("put")) {
+                $entity = $this->Categories->patchEntity($category, $this->request->data);
+                if ($this->Categories->save($entity)) {
+                    $this->Flash->set('De categorie met id: ' . $id . ' is succesvol gewijzigd.', ['key' => 'category-success', 'params' => ['class' => 'alert alert-success']]);
+                    return $this->redirect(['controller' => 'categories', 'action' => 'index']);
+                }
+                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'category-error', 'params' => ['class' => 'alert alert-danger']]);
+            }
+        }
+    }
 
     public function delete($id = null){
         if ($this->isAuthorized($this->Auth->user())) {
