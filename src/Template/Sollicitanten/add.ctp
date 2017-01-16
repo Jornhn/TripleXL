@@ -7,7 +7,7 @@
 <h1>Add</h1>
 
 <!-- Text input-->
-<div class="form-group top-space">
+<div class="form-group top-space hidden">
   <label class="col-md-3 control-label" for="id">#</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
@@ -15,7 +15,7 @@
 </div>
     
 <!-- Select Basic -->
-<div class="form-group">
+<div class="form-group hidden">
   <label class="col-md-3 control-label" for="account-type">account-type</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('account_type',['type'=>'select','class'=>'form-control ','options'=> [
