@@ -64,16 +64,16 @@
     <table class="col-lg-12 table table-striped">
         <?php foreach($cv as $cvs): ?>
             <tr>
-                <td>Title:
-                <td><?= $cvs->title ?></td>
+                <td>Title:</td>
+                <td id="cv-title"><?= $cvs->title ?></td>
             </tr>
             <tr>
                 <td>Text: </td>
-                <td><?= $cvs->text ?></td>
+                <td id="cv-text"><?= $cvs->text ?></td>
             </tr>
             <tr>
                 <td>Motivation: </td>
-                <td><?= $cvs->motivation ?></td>
+                <td id="cv-motivation"><?= $cvs->motivation ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

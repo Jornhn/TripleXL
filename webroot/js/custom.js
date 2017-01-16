@@ -2,23 +2,13 @@
  * Created by jornholterman on 11-01-17.
  */
 
-$('.sollicitant-delete').click(function() {
-    swal({
-        title: 'Are you sure?',
-        text:'You won\'t be able to revert this!',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then(function () {
-        swal(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-        )
-    })
-});
+function isEmpty( el ){
+      return !$.trim(el.html())
+  }
+  if (isEmpty($('#cv-title'))) {
+      $('.vacature-button-closed').hide();
+      $('.vacature-button-open').hide();
+}
 
 //tijdelijk omdat css niet pakt
 $('.vacature-button-closed').hide();
