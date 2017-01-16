@@ -8,18 +8,15 @@
             </span>
         </h1>
         <hr />
-        <br />
         <?= $this->Flash->render('cv-error') ?>
         <?= $this->Flash->render('cv-success') ?>
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>#</th>
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Motivatie</th>
-                <th>Categorieën</th>
-                <th>Compententies</th>
-                <th>Video</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -31,12 +28,10 @@
             <?php } ?>
             <?php foreach ($cv as $item): ?>
                 <tr>
+                    <td><?= $item->id ?></td>
                     <td><?= $item->title ?></td>
                     <td><?= $item->text ?></td>
                     <td><?= $item->motivation ?></td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td><?= $item->video ?></td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $item->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $item->id], ['class' => 'btn btn-primary']) ?></td>
                     <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $item->id], ['class' => 'btn btn-danger'], ['confirm' => 'Are you sure?']) ?></td>
