@@ -58,9 +58,18 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/cv/edit', ['controller' => 'Cv', 'action' => 'edit']);
     $routes->connect('/cv/add', ['controller' => 'Cv', 'action' => 'add']);
     $routes->connect('/cv/delete', ['controller' => 'Cv', 'action' => 'delete']);
-    
-    
-        $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
+
+
+    // Beheerders
+    $routes->connect('/beheerders', ['controller' => 'Managers', 'action' => 'index']);
+    $routes->connect('/beheerders/view/*', ['controller' => 'Managers', 'action' => 'view']);
+    $routes->connect('/beheerders/create', ['controller' => 'Managers', 'action' => 'create']);
+    $routes->connect('/beheerders/edit/*', ['controller' => 'Managers', 'action' => 'edit']);
+    $routes->connect('/beheerders/delete', ['controller' => 'Managers', 'action' => 'delete']);
+
+
+
+    $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
 
 
 

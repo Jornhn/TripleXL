@@ -35,7 +35,7 @@
                 <?= $this->Form->input('phone_number', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputPhonenumber', 'error' => false, 'label' => 'Telefoonnummer']) ?>
             </div>
             <div class="form-group company">
-                <?= $this->Form->input('company_name', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputCompany', 'error' => false, 'label' => 'Bedrijfsnaam']) ?>
+                <?= $this->Form->input('company_name', ['type' => 'text', 'class' => 'form-control', 'id' => 'inputCompany', 'error' => false, 'label' => 'Bedrijfsnaam']) ?>
             </div>
             <div class="form-group company">
                 <?= $this->Form->input('website', ['class' => 'form-control', 'id' => 'inputWebsite', 'error' => false, 'label' => 'Website URL']) ?>
