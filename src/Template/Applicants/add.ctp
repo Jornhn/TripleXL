@@ -4,7 +4,11 @@
 <fieldset>
 
 <!-- Form Name -->
-<h1>Add</h1>
+<h1>Toevoegen
+    <span class="pull-right">
+        <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+    </span>
+</h1>
 
 <!-- Text input-->
 <div class="form-group top-space hidden">
@@ -131,12 +135,15 @@
   <label class="col-md-3 control-label" for="password">Password</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('password', ['type'=>'password', 'class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
+    </div>
+</div>
     
+      <hr>
+      
 <!-- Button -->
 <div class="form-group">    
     <div class="col-md-6">
-        <button id="save" name="save" class="btn btn-primary">Save</button> 
-        <?php echo $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary'])?>
+        <button id="save" name="save" class="btn btn-primary">Opslaan</button> 
     </div>
 </div>
     
