@@ -62,7 +62,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     // Beheerders
     $routes->connect('/beheerders', ['controller' => 'Managers', 'action' => 'index']);
-    $routes->connect('/beheerders/view/*', ['controller' => 'Managers', 'action' => 'view', 'id' => '/[0-9]+/']);
+    $routes->connect('/beheerders/view/*', ['controller' => 'Managers', 'action' => 'view']);
     $routes->connect('/beheerders/create', ['controller' => 'Managers', 'action' => 'create']);
     $routes->connect('/beheerders/edit/*', ['controller' => 'Managers', 'action' => 'edit']);
     $routes->connect('/beheerders/delete', ['controller' => 'Managers', 'action' => 'delete']);
