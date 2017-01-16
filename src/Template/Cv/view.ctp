@@ -29,7 +29,7 @@
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($cv->competence as $competence): ?>
-                        <?= $competence->competence ?>
+                        <li><?= $competence->competence ?></li>
                     <?php endforeach; ?>
                 </td>
             </tr>

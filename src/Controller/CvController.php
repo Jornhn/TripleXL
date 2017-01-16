@@ -94,9 +94,7 @@ class CvController extends AppController
         else {
             return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
         }
-
         $category = $this->Cv->Category->find('list', ['keyField' => 'id', 'valueField' => 'category']);
-        $competence = $this->Cv->Category->Competence->find('list', ['keyField' => 'id', 'valueField' => 'competence']);
 
         $this->set(compact('cv', 'category', 'competence'));
         $this->set('_serialize', ['cv']);
