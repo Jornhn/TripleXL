@@ -15,7 +15,7 @@ class ApplicantsController extends AppController
         parent::__construct($request, $response, $name, $eventManager, $components);
 
         $this->loadModel('Users');
-        $this->loadModel('Cv');
+        $this->loadModel('Cvs');
     }
     
     
@@ -52,7 +52,7 @@ class ApplicantsController extends AppController
             $users = $this->Users->get($id);
             $this->set('users', $users);
 
-            $cv = $this->Cv->find('all')->where(['user_id =' => $id]);
+            $cv = $this->Cvs->find('all')->where(['user_id =' => $id]);
             $this->set(compact('cv'));
             
         }
@@ -84,9 +84,9 @@ class ApplicantsController extends AppController
             
             //* Deleting CV *// 
             
-            //$results = $this->Cv->find('all')->where(['user_id =' => $id]);
-            //$cv = $result->first();
-            //$result = $this->Cv->delete($results);
+            $results = $this->Cvs->find('all')->where(['user_id =' => $id]);
+            $cv = $results->first();
+            $result = $this->Cvs->delete($cv);
             
             //* Deleting User *//   
             
