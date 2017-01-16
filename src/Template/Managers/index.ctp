@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerders overzicht<?=$this->Html->link("Nieuwe Beheerder", ['action' => 'create'], ['class' => 'btn btn-primary brn-lg pull-right']).' ';?></h1>
+        <h1>Beheerders overzicht<?=$this->Html->link("Nieuwe Beheerder", ['action' => 'create'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('manager-success') ?>
         <div class="table-responsive">
