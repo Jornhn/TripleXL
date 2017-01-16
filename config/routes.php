@@ -74,7 +74,6 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/categorieën/edit/*', ['controller' => 'categories', 'action' => 'edit']);
     $routes->connect('/categorieën/delete/*', ['controller' => 'categories', 'action' => 'delete']);
 
-
     $routes->connect('/sollicitanten/edit/*', ['controller' => 'Sollicitanten', 'action' => 'edit']);
 
 
