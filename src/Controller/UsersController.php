@@ -57,6 +57,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->data);
+
             if ($this->Users->save($user)) {
                 $this->Flash->set('Uw account is succesvol aangemaakt. Log in om door te gaan.', ['key' => 'register-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'login']);

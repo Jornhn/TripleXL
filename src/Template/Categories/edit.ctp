@@ -2,10 +2,10 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Categorie toevoegen<?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
+        <h1>Categorie "<?=$category->category?>" wijzigen <?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('category-error') ?>
-        <?php echo $this->Form->create('',['class'=>'form-horizontal']);?>
+        <?php echo $this->Form->create($category,['class'=>'form-horizontal']);?>
 
         <!-- Text input-->
         <div class="form-group">
