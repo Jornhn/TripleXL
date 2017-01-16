@@ -27,9 +27,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beheren <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Sollicitanten', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Applicants', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Bedrijven", ['controller' => 'Bedrijven', 'action' => 'index'])?></li>
-                                    <li><?= $this->Html->link("CV('s)", ['controller' => 'Cv', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
                                     <?php if ($this->request->session()->read('Auth.User.account_type') == 3) { ?>

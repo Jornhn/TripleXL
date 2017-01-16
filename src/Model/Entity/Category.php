@@ -3,13 +3,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
-/**
- * Category Entity
- *
- * @property int $id
- * @property string $category
- * @property string $category_description
- */
+
 class Category extends Entity
 {
 

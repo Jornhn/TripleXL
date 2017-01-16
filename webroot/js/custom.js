@@ -38,6 +38,6 @@ $('#category-id').on('change', function() {
         }
 
         $('#competence-container').removeClass('hidden');
-        $('#competence-ids').html(html.join(''));
+        $('#competences-ids').html(html.join(''));
     });
 });

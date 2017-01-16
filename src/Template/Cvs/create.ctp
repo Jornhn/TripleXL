@@ -40,8 +40,8 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cv', 'action' => 'getCompetences']);
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $category,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
+                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>
         </div>
@@ -50,7 +50,7 @@
         <div class="form-group hidden" id="competence-container">
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('competence._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
+                <?php echo $this->Form->input('competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
             </div>
         </div>
 
