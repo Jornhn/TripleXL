@@ -86,9 +86,14 @@ class ApplicantsController extends AppController
             
             $results = $this->Cvs->find('all')->where(['user_id =' => $id]);
             $cv = $results->first();
-            $result = $this->Cvs->delete($cv);
             
-            //* Deleting User *//   
+            if ($cv != ''){
+                
+                $result = $this->Cvs->delete($cv);
+                
+            }
+        
+            //* Deleting USER *//   
             
             $users = $this->Users->get($id);
             $result = $this->Users->delete($users);
