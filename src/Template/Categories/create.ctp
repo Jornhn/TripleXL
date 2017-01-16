@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Categorie toevoegen<?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
+        <h1>Categorie toevoegen<?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('category-error') ?>
         <?php echo $this->Form->create('',['class'=>'form-horizontal']);?>
