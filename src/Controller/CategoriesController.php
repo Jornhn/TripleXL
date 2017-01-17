@@ -15,11 +15,11 @@ class CategoriesController extends AppController{
     }
 
     public function isAuthorized($user){
-        if (isset($user['account_type']) && $user['account_type'] >= '2') {
+        if (isset($user['account_type']) && $user['account_type'] >= 2) {
             return true;
         }
-        return false;
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
     }
 
     public function index(){
