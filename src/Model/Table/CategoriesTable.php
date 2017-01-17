@@ -18,7 +18,6 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->hasMany('VacatureCategories');
         $this->belongsToMany('Competences');
     }
 
