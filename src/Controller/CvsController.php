@@ -15,6 +15,14 @@ class CvsController extends AppController
     public function index()
     {
         $cvs = $this->Cvs->find()->contain(['Users'])->where(['cvs.user_id' => $this->Auth->user('id')]);
+
+        if ($this->Auth->user('account_type') >= 2) {
+            $cvs = $this->Cvs->find()->contain(['Users']);
+        }
+
+        if ($this->Auth->user('account_type') === 1){
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+        }
         $this->set(compact('cvs'));
     }
 
@@ -23,7 +31,13 @@ class CvsController extends AppController
         $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'Competences']]);
 
         if ($this->Auth->user('id') !== $cvs->user_id) {
-            return $this->redirect(['controller' => 'Cv', 'action' => 'index']);
+            if ($this->Auth->user('account_type') !== 3) {
+                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            }
+        }
+
+        if ($this->Auth->user('account_type') === 1){
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $this->set('cvs', $cvs);
     }
@@ -52,6 +66,10 @@ class CvsController extends AppController
             else {
                 $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
+        }
+
+        if ($this->Auth->user('account_type') === 1){
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
@@ -89,8 +107,15 @@ class CvsController extends AppController
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            if ($this->Auth->user('account_type') !== 3) {
+                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            }
         }
+
+        if ($this->Auth->user('account_type') === 1){
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+        }
+
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
         $this->set(compact('cvs', 'categories', 'competences'));
@@ -108,7 +133,13 @@ class CvsController extends AppController
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            if ($this->Auth->user('account_type') !== 3) {
+                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            }
+        }
+
+        if ($this->Auth->user('account_type') === 1){
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
     }
 }
