@@ -17,6 +17,9 @@
                     <th></th>
                 </tr>
                 </thead>
+                <?php if ($categories->isEmpty()) { ?>
+                    <tr><td>U heeft nog geen categorieën toegevoegd.</td></tr>
+                <?php } ?>
                 <?php
                 foreach($categories as $category){
                     echo "<tr><td>" . $category->id . "</td>";
