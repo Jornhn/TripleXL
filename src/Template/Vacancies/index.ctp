@@ -7,10 +7,10 @@
                 Vacatures
             <?php else: ?>
                 Mijn Vacature('s)
-                <span class="pull-right">
-                        <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
-                    </span>
             <?php endif; ?>
+            <span class="pull-right">
+                <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
+            </span>
         </h1>
         <hr />
         <?= $this->Flash->render('vacancy-error') ?>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
             <?php if ($vacancies->isEmpty()) { ?>
-                <tr><td>U heeft nog geen vacature toegevoegd.</td></tr>
+                <tr><td colspan="6">U heeft nog geen vacature toegevoegd.</td></tr>
             <?php } ?>
             <?php foreach ($vacancies as $vacancy): ?>
                 <tr>
