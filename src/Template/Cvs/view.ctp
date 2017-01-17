@@ -27,7 +27,7 @@
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($cvs->competences as $competence): ?>
-                        <li><?= $competence->competence ?></li>
+                        <span class="label label-info"><?= $competence->competence ?></span>
                     <?php endforeach; ?>
                 </td>
             </tr>

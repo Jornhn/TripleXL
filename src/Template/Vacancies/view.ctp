@@ -23,7 +23,7 @@
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($vacancies->competences as $competence): ?>
-                        <li><?= $competence->competence ?></li>
+                        <span class="label label-info"><?= $competence->competence ?></span>
                     <?php endforeach; ?>
                 </td>
             </tr>
