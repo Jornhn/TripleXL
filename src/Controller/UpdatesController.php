@@ -28,10 +28,15 @@ class UpdatesController extends AppController
         if($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
 
-                $this->request->data['Updates']['user_id'] = $this->Auth->user()['id'];
+                $this->request->data['Updates']['user_id'] = 0;
                 $this->request->data['Updates']['date'] = Time::now();
                 $this->request->data['Updates']['global'] = true;
                 $this->request->data['Updates']['type'] = "U";
+
+                if (empty($this->request->data['Updates']['text'])) {
+                    $this->Flash->set('Vul een bericht in.', ['key' => 'update-error', 'params' => ['class' => 'alert alert-warning']]);
+                    return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+                }
 
                 $entity = $this->Updates->newEntity($this->request->data());
                 if ($this->Updates->save($entity)) {

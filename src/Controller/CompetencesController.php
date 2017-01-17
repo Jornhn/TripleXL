@@ -26,9 +26,21 @@ class CompetencesController extends AppController{
     public function index(){
         if($this->isAuthorized($this->Auth->user())){
             $query = $this->Competences->find();
-            $results = $query->all();
+            $competences = $query->all();
 
-            $this->set('competences', $results);
+            $categories = array();
+
+            foreach ($competences as $key => $competence)
+            {
+                $categoriesCompetences = $this->CategoriesCompetences->find('all', [
+                    'conditions' => [
+                        'CategoriesCompetences.competence_id' => $competence->id
+                    ]
+                ]);
+                $categories[$key] = $this->Categories->get($categoriesCompetences->first()->category_id);
+            }
+
+            $this->set(compact('competences', 'categories'));
         }
     }
 
