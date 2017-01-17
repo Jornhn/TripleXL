@@ -32,22 +32,40 @@
                 </div>
             </div>
         </div>
+        <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
         <div class="col-md-9">
             <div class="default-container">
-                <div class="form-group micropost">
-                    <textarea class="form-control send-data" rows="3" placeholder="Compose Micropost"></textarea>
+                <div class="message-wrapper">
+                    <?= $this->Flash->render('update-error') ?>
+                    <?= $this->Flash->render('update-success') ?>
                 </div>
-                <div class="btn btn-primary send-update"><span class="fa fa-paper-plane-o" aria-hidden="true"></span> Verzend</div>
+
+                <?= $this->Form->create('', ['url' => ['controller' => 'Updates', 'action' => 'create']]) ?>
+                <div class="form-group micropost">
+                    <?= $this->Form->input('text', ['type' => 'textarea', 'rows' => 3, 'placeholder' => 'Verzend een update naar alle gebruikers..', 'class' => 'form-control send-data', 'label' => false]); ?>
+                </div>
+                <?= $this->Form->button('<span class="fa fa-paper-plane-o" aria-hidden="true"></span> Versturen', ['class'=>'btn btn-primary send-updat', 'escape' => false]); ?>
             </div>
         </div>
-
+        <?php } ?>
         <div class="col-md-9">
             <div class="default-container">
+                <h3>Updates</h3>
+                <hr />
                 <div class="update-wrapper">
-
+                    <?php if ($globalUpdates->isEmpty() && $userUpdates->isEmpty()) { ?>
+                        <b>U heeft op dit moment geen updates..</b>
+                    <?php }?>
                     <?php foreach ($globalUpdates as $globalUpdate) { ?>
-                        <div class="update-post">
+                    <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                        <div class="update-post post-deletable">
+                    <?php } else {?>
+                            <div class="update-post">
+                    <?php } ?>
                             <div class="update-image">
+                                <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                                    <?= $this->Html->link("<span class=\"glyphicon glyphicon-trash\"></span>", ['controller' => 'Updates', 'action' => 'delete', $globalUpdate->id], ['class' => 'delete-update', 'escape' => false, 'confirm' => 'Weet u zeker dat u deze update wilt verwijderen?']); ?>
+                                <?php } ?>
                                 <div class="identifier"><?= $globalUpdate->type; ?></div>
                             </div>
                             <div class="update-info">
@@ -58,8 +76,15 @@
                         </div>
                     <?php } ?>
                     <?php foreach ($userUpdates as $userUpdate) { ?>
-                        <div class="update-post">
+                        <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                            <div class="update-post post-deletable">
+                        <?php } else {?>
+                            <div class="update-post">
+                        <?php } ?>
                             <div class="update-image">
+                                <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                                    <?= $this->Html->link("<span class=\"glyphicon glyphicon-trash\"></span>", ['controller' => 'Updates', 'action' => 'delete', $userUpdate->id], ['class' => 'delete-update', 'escape' => false, 'confirm' => 'Weet u zeker dat u deze update wilt verwijderen?']); ?>
+                                <?php } ?>
                                 <div class="identifier"><?= $userUpdate->type; ?></div>
                             </div>
                             <div class="update-info">
@@ -69,18 +94,7 @@
                             </div>
                         </div>
                     <?php } ?>
-
-<!--                    <div class="update-post">-->
-<!--                        <div class="update-image">-->
-<!--                            <div class="identifier">S</div>-->
-<!--                        </div>-->
-<!--                        <div class="update-info">-->
-<!--                            <span class="name">Sven Oortwijn</span>-->
-<!--                            <span class="date">2017-01-26 12:50</span>-->
-<!--                            <p class="message">Lorem ipsum</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-                </div>
+</div>
             </div>
         </div>
     </div>
