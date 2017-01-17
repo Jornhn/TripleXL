@@ -28,22 +28,14 @@ class CvsController extends AppController
 
     public function view($id)
     {
-        $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'Competences']]);
+        $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
-        if (empty($cvs)) {
+        if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
+            $this->set('cvs', $cvs);
+        }
+        else {
             return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
-
-        if ($this->Auth->user('id') !== $cvs->user_id) {
-            if ($this->Auth->user('account_type') !== 3) {
-                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
-            }
-        }
-
-        if ($this->Auth->user('account_type') === 1){
-            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
-        }
-        $this->set('cvs', $cvs);
     }
 
     public function create()
@@ -62,7 +54,7 @@ class CvsController extends AppController
             $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
             $cvs->user_id = $this->Auth->user('id');
             $cvs->video = $this->video;
-            
+
             if ($this->Cvs->save($cvs)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
@@ -87,7 +79,7 @@ class CvsController extends AppController
             'contain' => ['Categories']
         ]);
 
-        if ($this->Auth->user('id') === $cvs->user_id or $cvs->user_id >= 2) {
+        if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");

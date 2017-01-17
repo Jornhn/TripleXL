@@ -1,12 +1,11 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class CompetencesTable extends Table
+class CategoriesCompetencesCvsTable extends Table
 {
     /**
      * Initialize method
@@ -18,7 +17,7 @@ class CompetencesTable extends Table
     {
         parent::initialize($config);
 
-        $this->belongsToMany('Categories');
+        $this->belongsTo('Cvs');
         $this->belongsToMany('CategoriesCompetences');
     }
 
@@ -34,14 +33,7 @@ class CompetencesTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('competence', 'create')
-            ->notEmpty('competence');
-
-        $validator
-            ->requirePresence('competence_description', 'create')
-            ->notEmpty('competence_description');
-
         return $validator;
     }
+
 }
