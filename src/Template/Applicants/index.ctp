@@ -22,7 +22,9 @@
         </tr>
     </thead>
     <tbody>
-
+    <?php if ($users->isEmpty()) { ?>
+        <tr><td>U heeft nog geen sollicitanten toegevoegd.</td></tr>
+    <?php } ?>
         <?php foreach($users as $user): ?>
             <tr>
                 <td><?= $user->id ?></td>
