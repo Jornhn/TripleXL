@@ -20,7 +20,7 @@ class UsersTable extends Table
 
         $this->hasMany('Activities');
         $this->hasMany('Cvs');
-        $this->hasMany('Vacatures');
+        $this->hasMany('Vacancies');
     }
 
     /**

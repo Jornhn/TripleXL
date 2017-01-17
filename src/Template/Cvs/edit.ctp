@@ -3,9 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> CV wijzigen
-            <span class="pull-right">
-                <?php $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
-            </span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <?php echo $this->Form->create($cvs,['class'=>'form-horizontal' ,'type'=>'file']);?>
@@ -40,7 +38,7 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
+                $uri = $this->Url->build(['controller' => 'app', 'action' => 'getCompetences']);
                 echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>

@@ -89,4 +89,14 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
+
+    public function getCompetences()
+    {
+        $formData = $this->request->data;
+        $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
+        $competences = $this->loadModel('CategoriesCompetences')->findByCategory($categoryId);
+
+        header('Content-type: application/json');
+        die(json_encode(['result' => $competences]));
+    }
 }
