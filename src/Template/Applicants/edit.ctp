@@ -9,6 +9,7 @@
         <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
 </h1>
+<hr>
     
     
 <!-- Text input-->

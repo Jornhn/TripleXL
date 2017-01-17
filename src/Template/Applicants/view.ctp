@@ -1,6 +1,11 @@
 <div class="offset"></div>
 <div class="container default-container">
-<h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
+<h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?>
+    <span class="pull-right">
+        <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+    </span>
+</h1>
+<hr>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
             <td>User ID:
@@ -74,7 +79,5 @@
         <?php endforeach; ?>
     </table>
 </div>
-
-<a href="../" class="btn btn-default">Terug</a>
 </div>
 
