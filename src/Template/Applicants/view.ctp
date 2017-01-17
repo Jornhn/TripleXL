@@ -57,11 +57,11 @@
         </tr>
 
 </table>
-<button class="vacature-button-open btn btn-default">Bekijk vacature</button>
-<button class="vacature-button-closed btn btn-default">Sluit vacature</button>
+<button class="vacature-button-open btn btn-info">Bekijk vacature</button>
+<button class="vacature-button-closed btn btn-info">Sluit vacature</button>
     
-<div class="vacature-table">    
-    <h3>Bij behorende vacature</h3>
+<div class="top-space vacature-table">    
+    <h3>Bij behorende CV</h3>
     <table class="col-lg-12 table table-striped">
         <?php foreach($cv as $cvs): ?>
             <tr>

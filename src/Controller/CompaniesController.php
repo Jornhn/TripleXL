@@ -63,5 +63,23 @@ class CompaniesController extends AppController
         
     }
     
+    function edit($id)
+    {
+    
+        if($this->isAuthorized($this->Auth->user())) {
+            
+            $users = $this->Users->get($id);
+            if ($this->request->is(['post', 'put'])) {
+                $this->Users->patchEntity($users, $this->request->data);
+                if ($this->Users->save($users)) {
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('Unable to update your CV.'));
+            }
+            $this->set('users', $users);
+            
+        }
+    }
+    
     
 }
