@@ -18,7 +18,7 @@ class CategoriesCompetencesCvsTable extends Table
         parent::initialize($config);
 
         $this->belongsTo('Cvs');
-        $this->belongsToMany('CategoriesCompetences');
+        $this->belongsTo('CategoriesCompetences');
     }
 
     /**
