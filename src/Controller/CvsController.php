@@ -30,6 +30,10 @@ class CvsController extends AppController
     {
         $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'Competences']]);
 
+        if (empty($cvs)) {
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+        }
+
         if ($this->Auth->user('id') !== $cvs->user_id) {
             if ($this->Auth->user('account_type') !== 3) {
                 return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
@@ -83,7 +87,7 @@ class CvsController extends AppController
             'contain' => ['Categories']
         ]);
 
-        if ($this->Auth->user('id') === $cvs->user_id) {
+        if ($this->Auth->user('id') === $cvs->user_id or $cvs->user_id >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");
@@ -125,7 +129,8 @@ class CvsController extends AppController
     public function delete($id)
     {
         $cvs = $this->Cvs->get($id);
-        if ($this->Auth->user('id') === $cvs->user_id) {
+
+        if ($this->Auth->user('id') === $cvs->user_id or $cvs->user_id >= 2) {
             $this->request->allowMethod(['post', 'delete']);
             if ($this->Cvs->delete($cvs)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
