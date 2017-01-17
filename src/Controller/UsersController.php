@@ -14,6 +14,15 @@ use Cake\Event\Event;
 class UsersController extends AppController
 {
 
+    public function isAuthorized($user)
+    {
+        if (isset($user['account_type']) && $user['account_type'] >= '2') {
+            return true;
+        }
+        $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
+    }
+
     public function index()
     {
         $this->set('users', $this->Users->find('all'));
@@ -21,8 +30,38 @@ class UsersController extends AppController
 
     public function view($id)
     {
+        if (empty($id) || !isset($id))
+        {
+            $id = $this->Auth->user('id');
+        } else {
+            $this->isAuthorized($this->Auth->user());
+        }
+
         $user = $this->Users->get($id);
         $this->set(compact('user'));
+    }
+
+    public function edit($id = null){
+
+        if (empty($id) || !isset($id))
+        {
+            $id = $this->Auth->user('id');
+        } else {
+            $this->isAuthorized($this->Auth->user());
+        }
+
+        $user = $this->Users->get($id);
+        $this->set('manager', $user);
+
+        if ($this->request->is("put")) {
+            $entity = $this->Users->patchEntity($user, $this->request->data);
+            if ($this->Users->save($entity)) {
+                $this->Auth->setUser($entity);
+                $this->Flash->set('Uw account is succesvol opgeslagen.', ['key' => 'manager-success', 'params' => ['class' => 'alert alert-success']]);
+                return $this->redirect(['controller' => 'users', 'action' => 'view']);
+            }
+            $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'manager-error', 'params' => ['class' => 'alert alert-danger']]);
+        }
     }
 
     public function login()

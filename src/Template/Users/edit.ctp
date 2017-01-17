@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Beheerder wijzigen <?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
+        <h1>Account wijzigen <?=$this->Html->link("Terug", ['action' => 'view'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('manager-error') ?>
         <?=$this->Form->create($manager,['class'=>'form-horizontal']);?>
@@ -85,9 +85,29 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="email">E-mail</label>
             <div class="col-md-6">
-                <?=$this->Form->input('email', ['type'=>'email', 'id'=>'email', 'class'=>'form-control ', 'div'=> false, 'label'=> false]); ?>
+                <?=$this->Form->input('email', ['type'=>'text', 'id'=>'email', 'class'=>'form-control ', 'div'=> false, 'label'=> false]); ?>
             </div>
         </div>
+
+        <?php if ($this->request->session()->read('Auth.User.account_type') >= 1) { ?>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="company_name">Bedrijfsnaam</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('company_name', ['type'=>'text', 'id'=>'company_name', 'class'=>'form-control ', 'div'=> false, 'label'=> false]); ?>
+            </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="website">Website</label>
+            <div class="col-md-6">
+                <?=$this->Form->input('website', ['type'=>'text', 'id'=>'website', 'class'=>'form-control ', 'div'=> false, 'label'=> false]); ?>
+            </div>
+        </div>
+
+        <?php } ?>
 
         <hr>
         <!-- Button -->

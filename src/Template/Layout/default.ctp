@@ -32,6 +32,8 @@
                                     <li><?= $this->Html->link("Bedrijven", ['controller' => 'Companies', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Categorieën", ['controller' => 'Categories', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Competenties", ['controller' => 'Competences', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
                                     <?php if ($this->request->session()->read('Auth.User.account_type') == 3) { ?>
                                     <li role="separator" class="divider"></li>
