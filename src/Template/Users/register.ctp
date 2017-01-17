@@ -2,7 +2,7 @@
 <div class="container">
     <div class="col-xs-12 login-container">
         <?= $this->Flash->render('register-error') ?>
-        <?= $this->Form->create($user, ['id' => 'register-form']) ?>
+        <?= $this->Form->create($user, ['id' => 'register-form', 'data-toggle' => 'validator', 'role' => 'form']) ?>
         <div class="register-step" id="step-1">
             <h4>Registeren - Stap 1</h4>
             <div class="form-group">
@@ -27,15 +27,18 @@
             </div>
             <div class="form-group">
                 <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false, 'label' => 'Voornaam']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('insertion', ['class' => 'form-control', 'id' => 'inputInsrtion', 'error' => false, 'label' => 'Tussenvoegsel']) ?>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('lastname', ['class' => 'form-control', 'id' => 'inputLastname', 'error' => false, 'label' => 'Achternaam']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('phone_number', ['type' => 'tel', 'class' => 'form-control', 'id' => 'inputPhonenumber', 'error' => false, 'label' => 'Telefoonnummer']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group company">
                 <?= $this->Form->input('company_name', ['type' => 'text', 'class' => 'form-control', 'id' => 'inputCompany', 'error' => false, 'label' => 'Bedrijfsnaam']) ?>
@@ -52,12 +55,15 @@
             <p>Uw adres gegevens</p>
             <div class="form-group">
                 <?= $this->Form->input('adress', ['class' => 'form-control', 'id' => 'inputAdress', 'error' => false, 'label' => 'Adres']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('zip_code', ['class' => 'form-control', 'id' => 'inputZipcode', 'error' => false, 'label' => 'Postcode']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('place', ['class' => 'form-control', 'id' => 'inputPlace', 'error' => false, 'label' => 'Plaatsnaam']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
             <button class="btn btn-default next pull-right">Volgende</button>
@@ -68,9 +74,15 @@
             <p>Uw login gegevens</p>
             <div class="form-group">
                 <?= $this->Form->input('email', ['class' => 'form-control', 'id' => 'inputEmail', 'error' => false, 'label' => 'E-mail']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label' => 'Wachtwoord']) ?>
+                <?= $this->Form->input('password', ['class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label' => 'Wachtwoord', 'data-minlength' => 6, 'data-error' => 'Uw gekozen wachtwoord is niet lang genoeg. Minimaal 6 karakters!']) ?>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <?= $this->Form->input('passwordConfirm', ['type'=> 'password', 'class' => 'form-control', 'id' => 'inputPasswordConfirm', 'error' => false, 'label' => 'Wachtwoord herhalen', 'data-match' => '#inputPassword', 'data-match-error' => 'Wachtwoorden komen niet overeen!']) ?>
+                <div class="help-block with-errors"></div>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
             <?= $this->Form->button(__('Registreer'), ['class' => 'btn btn-primary pull-right register']); ?>
