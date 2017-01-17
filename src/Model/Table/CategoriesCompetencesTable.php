@@ -6,7 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class CategoryCompetencesTable extends Table
+class CategoriesCompetencesTable extends Table
 {
 
     /**
@@ -58,6 +58,6 @@ class CategoryCompetencesTable extends Table
         return $this->find('all', ['keyField' => 'competence.id', 'valueField' => 'competences.competence'])
             ->hydrate(false)
             ->contain(['Competences'])
-            ->where(['CategoryCompetences.category_id' => $categoryId]);
+            ->where(['CategoriesCompetences.category_id' => $categoryId]);
     }
 }
