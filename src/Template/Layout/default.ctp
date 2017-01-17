@@ -31,7 +31,7 @@
                                     <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Applicants', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Bedrijven", ['controller' => 'Companies', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
-                                    <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacancies', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
                                     <?php if ($this->request->session()->read('Auth.User.account_type') == 3) { ?>
                                     <li role="separator" class="divider"></li>
@@ -46,7 +46,7 @@
                                 <?php if ($this->request->session()->read('Auth.User.account_type') == 0 || $this->request->session()->read('Auth.User.account_type') > 1) { ?>
                                     <li><?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                 <?php } if ($this->request->session()->read('Auth.User.account_type') >= 1) { ?>
-                                    <li><?= $this->Html->link("Mijn Vacature('s)", ['controller' => 'Vacancies', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Mijn Vacature('s)", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
                                 <?php } ?>
                                 <li role="separator" class="divider"></li>
                                 <li><?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'menu-logout'])?></li>
