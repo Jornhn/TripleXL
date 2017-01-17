@@ -18,16 +18,29 @@ class CompetencesController extends AppController{
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
             return true;
         }
-        return false;
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
+
     }
 
     public function index(){
         if($this->isAuthorized($this->Auth->user())){
             $query = $this->Competences->find();
-            $results = $query->all();
+            $competences = $query->all();
 
-            $this->set('competences', $results);
+            $categories = array();
+
+            foreach ($competences as $key => $competence)
+            {
+                $categoriesCompetences = $this->CategoriesCompetences->find('all', [
+                    'conditions' => [
+                        'CategoriesCompetences.competence_id' => $competence->id
+                    ]
+                ]);
+                $categories[$key] = $this->Categories->get($categoriesCompetences->first()->category_id);
+            }
+
+            $this->set(compact('competences', 'categories'));
         }
     }
 

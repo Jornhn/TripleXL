@@ -19,6 +19,7 @@ class CompetencesTable extends Table
         parent::initialize($config);
 
         $this->belongsToMany('Categories');
+        $this->belongsToMany('CategoriesCompetences');
     }
 
     /**
