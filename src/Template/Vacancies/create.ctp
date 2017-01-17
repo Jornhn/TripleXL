@@ -2,8 +2,8 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1> CV toevoegen
-            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
+        <h1> Vacature toevoegen
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <?php echo $this->Form->create('',['class'=>'form-horizontal' ,'type'=>'file']);?>
@@ -24,14 +24,6 @@
             </div>
         </div>
 
-        <!-- Textarea -->
-        <div class="form-group">
-            <label class="col-md-3 control-label" for="motivation">Motivatie</label>
-            <div class="col-md-6">
-                <?php echo $this->Form->input('motivation', ['type'=>'textarea', 'id'=>'motivation', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-            </div>
-        </div>
-
         <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-3 control-label" for="category">Categorie</label>
@@ -48,14 +40,6 @@
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
                 <?php echo $this->Form->input('competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
-            </div>
-        </div>
-
-        <!-- File Button -->
-        <div class="form-group">
-            <label class="col-md-3 control-label" for="video">Video</label>
-            <div class="col-lg-6">
-                <?php echo $this->Form->file('video'); ?>
             </div>
         </div>
         <hr>
