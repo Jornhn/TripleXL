@@ -20,7 +20,10 @@
             <h4>Registeren - Stap 2</h4>
             <p>Uw contact gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('salutation', ['class' => 'form-control', 'id' => 'inputSalutation', 'error' => false, 'label' => 'Aanhef']) ?>
+                <?= $this->Form->input('salutation',['type'=>'select','class'=>'form-control ','options'=> [
+                    'Dhr.'=>'Dhr.',
+                    'Mevr.'=>'Mevr.',
+                ],'div'=>false,'label'=>false]); ?>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false, 'label' => 'Voornaam']) ?>
@@ -116,14 +119,13 @@
             e.preventDefault();
         });
 
-        $('#inputPassword, #inputEmail').keyup(function(e){
-            e.preventDefault();
-           if(e.keyCode == 13)
-           {
-               $('#register-form').submit();
-           }
 
-           return false;
+        $('#register-form').on('keyup keypress', function(e) {
+            var keyCode = e.keyCode || e.which;
+            if (keyCode === 13) {
+                e.preventDefault();
+                return false;
+            }
         });
     });
 </script>

@@ -16,6 +16,7 @@ class ApplicantsController extends AppController
 
         $this->loadModel('Users');
         $this->loadModel('Cvs');
+        
     }
     
     
@@ -27,6 +28,7 @@ class ApplicantsController extends AppController
         }
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
         return false;
+        
     }
     
     
