@@ -16,6 +16,7 @@ class CompaniesController extends AppController
         parent::__construct($request, $response, $name, $eventManager, $components);
 
         $this->loadModel('Users');
+        $this->loadModel('Vacancies');
     }
     
     public function isAuthorized($user)
@@ -79,6 +80,21 @@ class CompaniesController extends AppController
             $this->set('users', $users);
             
         }
+    }
+    
+    function view($id)
+    {
+        
+        if($this->isAuthorized($this->Auth->user())) {
+            
+            $users = $this->Users->get($id);
+            $this->set('users', $users);
+
+            $vacancies = $this->Vacancies->find('all')->where(['user_id =' => $id]);
+            $this->set(compact('vacancies'));
+            
+        }
+        
     }
     
     

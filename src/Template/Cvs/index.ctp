@@ -7,11 +7,10 @@
                 CV's
             <?php else: ?>
                 Mijn CV('s)
-                <span class="pull-right">
-                    <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
-                </span>
             <?php endif; ?>
-
+            <span class="pull-right">
+                <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
+            </span>
         </h1>
         <hr />
         <?= $this->Flash->render('cv-error') ?>
@@ -30,7 +29,7 @@
             </thead>
             <tbody>
             <?php if ($cvs->isEmpty()) { ?>
-                <tr><td colspan="7">U heeft nog geen CV('s) toegevoegd.</td></tr>
+                <tr><td colspan="7">U heeft nog geen CV toegevoegd.</td></tr>
             <?php } ?>
             <?php foreach ($cvs as $cv): ?>
                 <tr>
