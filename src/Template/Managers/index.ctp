@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <?php if ($managers->isEmpty()) { ?>
-                    <tr><td>U heeft nog geen beheerders toegevoegd.</td></tr>
+                    <tr><td colspan="9">U heeft nog geen beheerders toegevoegd.</td></tr>
                 <?php } ?>
                 <?php
                 foreach($managers as $manager){
