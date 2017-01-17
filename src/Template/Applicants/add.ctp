@@ -9,7 +9,9 @@
         <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
 </h1>
+<hr>
 
+    
 <!-- Text input-->
 <div class="form-group top-space hidden">
   <label class="col-md-3 control-label" for="id">#</label>

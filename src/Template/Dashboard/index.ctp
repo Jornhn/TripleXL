@@ -18,15 +18,16 @@
                 </div>
 
                 <div class="info-matches">
-                    <?php if ($this->request->session()->read('Auth.User.account_type') == 0 || $this->request->session()->read('Auth.User.account_type') > 1) { ?>
-                        <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
-                        <?= $this->Html->link("Mijn Matches <span class=\"badge\">420</span>", ['controller' => 'Matches', 'action' => 'index'], ['class' => 'btn btn-default', 'escape' => false])?>
-                    <?php } ?>
-                    <?php if ($this->request->session()->read('Auth.User.account_type') >= 1) { ?>
+                    <?php if ($this->request->session()->read('Auth.User.account_type') === 1): ?>
                         <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
-                    <?php } ?>
-
-                    <?= $this->Html->link("Instellingen", ['controller' => 'Users', 'action' => 'view'], ['class' => 'btn btn-default'])?>
+                    <?php elseif ($this->request->session()->read('Auth.User.account_type') === 0): ?>
+                        <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
+                    <?php else: ?>
+                        <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
+                        <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
+                    <?php endif; ?>
+                    <?= $this->Html->link("Mijn Matches <span class=\"badge\">420</span>", ['controller' => 'Matches', 'action' => 'index'], ['class' => 'btn btn-default', 'escape' => false])?>
+                    <?= $this->Html->link("Instellingen", ['controller' => 'Users', 'action' => 'settings'], ['class' => 'btn btn-default'])?>
                     <?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'btn btn-danger logout'])?>
                 </div>
             </div>

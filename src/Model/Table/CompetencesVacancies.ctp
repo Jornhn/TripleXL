@@ -1,12 +1,11 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacancyCvsTable extends Table
+class CompetencesVacancies extends Table
 {
     /**
      * Initialize method
@@ -18,8 +17,8 @@ class VacancyCvsTable extends Table
     {
         parent::initialize($config);
 
-        $this->belongsTo('Cvs');
         $this->belongsTo('Vacancies');
+        $this->belongsTo('Competences');
     }
 
     /**
@@ -46,8 +45,8 @@ class VacancyCvsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['cv_id'], 'Cvs'));
-        $rules->add($rules->existsIn(['vacature_id'], 'Vacancies'));
+        $rules->add($rules->existsIn(['vacancies_id'], 'Vacancies'));
+        $rules->add($rules->existsIn(['category_id'], 'Categories'));
 
         return $rules;
     }

@@ -4,7 +4,7 @@
 <fieldset>
 
 <!-- Form Name -->
-<h1>Edit: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?>
+<h1>Edit: <?= $users->company_name ?>
     <span class="pull-right">
         <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
@@ -105,7 +105,7 @@
 </div>
 
 <!-- Text input-->
-<div class="form-group hidden">
+<div class="form-group">
   <label class="col-md-3 control-label" for="company_name">Bedrijfsnaam</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('company_name', ['type'=>'text', 'id'=>'company_name', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>

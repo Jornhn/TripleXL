@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> Details: <?= $cvs->title ?>
-            <span class="pull-right"><?= $this->Html->link("Terug...", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <table class="top-space col-lg-12 table table-striped">
@@ -27,7 +27,7 @@
                 <th>Compententies</th>
                 <td>
                     <?php foreach ($cvs->competences as $competence): ?>
-                        <li><?= $competence->competence ?></li>
+                        <span class="label label-info"><?= $competence->competence ?></span>
                     <?php endforeach; ?>
                 </td>
             </tr>
