@@ -21,7 +21,12 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody> 
+        <?php if($users->isEmpty()){ ?>
+            
+            <tr><td colspan="8">U heeft nog geen Sollicitant(en) toegevoegd.</td></tr>
+            
+        <?php }else{ ?>
 
         <?php foreach($users as $user): ?>
             <tr>
@@ -34,7 +39,7 @@
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
                 <td> <?= $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['confirm' => 'Weet u zeker dat u ' . $user->firstname .' wilt verwijderen?', 'class' => 'btn btn-danger']) ?></td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach; } ?>
 
     </tbody>
     </table>
