@@ -28,7 +28,7 @@
             </thead>
             <tbody>
             <?php if ($vacancies->isEmpty()) { ?>
-                <tr><td>U heeft nog geen Vacature('s) toegevoegd.</td></tr>
+                <tr><td>U heeft nog geen vacature toegevoegd.</td></tr>
             <?php } ?>
             <?php foreach ($vacancies as $vacancy): ?>
                 <tr>
