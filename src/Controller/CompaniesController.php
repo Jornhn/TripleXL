@@ -43,5 +43,25 @@ class CompaniesController extends AppController
    
     }
     
+    function add()
+    {
+        
+        if($this->isAuthorized($this->Auth->user())) {
+        
+            $users = $this->Users->newEntity();
+            if ($this->request->is('post')) {
+                $users = $this->Users->patchEntity($users, $this->request->data);
+                if ($this->Users->save($users)) {
+                    $this->Flash->success(__('Your CV has been saved.'));
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('Unable to add your CV.'));
+            }
+            $this->set('users', $users);
+            
+        }
+        
+    }
+    
     
 }
