@@ -16,6 +16,15 @@
                 <tr>
                     <td>Beschrijving</td><td><?=$category->category_description?></td>
                 </tr>
+                <tr>
+                    <td>Competenties</td>
+                    <td><?php
+                        foreach ($competences as $competence){
+
+                           echo  "<span class=\"label label-info\">". $competence['competence']['competence'] . "</span> ";
+                        }?>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>

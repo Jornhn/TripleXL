@@ -6,6 +6,14 @@ use Cake\Network\Response;
 
 class CategoriesController extends AppController{
 
+
+    public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
+    {
+        parent::__construct($request, $response, $name, $eventManager, $components);
+        $this->loadModel('Competences');
+        $this->loadModel('CategoriesCompetences');
+    }
+
     public function isAuthorized($user){
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
             return true;
@@ -29,7 +37,10 @@ class CategoriesController extends AppController{
                 throw new NotFoundException;
             }
             $category = $this->Categories->get($id);
+            $competences = $this->loadModel('CategoriesCompetences')->findByCategory($id);
+
             $this->set('category', $category);
+            $this->set('competences', $competences);
         }
     }
 
