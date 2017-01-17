@@ -38,9 +38,10 @@ class CategoriesController extends AppController{
             }
             $category = $this->Categories->get($id);
             $competences = $this->loadModel('CategoriesCompetences')->findByCategory($id);
-
+            if(!empty($competences)){
+                $this->set('competences', $competences);
+            }
             $this->set('category', $category);
-            $this->set('competences', $competences);
         }
     }
 
