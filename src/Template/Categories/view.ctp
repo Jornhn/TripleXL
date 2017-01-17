@@ -24,7 +24,7 @@
                             echo "<span class=\"label label-info\">Geen gekoppelde competenties</span>";
                         }else{
                             foreach($competences as $competence) {
-                                echo "<span class=\"label label-info\">" . $competence['competence']['competence'] . "</span> ";
+                                echo "<span class=\"label label-info\" title=\"" . $competence['competence']['competence_description'] . "\">" . $competence['competence']['competence'] . "</span> ";
                             }
                         }
                         ?>
