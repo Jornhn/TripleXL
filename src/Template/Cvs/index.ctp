@@ -2,10 +2,16 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1> Mijn CV('s)
-            <span class="pull-right">
-                <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
-            </span>
+        <h1>
+            <?php if ($this->request->session()->read('Auth.User.account_type') >= 2): ?>
+                CV's
+            <?php else: ?>
+                Mijn CV('s)
+                <span class="pull-right">
+                    <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
+                </span>
+            <?php endif; ?>
+
         </h1>
         <hr />
         <?= $this->Flash->render('cv-error') ?>

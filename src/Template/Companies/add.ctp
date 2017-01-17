@@ -4,23 +4,32 @@
 <fieldset>
 
 <!-- Form Name -->
-<h1>Edit: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?>
+<h1>Toevoegen
     <span class="pull-right">
         <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
 </h1>
 <hr>
-    
+
     
 <!-- Text input-->
-<div class="form-group top-space">
+<div class="form-group top-space hidden">
   <label class="col-md-3 control-label" for="id">#</label>
   <div class="col-md-6">
     <?php echo $this->Form->input('id', ['type'=>'text', 'id'=>'user_id', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'disabled'=>'true']); ?>
-    
   </div>
 </div>
-
+    
+<!-- Select Basic -->
+<div class="form-group hidden">
+  <label class="col-md-3 control-label" for="account-type">account-type</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('account_type',['type'=>'select','class'=>'form-control ','options'=> [
+      '1'=>'1',
+    ],'div'=>false,'label'=>false]); ?>
+  </div>
+</div>
+    
 <!-- Select Basic -->
 <div class="form-group">
   <label class="col-md-3 control-label" for="salution">Aanhef</label>
@@ -95,21 +104,12 @@
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="email">E-mail</label>
-  <div class="col-md-6">
-    <?php echo $this->Form->input('email', ['type'=>'text', 'id'=>'email', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-    
-  </div>
-</div>
 
 <!-- Text input-->
-<div class="form-group hidden">
+<div class="form-group">
   <label class="col-md-3 control-label" for="company_name">Bedrijfsnaam</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('company_name', ['type'=>'text', 'id'=>'company_name', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-    
+    <?php echo $this->Form->input('company_name', ['type'=>'text', 'id'=>'company_name', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?> 
   </div>
 </div>
 
@@ -122,14 +122,33 @@
 </div>
 </div>
     
-    <hr>
-    
-<!-- Button -->
+<!-- Text input-->
 <div class="form-group">
-    <div class="col-lg-6">
+  <label class="col-md-3 control-label" for="email">E-mail</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('email', ['type'=>'text', 'id'=>'email', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+    
+  </div>
+</div>
+    
+<!-- Text input-->
+
+<div class="form-group">
+  <label class="col-md-3 control-label" for="password">Password</label>
+  <div class="col-md-6">
+    <?php echo $this->Form->input('password', ['type'=>'password', 'class' => 'form-control', 'id' => 'inputPassword', 'error' => false, 'label'=>false]) ?>
+    </div>
+</div>
+    
+      <hr>
+      
+<!-- Button -->
+<div class="form-group">    
+    <div class="col-md-6">
         <button id="save" name="save" class="btn btn-primary">Opslaan</button> 
     </div>
 </div>
+    
 
 </fieldset>
 <?php echo $this->Form->end(); ?>

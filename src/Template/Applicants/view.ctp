@@ -1,6 +1,11 @@
 <div class="offset"></div>
 <div class="container default-container">
-<h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?></h1>
+<h1>Details: <?= $users->firstname. ' ', $users->insertion. ' ', $users->lastname ?>
+    <span class="pull-right">
+        <?= $this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?>
+    </span>
+</h1>
+<hr>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
             <td>User ID:
@@ -52,11 +57,11 @@
         </tr>
 
 </table>
-<button class="vacature-button-open btn btn-default">Bekijk vacature</button>
-<button class="vacature-button-closed btn btn-default">Sluit vacature</button>
+<button class="vacature-button-open btn btn-info">Bekijk vacature</button>
+<button class="vacature-button-closed btn btn-info">Sluit vacature</button>
     
-<div class="vacature-table">    
-    <h3>Bij behorende vacature</h3>
+<div class="top-space vacature-table">    
+    <h3>Bij behorende CV</h3>
     <table class="col-lg-12 table table-striped">
         <?php foreach($cv as $cvs): ?>
             <tr>
@@ -74,7 +79,5 @@
         <?php endforeach; ?>
     </table>
 </div>
-
-<a href="../" class="btn btn-default">Terug</a>
 </div>
 

@@ -47,8 +47,8 @@ class CategoriesCompetencesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['category_id'], 'Category'));
-        $rules->add($rules->existsIn(['competence_id'], 'Competence'));
+        $rules->add($rules->existsIn(['category_id'], 'Categories'));
+        $rules->add($rules->existsIn(['competence_id'], 'Competences'));
 
         return $rules;
     }
