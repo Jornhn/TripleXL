@@ -17,6 +17,9 @@
                     <th></th>
                 </tr>
                 </thead>
+                <?php if ($competences->isEmpty()) { ?>
+                    <tr><td>U heeft nog geen competenties toegevoegd.</td></tr>
+                <?php } ?>
                 <?php
                 foreach($competences as $competence){
                     echo "<tr><td>" . $competence->id . "</td>";

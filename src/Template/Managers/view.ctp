@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Details: <?= $manager->firstname . " " . $manager->lastname?><?=$this->Html->link("Terug naar het overzicht", ['action' => 'index'], ['class' => 'btn btn-primary pull-right']).' ';?></h1>
+        <h1>Details: <?= $manager->firstname . " " . $manager->lastname?><?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <br>
         <?= $this->Flash->render() ?>

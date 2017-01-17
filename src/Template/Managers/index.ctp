@@ -21,6 +21,9 @@
                         <th></th>
                     </tr>
                 </thead>
+                <?php if ($managers->isEmpty()) { ?>
+                    <tr><td>U heeft nog geen beheerders toegevoegd.</td></tr>
+                <?php } ?>
                 <?php
                 foreach($managers as $manager){
                     echo "<tr><td>" . $manager->id . "</td>";
@@ -31,7 +34,7 @@
                     echo "<td>" . $manager->email . "</td>";
                     echo "<td>" . $this->Html->link("View", ['controller' => 'beheerders', 'action' => 'view/' . $manager->id], ['class' => 'btn btn-info']) . "</td>";
                     echo "<td>" . $this->Html->link("Edit", ['controller' => 'beheerders', 'action' => 'edit/' . $manager->id], ['class' => 'btn btn-primary']) . "</td>";
-                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) . "</td>";
+                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger', 'confirm' => 'Weet je zeker dat je ' . $manager->firstname . ' ' . $manager->lastname . ' wilt verwijderen?']) . "</td>";
                 }
                 ?>
             </table>
