@@ -111,9 +111,7 @@ class CvsController extends AppController
             }
         }
         else {
-            if ($this->Auth->user('account_type') !== 3) {
-                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
-            }
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
 
         if ($this->Auth->user('account_type') === 1){
@@ -130,17 +128,15 @@ class CvsController extends AppController
     {
         $cvs = $this->Cvs->get($id);
 
-        if ($this->Auth->user('id') === $cvs->user_id or $cvs->user_id >= 2) {
-            $this->request->allowMethod(['post', 'delete']);
+        if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
+            $this->request->allowMethod(['post', 'delete', 'get']);
             if ($this->Cvs->delete($cvs)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
         }
         else {
-            if ($this->Auth->user('account_type') !== 3) {
-                return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
-            }
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
 
         if ($this->Auth->user('account_type') === 1){
