@@ -18,8 +18,9 @@ class CompetencesController extends AppController{
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
             return true;
         }
-        return false;
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
+
     }
 
     public function index(){

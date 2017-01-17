@@ -18,8 +18,10 @@ class UpdatesController extends AppController
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
             return true;
         }
-        return false;
+
         $this->redirect(array('controller' => 'dashboard', 'action' => 'index'));
+        return false;
+
     }
 
     public function create(){
@@ -39,6 +41,8 @@ class UpdatesController extends AppController
                 $this->Flash->set('Er ging iets mis! Probeer het opnieuw.', ['key' => 'update-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
+
+        return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
     }
 
     public function delete($id = null) {
