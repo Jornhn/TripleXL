@@ -30,7 +30,7 @@
             </thead>
             <tbody>
             <?php if ($cvs->isEmpty()) { ?>
-                <tr><td>U heeft nog geen CV('s) toegevoegd.</td></tr>
+                <tr><td colspan="7">U heeft nog geen CV('s) toegevoegd.</td></tr>
             <?php } ?>
             <?php foreach ($cvs as $cv): ?>
                 <tr>

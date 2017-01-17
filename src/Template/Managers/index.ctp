@@ -21,6 +21,9 @@
                         <th></th>
                     </tr>
                 </thead>
+                <?php if ($managers->isEmpty()) { ?>
+                    <tr><td>U heeft nog geen beheerders toegevoegd.</td></tr>
+                <?php } ?>
                 <?php
                 foreach($managers as $manager){
                     echo "<tr><td>" . $manager->id . "</td>";
