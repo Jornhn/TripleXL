@@ -38,7 +38,7 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
+                $uri = $this->Url->build(['controller' => 'app', 'action' => 'getCompetences']);
                 echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>
