@@ -41,3 +41,20 @@ $('#category-id').on('change', function() {
         $('#competences-ids').html(html.join(''));
     });
 });
+
+//Custom Alert
+
+function confirmation(id){
+        swal({
+              title: 'Weet u het zeker dat u wilt verwijderen?',
+              text: "Het kan niet terug worden gezet",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ja, Verwijder!'
+            }).then(function () {
+              window.location.href = window.location.href + "/delete/" + id;
+        })
+}
+

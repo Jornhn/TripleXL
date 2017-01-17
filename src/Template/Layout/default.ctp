@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <?= $this->Html->css('style.css') ?>
+    <link href="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.min.css" rel="stylesheet">
 </head>
 <body class="home">
     <nav class="navbar navbar-fixed-top navbar-default">
@@ -60,6 +61,7 @@
     <?= $this->fetch('content') ?>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.min.js"></script>
     <?= $this->Html->script('custom.js') ?>
     <script>
         $(function() {
