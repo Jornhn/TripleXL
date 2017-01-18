@@ -32,11 +32,8 @@ class CategoriesController extends AppController{
 
     public function view($id = null){
         if($this->isAuthorized($this->Auth->user())) {
-            if (empty($id)) {
-                throw new NotFoundException;
-            }
             $category = $this->Categories->get($id);
-            $competences = $this->loadModel('CategoriesCompetences')->findByCategory($id);
+            $competences = $this->loadModel('CategoriesCompetences')->find('all', ['keyField' => 'competences.id', 'valueField' => 'competences.title'])->where(['category_id' => $id]);
 
             $this->set('competences', $competences);
             $this->set('category', $category);
