@@ -21,13 +21,16 @@
                     <tr><td>U heeft nog geen categorieën toegevoegd.</td></tr>
                 <?php } ?>
                 <?php
-                foreach($categories as $category){
-                    echo "<tr><td>" . $category->id . "</td>";
-                    echo "<td>" . $category->category . "</td>";
-                    echo "<td>" . $this->Html->link("View", ['controller' => 'categorieën', 'action' => 'view/' . $category->id], ['class' => 'btn btn-info']) . "</td>";
-                    echo "<td>" . $this->Html->link("Edit", ['controller' => 'categorieën', 'action' => 'edit/' . $category->id], ['class' => 'btn btn-primary']) . "</td>";
-                    echo "<td>" . $this->Form->postLink("Delete", ['controller' => 'categorieën', 'action' => 'delete/' . $category->id], ['class' => 'btn btn-danger', 'confirm' => 'Weet je zeker dat je ' . $category->category . ' wilt verwijderen?']) . "</td>";
-                }
+                foreach($categories as $category){ ?>
+                    <tr>
+                        <td><?=$category->id?></td>
+                        <td><?=$category->category?></td>
+                        <td><?=$this->Html->link("View", ['controller' => 'categorieën', 'action' => 'view/' . $category->id], ['class' => 'btn btn-info'])?></td>
+                        <td><?=$this->Html->link("Edit", ['controller' => 'categorieën', 'action' => 'edit/' . $category->id], ['class' => 'btn btn-primary'])?></td>
+                        <td><button onclick="confirmation(<?= $category->id ?>)" class="btn btn-danger">Verwijderen</button></td>
+                    </tr>
+                <?php
+                    }
                 ?>
             </table>
         </div>

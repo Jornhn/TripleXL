@@ -99,7 +99,7 @@ class VacanciesController extends AppController
     {
         $vacancies = $this->Vacancies->get($id);
         if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
-            $this->request->allowMethod(['post', 'delete']);
+            $this->request->allowMethod(['post', 'delete', 'get']);
             if ($this->Vacancies->delete($vacancies)) {
                 $this->Flash->set('Uw vacature is verwijderd!', ['key' => 'vacancy-success','params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
