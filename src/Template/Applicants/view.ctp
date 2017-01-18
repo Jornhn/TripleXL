@@ -8,57 +8,48 @@
 <hr>
 <table class="top-space col-lg-12 table table-striped">
         <tr>
-            <td>User ID:
+            <th>User ID:</th>
             <td><?= $users->id ?></td>
         </tr>
         <tr>
-            <td>Aanhef: </td>
+            <th>Aanhef: </th>
             <td><?= $users->salutation ?></td>
         </tr>
         <tr>
-            <td>Voornaam: </td>
+            <th>Voornaam: </th>
             <td><?= $users->firstname ?></td>
         </tr>
         <tr>
-            <td>Tussenvoegsel: </td>
+            <th>Tussenvoegsel: </th>
             <td><?= $users->insertion ?></td>
         </tr>
         <tr>
-            <td>Achternaam: </td>
+            <th>Achternaam: </th>
             <td><?= $users->lastname ?></td>
         </tr>
         <tr>
-            <td>Adres: </td>
+            <th>Adres: </th>
             <td><?= $users->adress ?></td>
         </tr>
         <tr>
-            <td>Postcode: </td>
+            <th>Postcode: </th>
             <td><?= $users->zip_code ?></td>
         </tr>
         <tr>
-            <td>Plaats: </td>
+            <th>Plaats: </th>
             <td><?= $users->place ?></td>
         </tr>
         <tr>
-            <td>Telefoon nummer: </td>
+            <th>Telefoon nummer: </th>
             <td><?= $users->phone_number ?></td>
         </tr>
         <tr>
-            <td>Email: </td>
+            <th>Email: </th>
             <td><?= $users->email ?></td>
         </tr>
-        <tr>
-            <td>Website: </td>
-            <td><?= $users->website ?></td>
-        </tr>
-        <tr>
-            <td>Account type: </td>
-            <td><?= $users->account_type ?></td>
-        </tr>
-
 </table>
-<button class="vacature-button-open btn btn-info">Bekijk vacature</button>
-<button class="vacature-button-closed btn btn-info">Sluit vacature</button>
+<button class="vacature-button-open btn btn-info">Bekijk CV</button>
+<button class="vacature-button-closed btn btn-info">Sluit CV</button>
     
 <div class="top-space vacature-table">    
     <h3>Bij behorende CV</h3>

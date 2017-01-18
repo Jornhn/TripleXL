@@ -19,6 +19,9 @@
             <thead>
             <tr>
                 <th>#</th>
+                <?php if (!empty($first_cv)) : ?>
+                    <th>Gebruiker</th>
+                <?php endif; ?>
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Motivatie</th>
@@ -35,6 +38,9 @@
             <?php foreach ($cvs as $cv): ?>
                 <tr>
                     <td><?= $cv->id ?></td>
+                    <?php if (!empty($cv->user)) :?>
+                        <td><?= $cv->user->firstname?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
+                    <?php endif; ?>
                     <td><?= $cv->title ?></td>
                     <td><?= $cv->text ?></td>
                     <td><?= $cv->motivation ?></td>
@@ -50,7 +56,7 @@
                     </td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $cv->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $cv->id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $cv->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
+                    <td><button onclick="confirmation(<?= $cv->id ?>)" class="btn btn-danger">Verwijderen</button></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
