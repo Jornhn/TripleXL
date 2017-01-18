@@ -105,7 +105,7 @@ class VacanciesController extends AppController
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            return $this->redirect(['action' => 'index']);
         }
 
         if ($this->Auth->user('account_type') === 0){
