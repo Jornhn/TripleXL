@@ -41,9 +41,20 @@ class CompetencesController extends AppController{
     }
 
     public function create(){
+
+        $categories = $this->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
+        $this->set(compact('categories'));
+
         $competence = $this->CategoriesCompetences->newEntity();
         if($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
+
+                if ($this->request->data['category_id'] == 0)
+                {
+                    $this->Flash->set('Categorie moet ingevuld zijn', ['key' => 'competence-error', 'params' => ['class' => 'alert alert-warning']]);
+                    return;
+                }
+
                 $competence = $this->CategoriesCompetences->patchEntity($competence, $this->request->data);
 
                 if ($this->CategoriesCompetences->save($competence)) {
@@ -53,8 +64,6 @@ class CompetencesController extends AppController{
                 $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'competence-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
-        $categories = $this->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
-        $this->set(compact('categories'));
     }
 
     public function edit($id = null){
