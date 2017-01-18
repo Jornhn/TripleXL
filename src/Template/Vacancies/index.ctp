@@ -38,7 +38,7 @@
                     <td><?= $vacancy->text ?></td>
                     <td>
                         <?php
-                        if ($vacancies->status === 1) {
+                        if ($vacancy->status == 1) {
                             echo 'Actief';
                         }
                         else {
