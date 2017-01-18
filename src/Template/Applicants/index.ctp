@@ -2,7 +2,7 @@
 <div class="container default-container">
 <h1>Sollicitanten 
     <span class="pull-right">
-        <?= $this->Html->link("Toevoegen", ['action' => 'add'], ['class' => 'btn btn-primary btn-lg']) ?>
+        <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
     
 </h1>
@@ -37,10 +37,12 @@
                 <td><?= $user->lastname ?></td>
                 <td><?php echo $this->Html->link("View", ['action' => 'view', $user->id], ['class' => 'btn btn-info'])?></td>
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
-                <td> <?= $this->Form->postLink('Delete', ['action' => 'delete', $user->id], ['confirm' => 'Weet u zeker dat u ' . $user->firstname .' wilt verwijderen?', 'class' => 'btn btn-danger']) ?></td>
+                <td><button onclick="confirmation(<?= $user->id ?>)" class="btn btn-danger">Verwijderen</button></td>
             </tr>
         <?php endforeach; } ?>
 
     </tbody>
     </table>
 </div>
+
+<script></script>
