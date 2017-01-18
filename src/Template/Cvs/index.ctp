@@ -22,6 +22,7 @@
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Motivatie</th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -37,6 +38,16 @@
                     <td><?= $cv->title ?></td>
                     <td><?= $cv->text ?></td>
                     <td><?= $cv->motivation ?></td>
+                    <td>
+                        <?php
+                        if ($cv->status === 1) {
+                            echo 'Actief';
+                        }
+                        else {
+                            echo 'Non actief';
+                        }
+                        ?>
+                    </td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $cv->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $cv->id], ['class' => 'btn btn-primary']) ?></td>
                     <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $cv->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
