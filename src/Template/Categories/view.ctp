@@ -8,13 +8,13 @@
         <div class="table-responsive">
             <table class="table table-striped">
                 <tr>
-                    <td>ID</td><td><?=$category->id?></td>
+                    <td><strong>ID</strong></td><td><?=$category->id?></td>
                 </tr>
                 <tr>
-                    <td>Naam</td><td><?=$category->category?></td>
+                    <td><strong>Naam</strong></td><td><?=$category->category?></td>
                 </tr>
                 <tr>
-                    <td>Beschrijving</td><td><?=$category->category_description?></td>
+                    <td><strong>Beschrijving</strong></td><td><?=$category->category_description?></td>
                 </tr>
                 <tr>
                     <td>Competenties</td>
