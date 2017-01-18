@@ -23,9 +23,9 @@
                 <th>Categorie</th>
                 <td>
                     <?php if ($cvs->category) : ?>
-                        <?= $cvs->category->category ?>
+                        <span class="label label-info"><?= $cvs->category->category ?></span>
                     <?php else : ?>
-                        Geen gekoppelde categorie
+                        <span class="label label-danger">Geen gekoppelde category</span>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -37,7 +37,7 @@
                             <span class="label label-info"><?= $competence->title ?></span>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        Geen gekoppelde competenties
+                        <span class="label label-danger">Geen gekoppelde competenties</span>
                     <?php endif ?>
                 </td>
             </tr>
@@ -57,9 +57,19 @@
                     ?>
                 </td>
             </tr>
+            <tr>
+                <th>Status</th>
+                <td>
+                    <?php
+                    if ($cvs->status === 1) {
+                        echo 'Actief';
+                    }
+                    else {
+                        echo 'Non actief';
+                    }
+                    ?>
+                </td>
+            </tr>
         </table>
-        
-        
-        
     </div>
 </div>

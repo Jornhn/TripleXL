@@ -21,6 +21,7 @@
                 <th>#</th>
                 <th>Title</th>
                 <th>Tekst</th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -35,6 +36,16 @@
                     <td><?= $vacancy->id ?></td>
                     <td><?= $vacancy->title ?></td>
                     <td><?= $vacancy->text ?></td>
+                    <td>
+                        <?php
+                        if ($vacancy->status == 1) {
+                            echo 'Actief';
+                        }
+                        else {
+                            echo 'Non actief';
+                        }
+                        ?>
+                    </td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $vacancy->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $vacancy->id], ['class' => 'btn btn-primary']) ?></td>
                     <td><button onclick="confirmation(<?= $vacancy->id ?>)" class="btn btn-danger">Verwijderen</button></td>
