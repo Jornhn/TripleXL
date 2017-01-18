@@ -20,7 +20,7 @@ class CategoriesCompetencesTable extends Table
         parent::initialize($config);
 
         $this->belongsTo('Categories');
-        $this->belongsTo('Competences');
+        $this->hasMany('CategoriesCompetences');
     }
 
     /**
@@ -36,28 +36,5 @@ class CategoriesCompetencesTable extends Table
             ->allowEmpty('id', 'create');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['category_id'], 'Categories'));
-        $rules->add($rules->existsIn(['competence_id'], 'Competences'));
-
-        return $rules;
-    }
-
-    public function findByCategory($categoryId)
-    {
-        return $this->find('all', ['keyField' => 'competence.id', 'valueField' => 'competences.competence'])
-            ->hydrate(false)
-            ->contain(['Competences'])
-            ->where(['CategoriesCompetences.category_id' => $categoryId]);
     }
 }
