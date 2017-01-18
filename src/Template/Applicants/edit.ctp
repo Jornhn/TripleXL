@@ -114,16 +114,7 @@
   </div>
 </div>
 
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-3 control-label" for="website">Website</label>
-  <div class="col-md-6">
-    <?php echo $this->Form->input('website', ['type'=>'text', 'id'=>'website', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-    
-</div>
-</div>
-    
-    <hr>
+<hr>
     
 <!-- Button -->
 <div class="form-group">
