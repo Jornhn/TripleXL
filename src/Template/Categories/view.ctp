@@ -20,10 +20,11 @@
                     <td>Competenties</td>
                     <td>
                         <?php
-                        if($competences->isEmpty()){
+                        if(empty($category->categories_competences)) {
                             echo "<span class=\"label label-info\">Geen gekoppelde competenties</span>";
-                        }else{
-                            foreach($competences as $competence) {
+                        }
+                        else {
+                            foreach($category->categories_competences as $competence) {
                                 echo "<span class=\"label label-info\" title=\"" . $competence->title . "\">" . $competence->title . "</span> ";
                             }
                         }

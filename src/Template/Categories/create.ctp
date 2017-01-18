@@ -5,7 +5,7 @@
         <h1>Categorie toevoegen<?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('category-error') ?>
-        <?php echo $this->Form->create('',['class'=>'form-horizontal']);?>
+        <?php echo $this->Form->create('',['class'=>'form-horizontal', 'data-toggle' => 'validator']);?>
 
         <!-- Text input-->
         <div class="form-group">
@@ -18,7 +18,8 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="category">Naam</label>
             <div class="col-md-6">
-                <?=$this->Form->input('category', ['type'=>'text', 'id'=>'category', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+                <?=$this->Form->input('category', ['type'=>'text', 'id'=>'category', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
+                <div class="help-block with-errors"></div>
             </div>
         </div>
 
@@ -26,7 +27,8 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="category_description">Beschrijving</label>
             <div class="col-md-6">
-                <?=$this->Form->input('category_description', ['type'=>'textarea', 'id'=>'category_description', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+                <?=$this->Form->input('category_description', ['type'=>'textarea', 'id'=>'category_description', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
+                <div class="help-block with-errors"></div>
             </div>
         </div>
         <hr>

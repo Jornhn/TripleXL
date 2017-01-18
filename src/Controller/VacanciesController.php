@@ -12,7 +12,7 @@ class VacanciesController extends AppController
 {
     public function index()
     {
-        $vacancies = $this->Vacancies->find()->contain(['Users'])->where(['vacancies.user_id' => $this->Auth->user('id')]);
+        $vacancies = $this->Vacancies->find('all')->contain(['Users'])->where(['vacancies.user_id' => $this->Auth->user('id')]);
 
         if ($this->Auth->user('account_type') >= 2) {
             $vacancies = $this->Vacancies->find()->contain(['Users']);
@@ -67,7 +67,7 @@ class VacanciesController extends AppController
             'contain' => ['Categories']
         ]);
 
-        if ($this->Auth->user('id') === $vacancies->user_id) {
+        if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {
                 $vacancies = $this->Vacancies->patchEntity($vacancies, $this->request->data);
                 if ($this->Vacancies->save($vacancies)) {
@@ -97,7 +97,7 @@ class VacanciesController extends AppController
     public function delete($id)
     {
         $vacancies = $this->Vacancies->get($id);
-        if ($this->Auth->user('id') === $vacancies->user_id) {
+        if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             $this->request->allowMethod(['post', 'delete']);
             if ($this->Vacancies->delete($vacancies)) {
                 $this->Flash->set('Uw vacature is verwijderd!', ['key' => 'vacancy-success','params' => ['class' => 'alert alert-success']]);
@@ -105,7 +105,7 @@ class VacanciesController extends AppController
             }
         }
         else {
-            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
+            return $this->redirect(['action' => 'index']);
         }
 
         if ($this->Auth->user('account_type') === 0){

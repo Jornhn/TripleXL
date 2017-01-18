@@ -103,6 +103,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/bedrijven/edit/*', ['controller' => 'companies', 'action' => 'edit']);
     $routes->connect('/bedrijven/delete/*', ['controller' => 'companies', 'action' => 'delete']);
 
+
     /**
      * Connect catchall routes for all controllers.
      *

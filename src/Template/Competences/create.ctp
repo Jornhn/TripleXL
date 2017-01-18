@@ -5,7 +5,7 @@
         <h1>Competentie toevoegen<?=$this->Html->link("Terug", ['controller' => 'competenties', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('competence-error') ?>
-        <?php echo $this->Form->create('',['class'=>'form-horizontal']);?>
+        <?php echo $this->Form->create('',['class'=>'form-horizontal', 'data-toggle' => 'validator']);?>
 
         <!-- Text input-->
         <div class="form-group">
@@ -18,8 +18,8 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
-                ?>
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...'], 'required']); ?>
+                <div class="help-block with-errors"></div>
             </div>
         </div>
 
@@ -27,7 +27,8 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="competence">Naam</label>
             <div class="col-md-6">
-                <?=$this->Form->input('title', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+                <?=$this->Form->input('title', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
+                <div class="help-block with-errors"></div>
             </div>
         </div>
 

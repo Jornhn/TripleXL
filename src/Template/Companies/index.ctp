@@ -20,7 +20,11 @@
         </tr>
     </thead>
     <tbody>
-        
+    <?php if($users->isEmpty()){ ?>
+
+        <tr><td colspan="8">Er zijn nog geen bedrijven in het systeem.</td></tr>
+
+    <?php }else{ ?>
         <?php foreach($users as $user): ?>
             <tr>
                 <td><?= $user->id ?></td>
@@ -30,7 +34,7 @@
                 <td><?php echo $this->Html->link("Edit", ['action' => 'edit', $user->id], ['class' => 'btn btn-primary'])?></td>
                 <td><button onclick="confirmation(<?= $user->id ?>)" class="btn btn-danger">Verwijderen</button></td>
             </tr>
-        <?php endforeach; ?>
+        <?php endforeach; } ?>
 
     </tbody>
     </table>
