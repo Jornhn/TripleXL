@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Competentie "<?=$competence->competence ?>" wijzigen <?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
+        <h1>Competentie wijzigen<?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('competence-error') ?>
         <?php echo $this->Form->create($competence,['class'=>'form-horizontal']);?>
@@ -14,17 +14,11 @@
             </div>
         </div>
 
-        <!-- Select Basic -->
         <div class="form-group">
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
-                $defaultId = 0;
-                if (isset($categoriesCompetences->first()->category_id)) {
-                    $defaultId = $categoriesCompetences->first()->category_id;
-                }
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...'], 'default' => $defaultId]);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>
         </div>
@@ -33,17 +27,10 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="competence">Naam</label>
             <div class="col-md-6">
-                <?=$this->Form->input('competence', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+                <?=$this->Form->input('title', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-3 control-label" for="category_description">Beschrijving</label>
-            <div class="col-md-6">
-                <?=$this->Form->input('competence_description', ['type'=>'textarea', 'id'=>'competence_description', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-            </div>
-        </div>
         <hr>
 
         <!-- Button -->

@@ -10,7 +10,6 @@ class CategoriesController extends AppController{
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
     {
         parent::__construct($request, $response, $name, $eventManager, $components);
-        $this->loadModel('Competences');
         $this->loadModel('CategoriesCompetences');
     }
 
@@ -33,11 +32,8 @@ class CategoriesController extends AppController{
 
     public function view($id = null){
         if($this->isAuthorized($this->Auth->user())) {
-            if (empty($id)) {
-                throw new NotFoundException;
-            }
             $category = $this->Categories->get($id);
-            $competences = $this->loadModel('CategoriesCompetences')->findByCategory($id);
+            $competences = $this->loadModel('CategoriesCompetences')->find('all', ['keyField' => 'competences.id', 'valueField' => 'competences.title'])->where(['category_id' => $id]);
 
             $this->set('competences', $competences);
             $this->set('category', $category);
@@ -78,11 +74,7 @@ class CategoriesController extends AppController{
 
     public function delete($id = null){
         if ($this->isAuthorized($this->Auth->user())) {
-            if (empty($id)) {
-                throw new NotFoundException;
-            }
             $category = $this->Categories->get($id);
-            $this->set('category', $category);
 
             if ($this->Categories->delete($category)) {
                 $this->Flash->set('De categorie met id: ' . $id . ' is verwijderd.', ['key' => 'category-success', 'params' => ['class' => 'alert alert-success']]);

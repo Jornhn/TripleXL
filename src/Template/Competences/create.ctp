@@ -18,8 +18,7 @@
             <label class="col-md-3 control-label" for="category">Categorie</label>
             <div class="col-md-6">
                 <?php
-                $uri = $this->Url->build(['controller' => 'Cvs', 'action' => 'getCompetences']);
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
+                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...']]);
                 ?>
             </div>
         </div>
@@ -28,17 +27,10 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="competence">Naam</label>
             <div class="col-md-6">
-                <?=$this->Form->input('competence', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
+                <?=$this->Form->input('title', ['type'=>'text', 'id'=>'competence', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
             </div>
         </div>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-3 control-label" for="competence_description">Beschrijving</label>
-            <div class="col-md-6">
-                <?=$this->Form->input('competence_description', ['type'=>'textarea', 'id'=>'category_description', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
-            </div>
-        </div>
         <hr>
 
         <!-- Button -->

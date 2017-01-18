@@ -26,18 +26,14 @@ class VacanciesController extends AppController
 
     public function view($id)
     {
-        $vacancies = $this->Vacancies->get($id, ['contain' => ['Categories', 'Competences']]);
+        $vacancies = $this->Vacancies->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
-        if ($this->Auth->user('id') !== $vacancies->user_id) {
-            if ($this->Auth->user('account_type') !== 3) {
-                return $this->redirect(['controller' => 'Vacancies', 'action' => 'index']);
-            }
+        if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
+            $this->set('vacancies', $vacancies);
         }
-
-        if ($this->Auth->user('account_type') === 0){
-            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+        else {
+            return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
-        $this->set('vacancies', $vacancies);
     }
 
     public function create()
@@ -48,17 +44,17 @@ class VacanciesController extends AppController
             $vacancies->user_id = $this->Auth->user('id');
 
             if ($this->Vacancies->save($vacancies)) {
-                $this->Flash->set('De vacature is succesvol opgeslagen!', ['key' => 'vacancy-success', 'params' => ['class' => 'alert alert-success']]);
+                $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
             else {
-                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'vacancy-error', 'params' => ['class' => 'alert alert-danger']]);
+                $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
-        if ($this->Auth->user('account_type') === 0){
+
+        if ($this->Auth->user('account_type') === 1){
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
-
         $categories = $this->Vacancies->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
         $this->set(compact('vacancies', 'categories', 'competences'));

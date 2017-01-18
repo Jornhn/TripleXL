@@ -10,7 +10,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>#</th>
                     <th>Naam</th>
                     <th></th>
                     <th></th>
