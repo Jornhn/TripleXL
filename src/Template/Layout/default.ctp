@@ -10,16 +10,30 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <?= $this->Html->css('style.css') ?>
+    <link href="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.min.css" rel="stylesheet">
 </head>
 <body class="home">
     <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <b>Triple</b>XL
-                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <?php
+                if (is_null($this->request->session()->read('Auth.User.id'))) { ?>
+                    <a class="navbar-brand" href = "/" >
+                        <b>Triple</b>XL
+                    </a>
+                <?php } else { ?>
+                    <a class="navbar-brand" href = "/dashboard" >
+                        <b>Triple</b>XL
+                    </a>
+                <?php } ?>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="main-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {
@@ -29,12 +43,12 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->request->session()->read('Auth.User.email'); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <?php if ($this->request->session()->read('Auth.User.account_type') >= 2): ?>
-                                    <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Applicants', 'action' => 'index'])?></li>
-                                    <li><?= $this->Html->link("Bedrijven", ['controller' => 'Companies', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Sollicitanten", ['controller' => 'Sollicitanten', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Bedrijven", ['controller' => 'Bedrijven', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("CV's", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Categorieën", ['controller' => 'Categories', 'action' => 'index'])?></li>
-                                    <li><?= $this->Html->link("Competenties", ['controller' => 'Competences', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Competenties", ['controller' => 'Competenties', 'action' => 'index'])?></li>
                                     <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
                                 <?php endif; ?>
                                 <?php if ($this->request->session()->read('Auth.User.account_type') === 3): ?>
@@ -61,6 +75,7 @@
     <?= $this->fetch('content') ?>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.3.2/sweetalert2.min.js"></script>
     <?= $this->Html->script('custom.js') ?>
     <script>
         $(function() {
