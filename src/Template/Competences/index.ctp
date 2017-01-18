@@ -18,17 +18,22 @@
                     <th></th>
                 </tr>
                 </thead>
+                <?php if($competences->isEmpty()){ ?>
+
+                    <tr><td colspan="8">U heeft nog geen competenties toegevoegd.</td></tr>
+
+                <?php }else{ ?>
                 <?php
                 foreach($competences as $competence){ ?>
                    <tr>
                        <td><?= $competence->id ?></td>
                        <td><?= $competence->title ?></td>
                        <td><?= $competence->category->category ?></td>
-                       <td><?= $this->Html->link("View", ['controller' => 'Competences', 'action' => 'view/' . $competence->id], ['class' => 'btn btn-info']) ?></td>
-                       <td><?= $this->Html->link("Edit", ['controller' => 'Competences', 'action' => 'edit/' . $competence->id], ['class' => 'btn btn-primary']) ?></td>
-                       <td><?= $this->Form->postLink("Delete", ['controller' => 'Competences', 'action' => 'delete/' . $competence->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) ?></td>
+                       <td><?= $this->Html->link("View", ['controller' => 'competenties', 'action' => 'view/' . $competence->id], ['class' => 'btn btn-info']) ?></td>
+                       <td><?= $this->Html->link("Edit", ['controller' => 'competenties', 'action' => 'edit/' . $competence->id], ['class' => 'btn btn-primary']) ?></td>
+                       <td><?= $this->Form->postLink("Delete", ['controller' => 'competenties', 'action' => 'delete/' . $competence->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) ?></td>
                    </tr>
-                <?php } ?>
+                <?php }} ?>
             </table>
         </div>
     </div>

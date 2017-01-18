@@ -13,7 +13,6 @@ class CompetencesController extends AppController{
         $this->loadModel('Categories');
     }
 
-
     public function isAuthorized($user)
     {
         if (isset($user['account_type']) && $user['account_type'] >= '2') {
@@ -81,7 +80,7 @@ class CompetencesController extends AppController{
             $this->set('competence', $competence);
 
             if ($this->CategoriesCompetences->delete($competence)) {
-                $this->Flash->set('De categorie met id: ' . $id . ' is verwijderd.', ['key' => 'competence-success', 'params' => ['class' => 'alert alert-success']]);
+                $this->Flash->set('De competentie met id: ' . $id . ' is verwijderd.', ['key' => 'competence-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['controller' => 'Competences', 'action' => 'index']);
             }
             $this->Flash->set('Er ging iets mis!', ['key' => 'competence-error', 'params' => ['class' => 'alert alert-danger']]);

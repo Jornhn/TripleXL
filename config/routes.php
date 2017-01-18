@@ -82,6 +82,13 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/vacatures/edit/*', ['controller' => 'vacancies', 'action' => 'edit']);
     $routes->connect('/vacatures/delete/*', ['controller' => 'vacancies', 'action' => 'delete']);
 
+    // Competenties
+    $routes->connect('/competenties', ['controller' => 'competences', 'action' => 'index']);
+    $routes->connect('/competenties/view/*', ['controller' => 'competences', 'action' => 'view']);
+    $routes->connect('/competenties/create', ['controller' => 'competences', 'action' => 'create']);
+    $routes->connect('/competenties/edit/*', ['controller' => 'competences', 'action' => 'edit']);
+    $routes->connect('/competenties/delete/*', ['controller' => 'competences', 'action' => 'delete']);
+
     // Sollicitanten
     $routes->connect('/sollicitanten', ['controller' => 'applicants', 'action' => 'index']);
     $routes->connect('/sollicitanten/view/*', ['controller' => 'applicants', 'action' => 'view']);
@@ -90,7 +97,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/sollicitanten/delete/*', ['controller' => 'applicants', 'action' => 'delete']);
     
     // Bedrijven
-    $routes->connect('/bedrijven', ['controller' => 'applicants', 'action' => 'index']);
+    $routes->connect('/bedrijven', ['controller' => 'companies', 'action' => 'index']);
     $routes->connect('/bedrijven/view/*', ['controller' => 'companies', 'action' => 'view']);
     $routes->connect('/bedrijven/create', ['controller' => 'companies', 'action' => 'create']);
     $routes->connect('/bedrijven/edit/*', ['controller' => 'companies', 'action' => 'edit']);
