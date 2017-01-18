@@ -15,11 +15,24 @@
     <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <b>Triple</b>XL
-                </a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <?php
+                if (is_null($this->request->session()->read('Auth.User.id'))) { ?>
+                    <a class="navbar-brand" href = "/" >
+                        <b>Triple</b>XL
+                    </a>
+                <?php } else { ?>
+                    <a class="navbar-brand" href = "/dashboard" >
+                        <b>Triple</b>XL
+                    </a>
+                <?php } ?>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="main-navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <?php
                     if (!is_null($this->request->session()->read('Auth.User.id'))) {

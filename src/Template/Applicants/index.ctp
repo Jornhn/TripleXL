@@ -24,7 +24,7 @@
     <tbody> 
         <?php if($users->isEmpty()){ ?>
             
-            <tr><td colspan="8">U heeft nog geen Sollicitant(en) toegevoegd.</td></tr>
+            <tr><td colspan="8">Er zijn nog geen sollicitanten in het systeem.</td></tr>
             
         <?php }else{ ?>
 
