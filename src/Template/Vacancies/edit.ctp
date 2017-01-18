@@ -47,6 +47,19 @@
             </div>
         </div>
 
+        <!-- Select Basic -->
+        <div class="form-group" id="competence-container">
+            <label class="col-md-3 control-label" for="status">Status</label>
+            <div class="col-md-6">
+                <?php
+                $types = array(0 => 'Non actief', 1 => 'Actief');
+                echo $this->Form->input('status', ['type' => 'select', 'class' => 'form-control', 'options'=> $types, 'div'=> false,'label' => false, 'required']);
+                ?>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+
+
         <hr>
         <!-- Button -->
         <div class="form-group">
@@ -59,16 +72,16 @@
     </div>
 </div>
 <script>
-    var categoryId = $('#category-id').val();
-    var url = $('#category-id').attr('data-url');
+    var categoryId = $("#category-id").val();
+    var url = $("#category-id").attr('data-url');
 
     $.post(url, { categoryId: categoryId }, function(result) {
         var html = [];
         for (var i = 0; i < result.result.length; i++) {
-            html.push('<option value="'+result.result[i].competence.id+'">'+result.result[i].competence.competence+'</option>');
+            html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
         }
 
         $('#competence-container').removeClass('hidden');
-        $('#competences-ids').html(html.join(''));
+        $('#categories-competences-ids').html(html.join(''));
     });
 </script>
