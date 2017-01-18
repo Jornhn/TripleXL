@@ -19,6 +19,9 @@
             <thead>
             <tr>
                 <th>#</th>
+                <?php if (!empty($first_cv)) : ?>
+                    <th>Gebruiker</th>
+                <?php endif; ?>
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Motivatie</th>
@@ -35,6 +38,9 @@
             <?php foreach ($cvs as $cv): ?>
                 <tr>
                     <td><?= $cv->id ?></td>
+                    <?php if (!empty($cv->user)) :?>
+                        <td><?= $cv->user->firstname?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
+                    <?php endif; ?>
                     <td><?= $cv->title ?></td>
                     <td><?= $cv->text ?></td>
                     <td><?= $cv->motivation ?></td>

@@ -19,6 +19,9 @@
             <thead>
             <tr>
                 <th>#</th>
+                <?php if (!empty($first_vacancy)) : ?>
+                    <th>Bedrijf</th>
+                <?php endif; ?>
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Status</th>
@@ -34,6 +37,9 @@
             <?php foreach ($vacancies as $vacancy): ?>
                 <tr>
                     <td><?= $vacancy->id ?></td>
+                    <?php if (!empty($vacancy->user)) :?>
+                        <td><?= $vacancy->user->company_name ?></td>
+                    <?php endif; ?>
                     <td><?= $vacancy->title ?></td>
                     <td><?= $vacancy->text ?></td>
                     <td>
