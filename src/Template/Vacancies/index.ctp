@@ -19,6 +19,9 @@
             <thead>
             <tr>
                 <th>#</th>
+                <?php if (!empty($first_vacancy)) : ?>
+                    <th>Bedrijf</th>
+                <?php endif; ?>
                 <th>Title</th>
                 <th>Tekst</th>
                 <th>Status</th>
@@ -34,6 +37,9 @@
             <?php foreach ($vacancies as $vacancy): ?>
                 <tr>
                     <td><?= $vacancy->id ?></td>
+                    <?php if (!empty($vacancy->user)) :?>
+                        <td><?= $vacancy->user->company_name ?></td>
+                    <?php endif; ?>
                     <td><?= $vacancy->title ?></td>
                     <td><?= $vacancy->text ?></td>
                     <td>
@@ -48,7 +54,7 @@
                     </td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $vacancy->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $vacancy->id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><?= $this->Form->postLink('Delete', ['action' => 'delete', $vacancy->id], ['confirm' => 'Are you sure?', 'class' => 'btn btn-danger']) ?></td>
+                    <td><button onclick="confirmation(<?= $vacancy->id ?>)" class="btn btn-danger">Verwijderen</button></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
