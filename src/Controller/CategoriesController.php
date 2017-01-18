@@ -23,10 +23,9 @@ class CategoriesController extends AppController{
 
     public function index(){
         if($this->isAuthorized($this->Auth->user())){
-            $query = $this->Categories->find();
-            $results = $query->all();
+            $categories = $this->Categories->find();
 
-            $this->set('categories', $results);
+            $this->set(compact('categories'));
         }
     }
 

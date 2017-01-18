@@ -17,14 +17,24 @@
             </tr>
             <tr>
                 <th>Categorie</th>
-                <td><?= $vacancies->category->category ?></td>
+                <td>
+                    <?php if ($vacancies->category) : ?>
+                        <?= $vacancies->category->category ?>
+                    <?php else : ?>
+                        Geen gekoppelde categorie
+                    <?php endif; ?>
+                </td>
             </tr>
             <tr>
                 <th>Compententies</th>
                 <td>
-                    <?php foreach ($vacancies->categories_competences as $competence): ?>
-                        <span class="label label-info"><?= $competence->title ?></span>
-                    <?php endforeach; ?>
+                    <?php if ($vacancies->categories_competences) : ?>
+                        <?php foreach ($vacancies->categories_competences as $competence): ?>
+                            <span class="label label-info"><?= $competence->title ?></span>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        <span class="label label-info">Geen gekoppelde competenties</span>
+                    <?php endif ?>
                 </td>
             </tr>
         </table>
