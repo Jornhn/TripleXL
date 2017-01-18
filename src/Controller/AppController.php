@@ -94,7 +94,7 @@ class AppController extends Controller
     {
         $formData = $this->request->data;
         $categoryId = isset($formData['categoryId']) ? $formData['categoryId'] : null;
-        $competences = $this->loadModel('CategoriesCompetences')->findByCategory($categoryId);
+        $competences = $this->loadModel('CategoriesCompetences')->find('all', ['keyField' => 'competences.id', 'valueField' => 'competences.title'])->where(['category_id' => $categoryId]);
 
         header('Content-type: application/json');
         die(json_encode(['result' => $competences]));

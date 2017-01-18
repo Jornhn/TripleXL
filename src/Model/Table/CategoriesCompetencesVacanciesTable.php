@@ -1,12 +1,10 @@
 <?php
 namespace App\Model\Table;
 
-use Cake\ORM\Query;
-use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacanciesCvsTable extends Table
+class CategoriesCompetencesVacanciesTable extends Table
 {
     /**
      * Initialize method
@@ -18,8 +16,8 @@ class VacanciesCvsTable extends Table
     {
         parent::initialize($config);
 
-        $this->belongsTo('Cvs');
         $this->belongsTo('Vacancies');
+        $this->belongsTo('CategoriesCompetences');
     }
 
     /**
@@ -37,18 +35,4 @@ class VacanciesCvsTable extends Table
         return $validator;
     }
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['cv_id'], 'Cvs'));
-        $rules->add($rules->existsIn(['vacature_id'], 'Vacancies'));
-
-        return $rules;
-    }
 }

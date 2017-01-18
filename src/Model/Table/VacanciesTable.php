@@ -20,8 +20,7 @@ class VacanciesTable extends Table
         parent::initialize($config);
 
         $this->belongsTo('Users');
-        $this->hasMany('VacatureCvs');
         $this->belongsTo('Categories');
-        $this->belongsToMany('Competences');
+        $this->belongsToMany('CategoriesCompetences');
     }
 }

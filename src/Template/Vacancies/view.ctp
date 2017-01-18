@@ -22,8 +22,8 @@
             <tr>
                 <th>Compententies</th>
                 <td>
-                    <?php foreach ($vacancies->competences as $competence): ?>
-                        <span class="label label-info"><?= $competence->competence ?></span>
+                    <?php foreach ($vacancies->categories_competences as $competence): ?>
+                        <span class="label label-info"><?= $competence->title ?></span>
                     <?php endforeach; ?>
                 </td>
             </tr>

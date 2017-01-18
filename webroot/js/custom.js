@@ -34,11 +34,11 @@ $('#category-id').on('change', function() {
     $.post(url, { categoryId: categoryId }, function(result) {
         var html = [];
         for (var i = 0; i < result.result.length; i++) {
-            html.push('<option value="'+result.result[i].competence.id+'">'+result.result[i].competence.competence+'</option>');
+            html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
         }
 
         $('#competence-container').removeClass('hidden');
-        $('#competences-ids').html(html.join(''));
+        $('#categories-competences-ids').html(html.join(''));
     });
 });
 

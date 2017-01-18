@@ -18,7 +18,10 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->belongsToMany('Competences');
+        $this->hasMany('CategoriesCompetences',  [
+            'dependent' => true,
+            'cascadeCallbacks' => true,
+        ]);
     }
 
     /**

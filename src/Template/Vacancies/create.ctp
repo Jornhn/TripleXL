@@ -39,7 +39,7 @@
         <div class="form-group hidden" id="competence-container">
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
+                <?php echo $this->Form->input('categories_competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false]); ?>
             </div>
         </div>
         <hr>
