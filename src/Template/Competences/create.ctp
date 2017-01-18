@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Competentie toevoegen<?=$this->Html->link("Terug", ['action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
+        <h1>Competentie toevoegen<?=$this->Html->link("Terug", ['controller' => 'competenties', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <?= $this->Flash->render('competence-error') ?>
         <?php echo $this->Form->create('',['class'=>'form-horizontal', 'data-toggle' => 'validator']);?>

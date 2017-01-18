@@ -119,7 +119,6 @@ class CvsController extends AppController
     public function delete($id)
     {
         $cvs = $this->Cvs->get($id);
-
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             $this->request->allowMethod(['post', 'delete', 'get']);
             if ($this->Cvs->delete($cvs)) {
