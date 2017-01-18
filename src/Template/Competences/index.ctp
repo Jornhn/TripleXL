@@ -24,7 +24,7 @@
                        <td><?= $competence->id ?></td>
                        <td><?= $competence->title ?></td>
                        <td><?= $competence->category->category ?></td>
-                       <td><?= $this->Html->link("View", ['controller' => 'Competences', 'action' => 'view/' . $competence->category->id], ['class' => 'btn btn-info']) ?></td>
+                       <td><?= $this->Html->link("View", ['controller' => 'Competences', 'action' => 'view/' . $competence->id], ['class' => 'btn btn-info']) ?></td>
                        <td><?= $this->Html->link("Edit", ['controller' => 'Competences', 'action' => 'edit/' . $competence->id], ['class' => 'btn btn-primary']) ?></td>
                        <td><?= $this->Form->postLink("Delete", ['controller' => 'Competences', 'action' => 'delete/' . $competence->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) ?></td>
                    </tr>
