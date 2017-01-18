@@ -82,7 +82,12 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/vacatures/edit/*', ['controller' => 'vacancies', 'action' => 'edit']);
     $routes->connect('/vacatures/delete/*', ['controller' => 'vacancies', 'action' => 'delete']);
 
-
+    // Competenties
+    $routes->connect('/competenties', ['controller' => 'competences', 'action' => 'index']);
+    $routes->connect('/competenties/view/*', ['controller' => 'competences', 'action' => 'view']);
+    $routes->connect('/competenties/create', ['controller' => 'competences', 'action' => 'create']);
+    $routes->connect('/competenties/edit/*', ['controller' => 'competences', 'action' => 'edit']);
+    $routes->connect('/competenties/delete/*', ['controller' => 'competences', 'action' => 'delete']);
 
     /**
      * Connect catchall routes for all controllers.

@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Details: <?=$competences->title ?><?=$this->Html->link("Terug", ['controller' => 'Competences', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
+        <h1>Details: <?=$competences->title ?><?=$this->Html->link("Terug", ['controller' => 'competenties', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg pull-right']).' ';?></h1>
         <hr>
         <br>
         <div class="table-responsive">
