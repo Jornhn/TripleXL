@@ -21,14 +21,24 @@
             </tr>
             <tr>
                 <th>Categorie</th>
-                <td><?= $cvs->category->category ?></td>
+                <td>
+                    <?php if ($cvs->category) : ?>
+                        <?= $cvs->category->category ?>
+                    <?php else : ?>
+                        Geen gekoppelde categorie
+                    <?php endif; ?>
+                </td>
             </tr>
             <tr>
                 <th>Compententies</th>
                 <td>
-                    <?php foreach ($cvs->categories_competences as $competence): ?>
-                        <span class="label label-info"><?= $competence->title ?></span>
-                    <?php endforeach; ?>
+                    <?php if ($cvs->categories_competences) : ?>
+                        <?php foreach ($cvs->categories_competences as $competence): ?>
+                            <span class="label label-info"><?= $competence->title ?></span>
+                        <?php endforeach; ?>
+                    <?php else : ?>
+                        Geen gekoppelde competenties
+                    <?php endif ?>
                 </td>
             </tr>
             <tr>
