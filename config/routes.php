@@ -97,7 +97,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/sollicitanten/delete/*', ['controller' => 'applicants', 'action' => 'delete']);
     
     // Bedrijven
-    $routes->connect('/bedrijven', ['controller' => 'applicants', 'action' => 'index']);
+    $routes->connect('/bedrijven', ['controller' => 'companies', 'action' => 'index']);
     $routes->connect('/bedrijven/view/*', ['controller' => 'companies', 'action' => 'view']);
     $routes->connect('/bedrijven/create', ['controller' => 'companies', 'action' => 'create']);
     $routes->connect('/bedrijven/edit/*', ['controller' => 'companies', 'action' => 'edit']);
