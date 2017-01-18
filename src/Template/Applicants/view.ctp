@@ -48,8 +48,8 @@
             <td><?= $users->email ?></td>
         </tr>
 </table>
-<button class="vacature-button-open btn btn-info">Bekijk vacature</button>
-<button class="vacature-button-closed btn btn-info">Sluit vacature</button>
+<button class="vacature-button-open btn btn-info">Bekijk CV</button>
+<button class="vacature-button-closed btn btn-info">Sluit CV</button>
     
 <div class="top-space vacature-table">    
     <h3>Bij behorende CV</h3>
