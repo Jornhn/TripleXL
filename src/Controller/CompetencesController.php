@@ -33,9 +33,11 @@ class CompetencesController extends AppController{
 
     public function view($id = null){
         if($this->isAuthorized($this->Auth->user())) {
-            $competence = $this->CategoriesCompetences->find()->contain(['Categories']);
+            $competences = $this->CategoriesCompetences->get($id, [
+                'contain' => ['Categories']
+            ]);
 
-            $this->set(compact('competence'));
+            $this->set(compact('competences', 'categories'));
         }
     }
 
