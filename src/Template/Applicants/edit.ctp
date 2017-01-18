@@ -119,7 +119,7 @@
 <!-- Button -->
 <div class="form-group">
     <div class="col-lg-6">
-        <button id="save" name="save" class="btn btn-primary">Opslaan</button> 
+        <?=$this->Form->button('Opslaan', ['class'=>'btn btn-primary']);?>
     </div>
 </div>
 
