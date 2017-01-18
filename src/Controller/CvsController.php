@@ -14,16 +14,17 @@ class CvsController extends AppController
 
     public function index()
     {
-        $cvs = $this->Cvs->find()->contain(['Users'])->where(['cvs.user_id' => $this->Auth->user('id')]);
+        $cvs = $this->Cvs->find()->where(['cvs.user_id' => $this->Auth->user('id')]);
 
         if ($this->Auth->user('account_type') >= 2) {
             $cvs = $this->Cvs->find()->contain(['Users']);
+            $first_cv = $this->Cvs->find()->contain(['Users'])->first();
         }
 
         if ($this->Auth->user('account_type') === 1){
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
-        $this->set(compact('cvs'));
+        $this->set(compact('cvs', 'first_cv'));
     }
 
     public function view($id)

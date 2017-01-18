@@ -12,16 +12,17 @@ class VacanciesController extends AppController
 {
     public function index()
     {
-        $vacancies = $this->Vacancies->find('all')->contain(['Users'])->where(['vacancies.user_id' => $this->Auth->user('id')]);
+        $vacancies = $this->Vacancies->find('all')->where(['vacancies.user_id' => $this->Auth->user('id')]);
 
         if ($this->Auth->user('account_type') >= 2) {
             $vacancies = $this->Vacancies->find()->contain(['Users']);
+            $first_vacancy = $this->Vacancies->find()->contain(['Users'])->first();
         }
 
         if ($this->Auth->user('account_type') === 0) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
-        $this->set(compact('vacancies'));
+        $this->set(compact('vacancies', 'first_vacancy'));
     }
 
     public function view($id)
