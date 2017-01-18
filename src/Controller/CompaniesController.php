@@ -44,7 +44,7 @@ class CompaniesController extends AppController
    
     }
     
-    function add()
+    function create()
     {
         
         if($this->isAuthorized($this->Auth->user())) {
@@ -92,6 +92,32 @@ class CompaniesController extends AppController
 
             $vacancies = $this->Vacancies->find('all')->where(['user_id =' => $id]);
             $this->set(compact('vacancies'));
+            
+        }
+        
+    }
+    
+    function delete($id)
+    {
+        
+        if($this->isAuthorized($this->Auth->user())) {
+            
+            //* Deleting CV *// 
+            
+            $results = $this->Vacancies->find('all')->where(['user_id =' => $id]);
+            $vacancies = $results->first();
+            
+            if ($vacancies != ''){
+                
+                $result = $this->Vacancies->delete($vacancies);
+                
+            }
+        
+            //* Deleting USER *//   
+            
+            $users = $this->Users->get($id);
+            $result = $this->Users->delete($users);
+            return $this->redirect(['action' => 'index']);
             
         }
         
