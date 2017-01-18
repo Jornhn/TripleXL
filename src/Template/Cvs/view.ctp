@@ -57,9 +57,19 @@
                     ?>
                 </td>
             </tr>
+            <tr>
+                <th>Status</th>
+                <td>
+                    <?php
+                    if ($cvs->status === 1) {
+                        echo 'Actief';
+                    }
+                    else {
+                        echo 'Non actief';
+                    }
+                    ?>
+                </td>
+            </tr>
         </table>
-        
-        
-        
     </div>
 </div>
