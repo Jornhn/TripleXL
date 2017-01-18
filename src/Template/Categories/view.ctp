@@ -21,7 +21,7 @@
                     <td>
                         <?php
                         if(empty($category->categories_competences)) {
-                            echo "<span class=\"label label-info\">Geen gekoppelde competenties</span>";
+                            echo "<span class=\"label label-danger\">Geen gekoppelde competenties</span>";
                         }
                         else {
                             foreach($category->categories_competences as $competence) {
