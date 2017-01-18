@@ -19,9 +19,9 @@
                 <th>Categorie</th>
                 <td>
                     <?php if ($vacancies->category) : ?>
-                        <?= $vacancies->category->category ?>
+                        <span class="label label-info"><?= $vacancies->category->category ?></span>
                     <?php else : ?>
-                        Geen gekoppelde categorie
+                        <span class="label label-danger">Geen gekoppelde categorie</span>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -33,8 +33,21 @@
                             <span class="label label-info"><?= $competence->title ?></span>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        Geen gekoppelde competenties
+                        <span class="label label-danger">Geen gekoppelde competenties</span>
                     <?php endif ?>
+                </td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>
+                    <?php
+                    if ($vacancies->status === 1) {
+                        echo 'Actief';
+                    }
+                    else {
+                        echo 'Non actief';
+                    }
+                    ?>
                 </td>
             </tr>
         </table>

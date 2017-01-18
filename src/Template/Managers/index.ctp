@@ -25,17 +25,20 @@
                     <tr><td colspan="9">U heeft nog geen beheerders toegevoegd.</td></tr>
                 <?php } ?>
                 <?php
-                foreach($managers as $manager){
-                    echo "<tr><td>" . $manager->id . "</td>";
-                    echo "<td>" . $manager->salutation . "</td>";
-                    echo "<td>" . $manager->firstname . "</td>";
-                    echo "<td>" . $manager->insertion . "</td>";
-                    echo "<td>" . $manager->lastname . "</td>";
-                    echo "<td>" . $manager->email . "</td>";
-                    echo "<td>" . $this->Html->link("View", ['controller' => 'beheerders', 'action' => 'view/' . $manager->id], ['class' => 'btn btn-info']) . "</td>";
-                    echo "<td>" . $this->Html->link("Edit", ['controller' => 'beheerders', 'action' => 'edit/' . $manager->id], ['class' => 'btn btn-primary']) . "</td>";
-                    echo "<td>" . $this->Form->postLink("Delete", ['action' => 'delete/' . $manager->id], ['class' => 'btn btn-danger', 'confirm' => 'Weet je zeker dat je ' . $manager->firstname . ' ' . $manager->lastname . ' wilt verwijderen?']) . "</td>";
-                }
+                foreach($managers as $manager){?>
+                    <tr>
+                        <td><?=$manager->id ?></td>
+                        <td><?=$manager->salutation?></td>
+                        <td><?=$manager->firstname?></td>
+                        <td><?=$manager->insertion?></td>
+                        <td><?=$manager->lastname?></td>
+                        <td><?=$manager->email?></td>
+                        <td><?=$this->Html->link("View", ['controller' => 'beheerders', 'action' => 'view/' . $manager->id], ['class' => 'btn btn-info'])?></td>
+                        <td><?=$this->Html->link("Edit", ['controller' => 'beheerders', 'action' => 'edit/' . $manager->id], ['class' => 'btn btn-primary'])?></td>
+                        <td><button onclick="confirmation(<?= $manager->id ?>)" class="btn btn-danger">Verwijderen</button></td>
+                    </tr>
+                <?php
+                    }
                 ?>
             </table>
         </div>

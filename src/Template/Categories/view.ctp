@@ -8,20 +8,20 @@
         <div class="table-responsive">
             <table class="table table-striped">
                 <tr>
-                    <td>ID</td><td><?=$category->id?></td>
+                    <td><strong>ID</strong></td><td><?=$category->id?></td>
                 </tr>
                 <tr>
-                    <td>Naam</td><td><?=$category->category?></td>
+                    <td><strong>Naam</strong></td><td><?=$category->category?></td>
                 </tr>
                 <tr>
-                    <td>Beschrijving</td><td><?=$category->category_description?></td>
+                    <td><strong>Beschrijving</strong></td><td><?=$category->category_description?></td>
                 </tr>
                 <tr>
                     <td>Competenties</td>
                     <td>
                         <?php
                         if(empty($category->categories_competences)) {
-                            echo "<span class=\"label label-info\">Geen gekoppelde competenties</span>";
+                            echo "<span class=\"label label-danger\">Geen gekoppelde competenties</span>";
                         }
                         else {
                             foreach($category->categories_competences as $competence) {
