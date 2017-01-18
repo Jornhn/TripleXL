@@ -37,7 +37,7 @@
                             <span class="label label-info"><?= $competence->title ?></span>
                         <?php endforeach; ?>
                     <?php else : ?>
-                        <span class="label label-info">Geen gekoppelde competenties</span>
+                        Geen gekoppelde competenties
                     <?php endif ?>
                 </td>
             </tr>
