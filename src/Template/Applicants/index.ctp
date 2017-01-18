@@ -2,7 +2,7 @@
 <div class="container default-container">
 <h1>Sollicitanten 
     <span class="pull-right">
-        <?= $this->Html->link("Toevoegen", ['action' => 'add'], ['class' => 'btn btn-primary btn-lg']) ?>
+        <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
     </span>
     
 </h1>

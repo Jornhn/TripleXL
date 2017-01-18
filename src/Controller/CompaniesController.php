@@ -44,7 +44,7 @@ class CompaniesController extends AppController
    
     }
     
-    function add()
+    function create()
     {
         
         if($this->isAuthorized($this->Auth->user())) {
