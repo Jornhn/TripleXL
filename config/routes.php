@@ -88,6 +88,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/competenties/create', ['controller' => 'competences', 'action' => 'create']);
     $routes->connect('/competenties/edit/*', ['controller' => 'competences', 'action' => 'edit']);
     $routes->connect('/competenties/delete/*', ['controller' => 'competences', 'action' => 'delete']);
+
     // Sollicitanten
     $routes->connect('/sollicitanten', ['controller' => 'applicants', 'action' => 'index']);
     $routes->connect('/sollicitanten/view/*', ['controller' => 'applicants', 'action' => 'view']);
