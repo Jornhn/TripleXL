@@ -36,7 +36,5 @@ class DashboardController extends AppController
             'order' => ['Updates.date' => 'DESC'],
             'limit' => 20
         ]));
-
-
     }
 }

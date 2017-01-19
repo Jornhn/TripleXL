@@ -24,7 +24,7 @@ class CvsController extends AppController
         if ($this->Auth->user('account_type') === 1){
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
-        $this->set(compact('cvs', 'first_cv'));
+        $this->set(compact('cvs', 'first_cv', 'matches'));
     }
 
     public function view($id)

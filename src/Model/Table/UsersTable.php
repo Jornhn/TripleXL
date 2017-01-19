@@ -18,7 +18,7 @@ class UsersTable extends Table
     {
         parent::initialize($config);
 
-        $this->hasMany('Activities');
+        $this->hasMany('Updates');
         $this->hasMany('Cvs');
         $this->hasMany('Vacancies');
     }

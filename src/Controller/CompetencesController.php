@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use Cake\Network\Request;
 use Cake\Network\Response;
+use Cake\Datasource\ConnectionManager;
 
 class CompetencesController extends AppController{
 
@@ -26,7 +27,16 @@ class CompetencesController extends AppController{
         if($this->isAuthorized($this->Auth->user())){
             $competences = $this->CategoriesCompetences->find()->contain(['Categories']);
 
-            $this->set(compact('competences'));
+            $conn = ConnectionManager::get('default');
+            $stmt = $conn->execute('
+                            SELECT categories_competences_cvs.cv_id, categories_competences_vacancies.vacancy_id
+                            FROM categories_competences
+                            INNER JOIN categories_competences_cvs ON categories_competences.id = categories_competences_cvs.categories_competence_id
+                            INNER JOIN categories_competences_vacancies ON categories_competences_cvs.categories_competence_id = categories_competences_vacancies.categories_competence_id
+                            INNER JOIN categories ON categories_competences.category_id = categories.id');
+
+            $test = $stmt ->fetchAll('assoc');
+            $this->set(compact('competences', 'test'));
         }
     }
 
