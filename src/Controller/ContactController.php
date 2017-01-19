@@ -11,7 +11,11 @@ namespace App\Controller;
 
 class ContactController extends AppController
 {
-    function index(){
+    
+    
+    
+    
+    function display(){
         
     }
     
