@@ -22,6 +22,7 @@ class CvsTable extends Table
         $this->belongsTo('Users');
         $this->belongsTo('Categories');
         $this->hasMany('VacanciesCvs');
+        $this->hasMany('ViewVacanciesCvs');
         $this->belongsToMany('CategoriesCompetences');
     }
 

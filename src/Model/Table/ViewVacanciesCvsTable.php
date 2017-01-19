@@ -1,12 +1,14 @@
 <?php
 namespace App\Model\Table;
 
+use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacanciesCvsTable extends Table
+class ViewVacanciesCvsTable extends Table
 {
+
     /**
      * Initialize method
      *
@@ -16,14 +18,12 @@ class VacanciesCvsTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
         $this->belongsTo('Cvs');
         $this->belongsTo('Vacancies');
     }
 
     public function countMatches()
     {
-
         $matches = $this->find()->contain(['Cvs', 'Vacancies']);
 
         $count = 0;

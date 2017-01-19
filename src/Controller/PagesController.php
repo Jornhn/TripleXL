@@ -39,7 +39,7 @@ class PagesController extends AppController
      */
     public function display()
     {
-        $this->loadModel('VacanciesCvs');
+        $this->loadModel('ViewVacanciesCvs');
 
         $path = func_get_args();
 
@@ -59,7 +59,7 @@ class PagesController extends AppController
             $subpage = $path[1];
         }
 
-        $count = $this->VacanciesCvs->countMatches();
+        $count = $this->ViewVacanciesCvs->countMatches();
 
         $this->set(compact('page', 'subpage', 'count'));
 
