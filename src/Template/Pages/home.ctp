@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-6 col-md-offset-3">
             <div class="match-counter">
-                <p>{count} CV's zijn al gematched met een vacature</p>
+                <p><?= $count; ?> CV's zijn al gematched met een vacature</p>
             </div>
         </div>
     </div>
