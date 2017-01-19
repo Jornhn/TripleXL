@@ -53,7 +53,7 @@ class VacanciesController extends AppController
             }
         }
 
-        if ($this->Auth->user('account_type') === 1){
+        if ($this->Auth->user('account_type') === 0){
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $categories = $this->Vacancies->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);

@@ -26,7 +26,7 @@
                         <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
                         <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
                     <?php endif; ?>
-                    <?= $this->Html->link("Mijn Matches <span class=\"badge\">420</span>", ['controller' => 'Matches', 'action' => 'index'], ['class' => 'btn btn-default', 'escape' => false])?>
+                    <?= $this->Html->link("Mijn Matches", ['controller' => 'Matches', 'action' => 'index'], ['class' => 'btn btn-default'])?>
                     <?= $this->Html->link("Accountgegevens", ['controller' => 'Users', 'action' => 'view'], ['class' => 'btn btn-default'])?>
                     <?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'btn btn-danger logout'])?>
                 </div>
