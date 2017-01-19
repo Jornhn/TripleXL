@@ -31,7 +31,7 @@
                        <td><?= $competence->category->category ?></td>
                        <td><?= $this->Html->link("View", ['controller' => 'competenties', 'action' => 'view/' . $competence->id], ['class' => 'btn btn-info']) ?></td>
                        <td><?= $this->Html->link("Edit", ['controller' => 'competenties', 'action' => 'edit/' . $competence->id], ['class' => 'btn btn-primary']) ?></td>
-                       <td><?= $this->Form->postLink("Delete", ['controller' => 'competenties', 'action' => 'delete/' . $competence->id], ['class' => 'btn btn-danger', 'confirm' => 'Are you sure?']) ?></td>
+                       <td><button onclick="confirmation(<?= $competence->id ?>)" class="btn btn-danger">Verwijderen</button></td>
                    </tr>
                 <?php }} ?>
             </table>
