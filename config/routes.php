@@ -52,6 +52,13 @@ Router::scope('/', function (RouteBuilder $routes) {
 
     // Home
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    
+    //Contact
+    $routes->connect('/contact', ['controller' => 'Contact', 'action' => 'display']);
+    
+    //Help
+    $routes->connect('/help', ['controller' => 'Help', 'action' => 'display']);
+    
 
     // CV
     $routes->connect('/cv', ['controller' => 'Cv', 'action' => 'index']);
