@@ -361,3 +361,22 @@ body {
 
     padding-top: 60px;
 }
+
+.static-button{
+        position: fixed !important; 
+        bottom: 10px !important; 
+        right: 20px !important;
+}
+
+@media (min-width: 1010px){
+    
+    .static-button{
+        bottom: 50px !important; 
+        right: 200px !important;
+    }
+    
+}
+
+
+
+

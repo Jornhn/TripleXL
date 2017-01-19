@@ -40,6 +40,7 @@
                         ?>
                         <li><?= $this->Html->link("Dashboard", ['controller' => 'Dashboard', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                         <li><?= $this->Html->link("Contact", ['controller' => 'Contact', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?= $this->Html->link("Help", ['controller' => 'Help', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $this->request->session()->read('Auth.User.email'); ?> <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -69,6 +70,7 @@
                         ?>
                         <li><?= $this->Html->link("Inloggen", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
                         <li><?= $this->Html->link("Contact", ['controller' => 'Contact', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?= $this->Html->link("Help", ['controller' => 'Help', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                     <?php } ?>
                 </ul>
             </div>

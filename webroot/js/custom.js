@@ -42,6 +42,13 @@ $('#category-id').on('change', function() {
     });
 });
 
+$('#scrolltop').click(function(){
+    
+    $('html, body').animate({scrollTop: '0px'}, 'slow');
+    
+});
+
+
 //Custom Alert
 
 function confirmation(id){
