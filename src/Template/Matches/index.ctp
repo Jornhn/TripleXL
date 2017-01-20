@@ -2,12 +2,18 @@
 
 <div class="container">
     <div class="col-md-12 default-container">
-        <h1>Mijn Matches</h1>
+        <h1>
+                Mijn Matches
+            <?php if ($this->request->session()->read('Auth.User.account_type') == 1) : ?>
+                    <button class="btn btn-info btn-buy pull-right">Betalen</button>
+            <?php endif; ?>
+        </h1>
         <hr>
         <div class="row">
             <?php
             if ($this->request->session()->read('Auth.User.account_type') == 0) :
                 $count = 1;
+
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail text-center">
@@ -32,6 +38,9 @@
                 endforeach;
             elseif ($this->request->session()->read('Auth.User.account_type') == 1) :
                 $count = 1;
+            ?>
+                <?= $this->Form->create('', ['id' => 'buyForm']); ?>
+            <?php
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail text-center">
@@ -42,12 +51,21 @@
                                 <h3><?= $match->cv->title; ?></h3>
                                 <p><?= $match->vacancy->title; ?></p>
                                 <p class="score">Score: <?= $match->score; ?></p>
+
+                                <div class="checkbox checkbox-danger">
+                                        <?= $this->Form->checkbox('buySelection', ['id' => 'checkbox', 'class' => 'styled', 'hiddenField' => false]); ?>
+                                        <label for="checkbox">
+                                            Kopen
+                                        </label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 <?php $count++;
                 endforeach;
-            else :
+                ?>
+                <?= $this->Form->end(); ?>
+                <?php else :
                 $count = 1;
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
@@ -76,3 +94,28 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+
+
+        if (!$("#buyForm input:checkbox:checked").length)
+        {
+            $('.btn-buy').prop('disabled', true);
+        }
+
+        $('input:checkbox').click(function(){
+            if (!$("#buyForm input:checkbox:checked").length)
+            {
+                $('.btn-buy').prop('disabled', true);
+            } else {
+                $('.btn-buy').prop('disabled', false);
+            }
+
+        });
+
+        $('.btn-buy').click(function(e){
+            $('#buyForm').submit();
+            e.preventDefault();
+        });
+    });
+</script>

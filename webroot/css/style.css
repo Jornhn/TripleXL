@@ -395,6 +395,10 @@ body {
     font-size: 1.2em;
 }
 
+.checkbox {
+    border-radius: 0px;
+}
+
 /* Custom style for Sollicitant pages */
 
 .top-space {
