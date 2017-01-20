@@ -116,7 +116,6 @@
 
         $('.btn-buy').click(function(e){
             $('#buyForm').submit();
-            e.preventDefault();
         });
     });
 </script>
