@@ -443,6 +443,9 @@ body {
     
 }
 
+.td-max-width {
+    max-width: 180px !important;
+}
 
 
 

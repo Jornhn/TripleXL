@@ -44,6 +44,8 @@ class VacanciesController extends AppController
             $vacancies = $this->Vacancies->patchEntity($vacancies, $this->request->data);
             $vacancies->user_id = $this->Auth->user('id');
 
+            dump($this->request->data);
+
             if ($this->Vacancies->save($vacancies)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);

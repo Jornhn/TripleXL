@@ -58,10 +58,11 @@
                                     <li role="separator" class="divider"></li>
                                     <li><?= $this->Html->link("Beheerders", ['controller' => 'Managers', 'action' => 'index'])?></li>
                                 <?php elseif ($this->request->session()->read('Auth.User.account_type') == 0 || $this->request->session()->read('Auth.User.account_type') > 1): ?>
-                                    <li><?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Mijn CV's", ['controller' => 'Cvs', 'action' => 'index'])?></li>
                                 <?php elseif ($this->request->session()->read('Auth.User.account_type') >= 1): ?>
-                                    <li><?= $this->Html->link("Mijn Vacature('s)", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
+                                    <li><?= $this->Html->link("Mijn Vacatures", ['controller' => 'Vacatures', 'action' => 'index'])?></li>
                                 <?php endif; ?>
+                                <li><?= $this->Html->link("Matches", ['controller' => 'Matches', 'action' => 'index'])?></li>
                                 <li role="separator" class="divider"></li>
                                 <li><?= $this->Html->link("Uitloggen", ['controller' => 'Users', 'action' => 'logout'], ['class' => 'menu-logout'])?></li>
                             </ul>
@@ -70,8 +71,8 @@
                     else {
                         ?>
                         <li><?= $this->Html->link("Inloggen", ['controller' => 'Users', 'action' => 'login'], ['class' => 'nav-link'])?></li>
-                        <li><?= $this->Html->link("Contact", ['controller' => 'Contact', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                         <li><?= $this->Html->link("Help", ['controller' => 'Help', 'action' => 'index'], ['class' => 'nav-link'])?></li>
+                        <li><?= $this->Html->link("Contact", ['controller' => 'Contact', 'action' => 'index'], ['class' => 'nav-link'])?></li>
                     <?php } ?>
                 </ul>
             </div>
