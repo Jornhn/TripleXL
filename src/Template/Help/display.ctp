@@ -72,6 +72,7 @@
 </button>
       
 <script>
+$("#scrolltop").hide();
 $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -85,5 +86,18 @@ $(function() {
       }
     }
   });
+});
+
+$(document).ready(function () {
+
+
+    $(window).on("scroll", function() {
+        var scrollPos = $(window).scrollTop();
+        if (scrollPos == 0) {
+            $("#scrolltop").fadeOut();
+        } else {
+            $("#scrolltop").fadeIn();
+        }
+    });
 });
 </script>
