@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> Vacature wijzigen
-            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <?php echo $this->Form->create($vacancies,['class'=>'form-horizontal', 'data-toggle' => 'validator']);?>
