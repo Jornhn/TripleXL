@@ -46,8 +46,7 @@
 <div class="form-group">
   <label class="col-md-3 control-label" for="insertion">Tussenvoegsel</label>
   <div class="col-md-6">
-    <?php echo $this->Form->input('insertion', ['type'=>'text', 'id'=>'insertion', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
-      <div class="help-block with-errors"></div>
+    <?php echo $this->Form->input('insertion', ['type'=>'text', 'id'=>'insertion', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false]); ?>
   </div>
 </div>
 
