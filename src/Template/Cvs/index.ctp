@@ -42,8 +42,8 @@
                         <td><?= $cv->user->firstname?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
                     <?php endif; ?>
                     <td><?= $cv->title ?></td>
-                    <td><?= $cv->text ?></td>
-                    <td><?= $cv->motivation ?></td>
+                    <td><?= substr($cv->text, 0, 150).'...' ?></td>
+                    <td><?= substr($cv->motivation, 0, 150).'...' ?></td>
                     <td>
                         <?php
                         if ($cv->status === 1) {

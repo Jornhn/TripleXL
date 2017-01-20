@@ -89,7 +89,8 @@
                             </div>
                         </div>
                     </div>
-            <?php endforeach;
+            <?php $count++;
+            endforeach;
             endif; ?>
         </div>
     </div>
@@ -115,7 +116,6 @@
 
         $('.btn-buy').click(function(e){
             $('#buyForm').submit();
-            e.preventDefault();
         });
     });
 </script>
