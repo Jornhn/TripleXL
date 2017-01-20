@@ -30,8 +30,7 @@ class UsersController extends AppController
 
     public function view($id)
     {
-        if (empty($id) || !isset($id))
-        {
+        if (empty($id) || !isset($id)) {
             $id = $this->Auth->user('id');
         } else {
             $this->isAuthorized($this->Auth->user());
@@ -41,10 +40,10 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
 
-        if (empty($id) || !isset($id))
-        {
+        if (empty($id) || !isset($id)) {
             $id = $this->Auth->user('id');
         } else {
             $this->isAuthorized($this->Auth->user());
@@ -66,8 +65,7 @@ class UsersController extends AppController
 
     public function login()
     {
-        if ($this->Auth->user())
-        {
+        if ($this->Auth->user()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
 
@@ -77,7 +75,7 @@ class UsersController extends AppController
                 $this->Auth->setUser($user);
                 return $this->redirect($this->Auth->redirectUrl());
             }
-            $this->Flash->set('Het opgegeven email of wachtwoord is onjuist probeer het opnieuw', ['key' => 'login-error','params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Het opgegeven email of wachtwoord is onjuist probeer het opnieuw', ['key' => 'login-error', 'params' => ['class' => 'alert alert-danger']]);
         }
     }
 
@@ -86,10 +84,10 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function register(){
+    public function register()
+    {
 
-        if ($this->Auth->user())
-        {
+        if ($this->Auth->user()) {
             return $this->redirect($this->Auth->redirectUrl());
         }
 
@@ -101,9 +99,9 @@ class UsersController extends AppController
                 $this->Flash->set('Uw account is succesvol aangemaakt. Log in om door te gaan.', ['key' => 'register-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->set('Er ging iets mis! Controleer of alle velden zijn ingevuld.',  ['key' => 'register-error', 'params' => ['class' => 'alert alert-danger']]);
+            $this->Flash->set('Er ging iets mis! Controleer of alle velden zijn ingevuld.', ['key' => 'register-error', 'params' => ['class' => 'alert alert-danger']]);
         }
         $this->set('user', $user);
     }
-    
+
 }

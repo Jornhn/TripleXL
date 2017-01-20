@@ -20,10 +20,10 @@
             <h4>Registeren - Stap 2</h4>
             <p>Uw contact gegevens</p>
             <div class="form-group">
-                <?= $this->Form->input('salutation',['type'=>'select','class'=>'form-control ','options'=> [
-                    'Dhr.'=>'Dhr.',
-                    'Mevr.'=>'Mevr.',
-                ],'div'=>false,'label'=>false]); ?>
+                <?= $this->Form->input('salutation', ['type' => 'select', 'class' => 'form-control ', 'options' => [
+                    'Dhr.' => 'Dhr.',
+                    'Mevr.' => 'Mevr.',
+                ], 'div' => false, 'label' => false]); ?>
             </div>
             <div class="form-group">
                 <?= $this->Form->input('firstname', ['class' => 'form-control', 'id' => 'inputFirstname', 'error' => false, 'label' => 'Voornaam']) ?>
@@ -81,7 +81,7 @@
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-                <?= $this->Form->input('passwordConfirm', ['type'=> 'password', 'class' => 'form-control', 'id' => 'inputPasswordConfirm', 'error' => false, 'label' => 'Wachtwoord herhalen', 'data-match' => '#inputPassword', 'data-match-error' => 'Wachtwoorden komen niet overeen!']) ?>
+                <?= $this->Form->input('passwordConfirm', ['type' => 'password', 'class' => 'form-control', 'id' => 'inputPasswordConfirm', 'error' => false, 'label' => 'Wachtwoord herhalen', 'data-match' => '#inputPassword', 'data-match-error' => 'Wachtwoorden komen niet overeen!']) ?>
                 <div class="help-block with-errors"></div>
             </div>
             <button class="btn btn-default prev pull-left">Vorige</button>
@@ -92,47 +92,47 @@
 </div>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $('.register').click(function(e){
+        $('.register').click(function (e) {
             $('#register-form').submit();
             e.preventDefault();
         });
 
-        if($(this).val() == 0){
+        if ($(this).val() == 0) {
             $('.company').hide();
         }
 
-        $('#account-type').change(function(){
-            if($(this).val() == 0){
+        $('#account-type').change(function () {
+            if ($(this).val() == 0) {
                 $('.company').hide();
             } else {
                 $('.company').show();
             }
         });
 
-        $('.register-step').each(function() {
-            if($(this)[0].id == "step-1"){
+        $('.register-step').each(function () {
+            if ($(this)[0].id == "step-1") {
                 $(this).show();
             } else {
                 $(this).hide();
             }
         });
 
-        $('button.next').click(function(e){
+        $('button.next').click(function (e) {
             $(this).parent().hide();
             $(this).parent().next().show();
             e.preventDefault();
         });
 
-        $('button.prev').click(function(e){
+        $('button.prev').click(function (e) {
             $(this).parent().hide();
             $(this).parent().prev().show();
             e.preventDefault();
         });
 
 
-        $('#register-form').on('keyup keypress', function(e) {
+        $('#register-form').on('keyup keypress', function (e) {
             var keyCode = e.keyCode || e.which;
             if (keyCode === 13) {
                 e.preventDefault();

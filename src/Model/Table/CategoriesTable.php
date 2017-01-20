@@ -18,7 +18,7 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->hasMany('CategoriesCompetences',  [
+        $this->hasMany('CategoriesCompetences', [
             'dependent' => true,
             'cascadeCallbacks' => true,
         ]);
@@ -39,7 +39,7 @@ class CategoriesTable extends Table
         $validator
             ->requirePresence('category', 'create')
             ->notEmpty('category');
-    
+
         $validator
             ->requirePresence('category_description', 'create')
             ->notEmpty('category_description');

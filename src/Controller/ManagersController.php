@@ -7,7 +7,8 @@ use Cake\Network\Response;
 class ManagersController extends AppController
 {
 
-    public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null){
+    public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
+    {
         parent::__construct($request, $response, $name, $eventManager, $components);
 
         $this->loadModel('Users');
@@ -22,8 +23,9 @@ class ManagersController extends AppController
         return false;
     }
 
-    public function index(){
-        if($this->isAuthorized($this->Auth->user())){
+    public function index()
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             $query = $this->Users->find()->where(['account_type' => '2']);
             $results = $query->all();
 
@@ -31,8 +33,9 @@ class ManagersController extends AppController
         }
     }
 
-    public function view($id = null){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function view($id = null)
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
                 throw new NotFoundException;
             }
@@ -41,8 +44,9 @@ class ManagersController extends AppController
         }
     }
 
-    public function create(){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function create()
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
                 $entity = $this->Users->newEntity($this->request->data());
                 if ($this->Users->save($entity)) {
@@ -54,8 +58,9 @@ class ManagersController extends AppController
         }
     }
 
-    public function edit($id = null){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function edit($id = null)
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
                 throw new NotFoundException;
             }
@@ -73,7 +78,8 @@ class ManagersController extends AppController
         }
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
                 throw new NotFoundException;

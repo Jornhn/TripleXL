@@ -12,7 +12,7 @@
                 <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
             </span>
         </h1>
-        <hr />
+        <hr/>
         <?= $this->Flash->render('cv-error') ?>
         <?= $this->Flash->render('cv-success') ?>
         <table class="table table-striped">
@@ -33,30 +33,33 @@
             </thead>
             <tbody>
             <?php if ($cvs->isEmpty()) { ?>
-                <tr><td colspan="7">U heeft nog geen CV toegevoegd.</td></tr>
+                <tr>
+                    <td colspan="7">U heeft nog geen CV toegevoegd.</td>
+                </tr>
             <?php } ?>
             <?php foreach ($cvs as $cv): ?>
                 <tr>
                     <td><?= $cv->id ?></td>
-                    <?php if (!empty($cv->user)) :?>
-                        <td><?= $cv->user->firstname?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
+                    <?php if (!empty($cv->user)) : ?>
+                        <td><?= $cv->user->firstname ?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
                     <?php endif; ?>
                     <td><?= $cv->title ?></td>
-                    <td><?= substr($cv->text, 0, 150).'...' ?></td>
-                    <td><?= substr($cv->motivation, 0, 150).'...' ?></td>
+                    <td><?= substr($cv->text, 0, 150) . '...' ?></td>
+                    <td><?= substr($cv->motivation, 0, 150) . '...' ?></td>
                     <td>
                         <?php
                         if ($cv->status === 1) {
                             echo 'Actief';
-                        }
-                        else {
+                        } else {
                             echo 'Non actief';
                         }
                         ?>
                     </td>
                     <td><?= $this->Html->link("View", ['action' => 'view', $cv->id], ['class' => 'btn btn-info']) ?></td>
                     <td><?= $this->Html->link("Edit", ['action' => 'edit', $cv->id], ['class' => 'btn btn-primary']) ?></td>
-                    <td><button onclick="confirmation(<?= $cv->id ?>)" class="btn btn-danger">Verwijderen</button></td>
+                    <td>
+                        <button onclick="confirmation(<?= $cv->id ?>)" class="btn btn-danger">Verwijderen</button>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

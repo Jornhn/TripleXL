@@ -38,11 +38,9 @@ class MatchesController extends AppController
     {
         if ($this->Auth->user('account_type') == 0) {
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Cvs.user_id' => $this->Auth->user('id')])->order(['ViewVacanciesCvs.score' => 'DESC']);
-        }
-        else if ($this->Auth->user('account_type') == 1) {
+        } else if ($this->Auth->user('account_type') == 1) {
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Vacancies.user_id' => $this->Auth->user('id')])->order(['ViewVacanciesCvs.score' => 'DESC']);
-        }
-        else {
+        } else {
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->order(['ViewVacanciesCvs.score' => 'DESC']);
         }
 

@@ -15,7 +15,8 @@
         </div>
 
         <?= $this->Form->button(__('Login'), ['class' => 'btn btn-primary']); ?>
-        <p class="login-register">Nog geen account? Registreer dan <?php echo $this->Html->link("hier", ['controller' => 'Users', 'action' => 'register'])?> gratis!</p>
+        <p class="login-register">Nog geen account? Registreer
+            dan <?php echo $this->Html->link("hier", ['controller' => 'Users', 'action' => 'register']) ?> gratis!</p>
         <?= $this->Form->end() ?>
     </div>
 </div>
