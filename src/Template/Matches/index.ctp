@@ -89,7 +89,8 @@
                             </div>
                         </div>
                     </div>
-            <?php endforeach;
+            <?php $count++;
+            endforeach;
             endif; ?>
         </div>
     </div>
