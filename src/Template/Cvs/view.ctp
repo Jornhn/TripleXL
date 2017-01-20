@@ -30,7 +30,7 @@
                 </td>
             </tr>
             <tr>
-                <th>Compententies</th>
+                <th>Competenties</th>
                 <td>
                     <?php if ($cvs->categories_competences) : ?>
                         <?php foreach ($cvs->categories_competences as $competence): ?>

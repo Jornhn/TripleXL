@@ -6,7 +6,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class VacanciesTable extends Table
+class ViewVacanciesCvsTable extends Table
 {
 
     /**
@@ -18,11 +18,20 @@ class VacanciesTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
+        $this->belongsTo('Cvs');
+        $this->belongsTo('Vacancies');
+    }
 
-        $this->belongsTo('Users');
-        $this->belongsTo('Categories');
-        $this->hasMany('VacanciesCvs');
-        $this->hasMany('ViewVacanciesCvs');
-        $this->belongsToMany('CategoriesCompetences');
+    public function countMatches()
+    {
+        $matches = $this->find()->contain(['Cvs', 'Vacancies']);
+
+        $count = 0;
+        foreach ($matches as $value)
+        {
+            $count++;
+        }
+
+        return $count;
     }
 }
