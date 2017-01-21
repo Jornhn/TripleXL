@@ -8,11 +8,11 @@
         <hr>
         <table class="top-space col-lg-12 table table-striped">
             <tr>
-                <th>Title: </th>
+                <th>Title:</th>
                 <td><?= $vacancies->title ?></td>
             </tr>
             <tr>
-                <th>Tekst: </th>
+                <th>Tekst:</th>
                 <td><?= $vacancies->text ?></td>
             </tr>
             <tr>
@@ -43,8 +43,7 @@
                     <?php
                     if ($vacancies->status === 1) {
                         echo 'Actief';
-                    }
-                    else {
+                    } else {
                         echo 'Non actief';
                     }
                     ?>

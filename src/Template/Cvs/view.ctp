@@ -8,15 +8,15 @@
         <hr>
         <table class="top-space col-lg-12 table table-striped">
             <tr>
-                <th>Title: </th>
+                <th>Title:</th>
                 <td><?= $cvs->title ?></td>
             </tr>
             <tr>
-                <th>Tekst: </th>
+                <th>Tekst:</th>
                 <td><?= $cvs->text ?></td>
             </tr>
             <tr>
-                <th>Motivatie: </th>
+                <th>Motivatie:</th>
                 <td><?= $cvs->motivation ?></td>
             </tr>
             <tr>
@@ -42,16 +42,15 @@
                 </td>
             </tr>
             <tr>
-                <th>Video: </th>
+                <th>Video:</th>
                 <td>
                     <?php
-                    if(strlen($cvs->video) < 10 ) {
+                    if (strlen($cvs->video) < 10) {
                         echo 'U heeft helaas geen video! :(';
-                    }
-                    else {
+                    } else {
                         echo '
                          <video width="320" height="240" controls>
-                            <source src="../../videos/'.$cvs->video.'" type="video/mp4">
+                            <source src="../../videos/' . $cvs->video . '" type="video/mp4">
                         </video>';
                     }
                     ?>
@@ -63,8 +62,7 @@
                     <?php
                     if ($cvs->status === 1) {
                         echo 'Actief';
-                    }
-                    else {
+                    } else {
                         echo 'Non actief';
                     }
                     ?>

@@ -27,8 +27,7 @@ class ViewVacanciesCvsTable extends Table
         $matches = $this->find()->contain(['Cvs', 'Vacancies']);
 
         $count = 0;
-        foreach ($matches as $value)
-        {
+        foreach ($matches as $value) {
             $count++;
         }
 

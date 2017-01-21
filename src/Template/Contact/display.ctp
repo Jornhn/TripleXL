@@ -16,7 +16,6 @@
             <?= $contact->about_text ?>
         </div>
     </div>
-    </div>
 </div>
 
 <script>

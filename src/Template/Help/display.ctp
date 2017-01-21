@@ -69,25 +69,25 @@
 </div>
 
 <button type="button" class="btn btn-info static-button" id="scrolltop" aria-label="Left Align">
-  <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> Terug naar boven
+    <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span> Terug naar boven
 </button>
-      
+
 <script>
-$("#scrolltop").hide();
-$(function() {
-  $('a[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
+    $("#scrolltop").hide();
+    $(function () {
+        $('a[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
 
 $(document).ready(function () {
     $(window).on("scroll", function() {
@@ -98,5 +98,4 @@ $(document).ready(function () {
             $("#scrolltop").fadeIn();
         }
     });
-});
 </script>

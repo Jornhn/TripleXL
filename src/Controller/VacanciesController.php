@@ -31,8 +31,7 @@ class VacanciesController extends AppController
 
         if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             $this->set('vacancies', $vacancies);
-        }
-        else {
+        } else {
             return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
     }
@@ -49,13 +48,12 @@ class VacanciesController extends AppController
             if ($this->Vacancies->save($vacancies)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
-            }
-            else {
+            } else {
                 $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
 
-        if ($this->Auth->user('account_type') === 0){
+        if ($this->Auth->user('account_type') === 0) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $categories = $this->Vacancies->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
@@ -74,19 +72,17 @@ class VacanciesController extends AppController
                 if ($this->Vacancies->save($vacancies)) {
                     $this->Flash->set('De vacature is succesvol opgeslagen!', ['key' => 'vacancy-success', 'params' => ['class' => 'alert alert-success']]);
                     return $this->redirect(['action' => 'index']);
-                }
-                else {
+                } else {
                     $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'vacancy-error', 'params' => ['class' => 'alert alert-danger']]);
                 }
             }
-        }
-        else {
+        } else {
             if ($this->Auth->user('account_type') !== 3) {
                 return $this->redirect(['controller' => 'Vacancies', 'action' => 'index']);
             }
         }
 
-        if ($this->Auth->user('account_type') === 0){
+        if ($this->Auth->user('account_type') === 0) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $categories = $this->Vacancies->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
@@ -101,15 +97,14 @@ class VacanciesController extends AppController
         if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             $this->request->allowMethod(['post', 'delete', 'get']);
             if ($this->Vacancies->delete($vacancies)) {
-                $this->Flash->set('Uw vacature is verwijderd!', ['key' => 'vacancy-success','params' => ['class' => 'alert alert-success']]);
+                $this->Flash->set('Uw vacature is verwijderd!', ['key' => 'vacancy-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
-        }
-        else {
+        } else {
             return $this->redirect(['action' => 'index']);
         }
 
-        if ($this->Auth->user('account_type') === 0){
+        if ($this->Auth->user('account_type') === 0) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
     }
