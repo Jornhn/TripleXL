@@ -37,9 +37,9 @@ class MatchesController extends AppController
     public function index()
     {
         if ($this->Auth->user('account_type') == 0) {
-            $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Cvs.user_id' => $this->Auth->user('id')])->order(['ViewVacanciesCvs.score' => 'DESC']);
+            $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Cvs.user_id' => $this->Auth->user('id')])->where(['Cvs.status' => 1])->andWhere(['Vacancies.status' => 1])->order(['ViewVacanciesCvs.score' => 'DESC']);
         } else if ($this->Auth->user('account_type') == 1) {
-            $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Vacancies.user_id' => $this->Auth->user('id')])->order(['ViewVacanciesCvs.score' => 'DESC']);
+            $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Vacancies.user_id' => $this->Auth->user('id')])->where(['Cvs.status' => 1])->andWhere(['Vacancies.status' => 1])->order(['ViewVacanciesCvs.score' => 'DESC']);
         } else {
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->order(['ViewVacanciesCvs.score' => 'DESC']);
         }
