@@ -3,9 +3,9 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1>
-                Mijn Matches
+            Mijn Matches
             <?php if ($this->request->session()->read('Auth.User.account_type') == 1) : ?>
-                    <button class="btn btn-info btn-buy pull-right">Betalen</button>
+                <button class="btn btn-info btn-buy pull-right">Betalen</button>
             <?php endif; ?>
         </h1>
         <hr>
@@ -18,7 +18,7 @@
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail text-center">
                             <div class="img-match" data-content="#<?= $count; ?>">
-                                <img src="http://placekitten.com/242/200" alt="User Icon" />
+                                <img src="http://placekitten.com/242/200" alt="User Icon"/>
                             </div>
                             <div class="caption">
                                 <h3><?= $match->vacancy->title; ?></h3>
@@ -26,26 +26,28 @@
                                 <p class="score">Score: <?= $match->score; ?></p>
                                 <p>
                                     <?php if (!empty($match->vacancy->user->website)) : ?>
-                                        <a href="<?= $match->vacancy->user->website ?>" target="_blank" class="btn btn-info btn-block" role="button">Ga naar website</a>
-                                    <?php else :?>
-                                        <a class="btn btn-info btn-block" role="button" disabled="disabled">Ga naar website</a>
+                                        <a href="<?= $match->vacancy->user->website ?>" target="_blank"
+                                           class="btn btn-info btn-block" role="button">Ga naar website</a>
+                                    <?php else : ?>
+                                        <a class="btn btn-info btn-block" role="button" disabled="disabled">Ga naar
+                                            website</a>
                                     <?php endif; ?>
                                 </p>
                             </div>
                         </div>
                     </div>
-            <?php $count++;
+                    <?php $count++;
                 endforeach;
             elseif ($this->request->session()->read('Auth.User.account_type') == 1) :
                 $count = 1;
-            ?>
+                ?>
                 <?= $this->Form->create('', ['id' => 'buyForm']); ?>
-            <?php
+                <?php
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail text-center">
                             <div class="img-match" data-content="#<?= $count; ?>">
-                                <img src="http://placekitten.com/242/200" alt="User Icon" />
+                                <img src="http://placekitten.com/242/200" alt="User Icon"/>
                             </div>
                             <div class="caption">
                                 <h3><?= $match->cv->title; ?></h3>
@@ -53,25 +55,25 @@
                                 <p class="score">Score: <?= $match->score; ?></p>
 
                                 <div class="checkbox checkbox-danger">
-                                        <?= $this->Form->checkbox('buySelection', ['id' => 'checkbox', 'class' => 'styled', 'hiddenField' => false]); ?>
-                                        <label for="checkbox">
-                                            Kopen
-                                        </label>
+                                    <?= $this->Form->checkbox('buySelection', ['id' => 'checkbox', 'class' => 'styled', 'hiddenField' => false]); ?>
+                                    <label for="checkbox">
+                                        Kopen
+                                    </label>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php $count++;
+                    <?php $count++;
                 endforeach;
                 ?>
                 <?= $this->Form->end(); ?>
-                <?php else :
+            <?php else :
                 $count = 1;
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
                         <div class="thumbnail text-center">
                             <div class="img-match" data-content="#<?= $count; ?>">
-                                <img src="http://placekitten.com/242/200" alt="User Icon" />
+                                <img src="http://placekitten.com/242/200" alt="User Icon"/>
                             </div>
                             <div class="caption">
                                 <p><b>Bedrijf</b>: <?= $match->vacancy->user->company_name; ?></p>
@@ -89,24 +91,22 @@
                             </div>
                         </div>
                     </div>
-            <?php $count++;
-            endforeach;
+                    <?php $count++;
+                endforeach;
             endif; ?>
         </div>
     </div>
 </div>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
 
-        if (!$("#buyForm input:checkbox:checked").length)
-        {
+        if (!$("#buyForm input:checkbox:checked").length) {
             $('.btn-buy').prop('disabled', true);
         }
 
-        $('input:checkbox').click(function(){
-            if (!$("#buyForm input:checkbox:checked").length)
-            {
+        $('input:checkbox').click(function () {
+            if (!$("#buyForm input:checkbox:checked").length) {
                 $('.btn-buy').prop('disabled', true);
             } else {
                 $('.btn-buy').prop('disabled', false);
@@ -114,7 +114,7 @@
 
         });
 
-        $('.btn-buy').click(function(e){
+        $('.btn-buy').click(function (e) {
             $('#buyForm').submit();
         });
     });

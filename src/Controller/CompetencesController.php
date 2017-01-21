@@ -5,7 +5,8 @@ use Cake\Network\Request;
 use Cake\Network\Response;
 use Cake\Datasource\ConnectionManager;
 
-class CompetencesController extends AppController{
+class CompetencesController extends AppController
+{
 
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
     {
@@ -23,8 +24,9 @@ class CompetencesController extends AppController{
         return false;
     }
 
-    public function index(){
-        if($this->isAuthorized($this->Auth->user())){
+    public function index()
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             $competences = $this->CategoriesCompetences->find()->contain(['Categories']);
 
             $conn = ConnectionManager::get('default');
@@ -35,13 +37,14 @@ class CompetencesController extends AppController{
                             INNER JOIN categories_competences_vacancies ON categories_competences_cvs.categories_competence_id = categories_competences_vacancies.categories_competence_id
                             INNER JOIN categories ON categories_competences.category_id = categories.id');
 
-            $test = $stmt ->fetchAll('assoc');
+            $test = $stmt->fetchAll('assoc');
             $this->set(compact('competences', 'test'));
         }
     }
 
-    public function view($id = null){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function view($id = null)
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             $competences = $this->CategoriesCompetences->get($id, [
                 'contain' => ['Categories']
             ]);
@@ -50,17 +53,17 @@ class CompetencesController extends AppController{
         }
     }
 
-    public function create(){
+    public function create()
+    {
 
         $categories = $this->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
         $this->set(compact('categories'));
 
         $competence = $this->CategoriesCompetences->newEntity();
-        if($this->isAuthorized($this->Auth->user())) {
+        if ($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
 
-                if ($this->request->data['category_id'] == 0)
-                {
+                if ($this->request->data['category_id'] == 0) {
                     $this->Flash->set('Categorie moet ingevuld zijn', ['key' => 'competence-error', 'params' => ['class' => 'alert alert-warning']]);
                     return;
                 }
@@ -76,9 +79,10 @@ class CompetencesController extends AppController{
         }
     }
 
-    public function edit($id = null){
+    public function edit($id = null)
+    {
         $competence = $this->CategoriesCompetences->get($id);
-        if($this->isAuthorized($this->Auth->user())) {
+        if ($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("put")) {
                 $competence = $this->CategoriesCompetences->patchEntity($competence, $this->request->data);
 
@@ -93,7 +97,8 @@ class CompetencesController extends AppController{
         $this->set(compact('cvs', 'competence', 'categories'));
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         if ($this->isAuthorized($this->Auth->user())) {
             $competence = $this->CategoriesCompetences->get($id);
             $this->set('competence', $competence);

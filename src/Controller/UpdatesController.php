@@ -32,7 +32,7 @@ class UpdatesController extends AppController
                 $this->request->data['Updates']['date'] = Time::now();
                 $this->request->data['Updates']['global'] = true;
                 $this->request->data['Updates']['type'] = "U";
-                
+
                 if (empty($this->request->data['text'])) {
                     $this->Flash->set('Vul een bericht in.', ['key' => 'update-error', 'params' => ['class' => 'alert alert-warning']]);
                     return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);

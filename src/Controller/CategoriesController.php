@@ -4,7 +4,8 @@ namespace App\Controller;
 use Cake\Network\Request;
 use Cake\Network\Response;
 
-class CategoriesController extends AppController{
+class CategoriesController extends AppController
+{
 
 
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
@@ -13,7 +14,8 @@ class CategoriesController extends AppController{
         $this->loadModel('CategoriesCompetences');
     }
 
-    public function isAuthorized($user){
+    public function isAuthorized($user)
+    {
         if (isset($user['account_type']) && $user['account_type'] >= 2) {
             return true;
         }
@@ -21,16 +23,18 @@ class CategoriesController extends AppController{
         return false;
     }
 
-    public function index(){
-        if($this->isAuthorized($this->Auth->user())){
+    public function index()
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             $categories = $this->Categories->find();
 
             $this->set(compact('categories'));
         }
     }
 
-    public function view($id = null){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function view($id = null)
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             $category = $this->Categories->get($id, [
                 'contain' => ['CategoriesCompetences']
             ]);
@@ -39,8 +43,9 @@ class CategoriesController extends AppController{
         }
     }
 
-    public function create(){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function create()
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
                 $entity = $this->Categories->newEntity($this->request->data());
                 if ($this->Categories->save($entity)) {
@@ -52,8 +57,9 @@ class CategoriesController extends AppController{
         }
     }
 
-    public function edit($id = null){
-        if($this->isAuthorized($this->Auth->user())) {
+    public function edit($id = null)
+    {
+        if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
                 throw new NotFoundException;
             }
@@ -71,7 +77,8 @@ class CategoriesController extends AppController{
         }
     }
 
-    public function delete($id = null){
+    public function delete($id = null)
+    {
         if ($this->isAuthorized($this->Auth->user())) {
             $category = $this->Categories->get($id);
 

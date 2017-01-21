@@ -11,9 +11,10 @@ namespace App\Controller;
 
 class HelpController extends AppController
 {
-    function display(){
-        
+    function display()
+    {
+
     }
-    
-    
+
+
 }

@@ -1,19 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:500,600');
-
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Roboto|Source+Sans+Pro');
 html,
+
 body {
+    font-family: 'Lato', sans-serif !important;
     height: 100%;
-}
-
-body {
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500;
-
-    background: linear-gradient(
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7)
-    ),
-    url(https://static.pexels.com/photos/30342/pexels-photo-30342.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://static.pexels.com/photos/30342/pexels-photo-30342.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -164,7 +155,6 @@ body {
     background-color: white;
 }
 
-
 .default-container {
     padding: 10px;
     padding-top: 1px;
@@ -183,7 +173,7 @@ body {
     margin-top: 10px;
 }
 
-.login-register a{
+.login-register a {
     color: #2a6496;
 }
 
@@ -199,7 +189,7 @@ body {
     margin-top: 20px;
 }
 
-.user-image img{
+.user-image img {
     width: 100%;
     height: 100%;
     border-radius: 100px;
@@ -340,25 +330,26 @@ body {
 
 .thumbnail .img-match {
     max-width: 242px;
-    display:block;
+    display: block;
     width: 100%;
     height: auto;
-    position:relative;
+    position: relative;
     margin: auto;
 }
 
 .thumbnail .img-match:after, .img-match:before {
-    position:absolute;
+    position: absolute;
     max-width: 242px;
-    width:100%;
-    height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.4);
-    opacity:1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 1;
 }
 
 .thumbnail .img-match:after {
-    content:'\A';
+    content: '\A';
 }
 
 .thumbnail .img-match:before {
@@ -370,11 +361,10 @@ body {
     line-height: 400%;
 }
 
-.thumbnail .img-match img{
+.thumbnail .img-match img {
     width: 100%;
     max-width: 242px;
 }
-
 
 .thumbnail .rank {
     position: absolute;
@@ -384,7 +374,7 @@ body {
     color: white;
 }
 
-.thumbnail .caption h3{
+.thumbnail .caption h3 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -423,27 +413,28 @@ body {
     background-color: grey;
 }
 
-.padding{
+.padding {
 
     padding-top: 60px;
 }
 
-.static-button{
-        position: fixed !important; 
-        bottom: 10px !important; 
-        right: 20px !important;
+.static-button {
+    position: fixed !important;
+    bottom: 10px !important;
+    right: 20px !important;
 }
 
-@media (min-width: 1010px){
-    
-    .static-button{
-        bottom: 50px !important; 
+@media (min-width: 1010px) {
+
+    .static-button {
+        bottom: 50px !important;
         right: 200px !important;
     }
-    
+
 }
 
-
-
+.td-max-width {
+    max-width: 180px !important;
+}
 
 

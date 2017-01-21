@@ -10,15 +10,15 @@
         <hr>
         <table class="top-space col-lg-12 table table-striped">
             <tr>
-                <th>Aanhef: </th>
+                <th>Aanhef:</th>
                 <td><?= $user->salutation ?></td>
             </tr>
             <tr>
-                <th>Voornaam: </th>
+                <th>Voornaam:</th>
                 <td><?= $user->firstname ?></td>
             </tr>
             <tr>
-                <th>Tussenvoegsel: </th>
+                <th>Tussenvoegsel:</th>
                 <td><?= $user->insertion ?></td>
             </tr>
             <tr>
@@ -46,25 +46,25 @@
                 <td><?= $user->email ?></td>
             </tr>
             <?php if ($this->request->session()->read('Auth.User.account_type') >= 1) { ?>
-            <tr>
-                <th>Bedrijfsnaam</th>
-                <td><?= $user->company_name ?></td>
-            </tr>
-            <tr>
-                <th>Website</th>
-                <td><?= $user->website ?></td>
-            </tr>
+                <tr>
+                    <th>Bedrijfsnaam</th>
+                    <td><?= $user->company_name ?></td>
+                </tr>
+                <tr>
+                    <th>Website</th>
+                    <td><?= $user->website ?></td>
+                </tr>
             <?php } ?>
             <tr>
                 <th>Account soort</th>
                 <td>
                     <?php if ($user->account_type == '0') { ?>
                         Sollicitant
-                    <?php } else if($user->account_type == '1') { ?>
+                    <?php } else if ($user->account_type == '1') { ?>
                         Bedrijf
-                    <?php } else if($user->account_type == '2') { ?>
+                    <?php } else if ($user->account_type == '2') { ?>
                         Beheerder
-                    <?php } else if($user->account_type == '3') { ?>
+                    <?php } else if ($user->account_type == '3') { ?>
                         Super user
                     <?php } ?>
                 </td>
