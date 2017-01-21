@@ -76,26 +76,25 @@
                         </div>
                         <?php } ?>
                         <?php foreach ($userUpdates as $userUpdate) { ?>
-                        <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
-                        <div class="update-post post-deletable">
-                            <?php } else { ?>
-                            <div class="update-post">
-                                <?php } ?>
-                                <div class="update-image">
-                                    <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
-                                        <?= $this->Html->link("<span class=\"glyphicon glyphicon-trash\"></span>", ['controller' => 'Updates', 'action' => 'delete', $userUpdate->id], ['class' => 'delete-update', 'escape' => false, 'confirm' => 'Weet u zeker dat u deze update wilt verwijderen?']); ?>
+                            <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                            <div class="update-post post-deletable">
+                                <?php } else { ?>
+                                <div class="update-post">
                                     <?php } ?>
-                                    <div class="identifier"><?= $userUpdate->type; ?></div>
+                                    <div class="update-image">
+                                        <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
+                                            <?= $this->Html->link("<span class=\"glyphicon glyphicon-trash\"></span>", ['controller' => 'Updates', 'action' => 'delete', $userUpdate->id], ['class' => 'delete-update', 'escape' => false, 'confirm' => 'Weet u zeker dat u deze update wilt verwijderen?']); ?>
+                                        <?php } ?>
+                                        <div class="identifier"><?= $userUpdate->type; ?></div>
+                                    </div>
+                                    <div class="update-info">
+                                        <span class="name">U heeft een nieuwe match!</span>
+                                        <span class="date"><?= $userUpdate->date; ?></span>
+                                        <p class="message"><?= htmlspecialchars($userUpdate->text); ?></p>
+                                    </div>
                                 </div>
-                                <div class="update-info">
-                                    <span class="name">U heeft een nieuwe match!</span>
-                                    <span class="date"><?= $userUpdate->date; ?></span>
-                                    <p class="message"><?= htmlspecialchars($userUpdate->text); ?></p>
-                                </div>
-                            </div>
                             <?php } ?>
                         </div>
-                    <?php } ?>
                 </div>
             </div>
         </div>
