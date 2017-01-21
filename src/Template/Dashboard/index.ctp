@@ -18,9 +18,9 @@
                 </div>
 
                 <div class="info-matches">
-                    <?php if ($this->request->session()->read('Auth.User.account_type') === 1): ?>
+                    <?php if ($this->request->session()->read('Auth.User.account_type') === 1) : ?>
                         <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
-                    <?php elseif ($this->request->session()->read('Auth.User.account_type') === 0): ?>
+                    <?php elseif ($this->request->session()->read('Auth.User.account_type') === 0) : ?>
                         <?= $this->Html->link("Mijn CV('s)", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-default'])?>
                     <?php else: ?>
                         <?= $this->Html->link("Mijn Vacatures(s)", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-default'])?>
@@ -50,11 +50,11 @@
         <?php } ?>
         <div class="col-md-9">
             <div class="default-container">
-                <h3>Updates</h3>
+                <h1>Updates</h1>
                 <hr />
                 <div class="update-wrapper">
                     <?php if ($globalUpdates->isEmpty() && $userUpdates->isEmpty()) { ?>
-                        <b>U heeft op dit moment geen updates..</b>
+                        U heeft op dit moment geen updates...
                     <?php }?>
                     <?php foreach ($globalUpdates as $globalUpdate) { ?>
                     <?php if ($this->request->session()->read('Auth.User.account_type') >= 2) { ?>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     <?php } ?>
-</div>
+                </div>
             </div>
         </div>
     </div>
