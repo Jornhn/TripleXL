@@ -66,9 +66,7 @@ class VacanciesController extends AppController
 
     public function edit($id = null)
     {
-        $vacancies = $this->Vacancies->get($id, [
-            'contain' => ['Categories']
-        ]);
+        $vacancies = $this->Vacancies->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
         if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {

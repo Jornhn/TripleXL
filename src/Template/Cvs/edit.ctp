@@ -64,6 +64,13 @@
             </div>
         </div>
 
+        <?php
+        $competences = $cvs->categories_competences;
+        foreach ($competences as $competence) {
+            echo '<div class="hidden" id="competences">'.$competence->id.'</div>';
+        }
+        ?>
+
         <!-- Select Basic -->
         <div class="form-group" id="competence-container">
             <label class="col-md-3 control-label" for="status">Status</label>
@@ -93,8 +100,19 @@
 
     $.post(url, { categoryId: categoryId }, function(result) {
         var html = [];
+
+        var array = $("div #competences").map(function(){
+            return $.trim($(this).text());
+        }).get();
+        var ArrayOfInts = array.map(Number);
+
         for (var i = 0; i < result.result.length; i++) {
-            html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
+            if ($.inArray(+result.result[i].id, ArrayOfInts) >= 0) {
+                html.push('<option value="'+result.result[i].id+'" selected>'+result.result[i].title+'</option>');
+            }
+            else {
+                html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
+            }
         }
 
         $('#competence-container').removeClass('hidden');

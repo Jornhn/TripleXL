@@ -41,7 +41,7 @@
                         <td><?= $vacancy->user->company_name ?></td>
                     <?php endif; ?>
                     <td><?= $vacancy->title ?></td>
-                    <td class="td-max-width"><?= substr($vacancy->text, 0, 150).'...' ?></td>
+                    <td class="td-max-width"><?= substr($vacancy->text, 0, 150) ?></td>
                     <td>
                         <?php
                         if ($vacancy->status == 1) {

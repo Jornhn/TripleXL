@@ -42,8 +42,8 @@
                         <td><?= $cv->user->firstname?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
                     <?php endif; ?>
                     <td><?= $cv->title ?></td>
-                    <td class="td-max-width"><?= substr($cv->text, 0, 150).'...' ?></td>
-                    <td class="td-max-width"><?= substr($cv->motivation, 0, 150).'...' ?></td>
+                    <td class="td-max-width"><?= substr($cv->text, 0, 150) ?></td>
+                    <td class="td-max-width"><?= substr($cv->motivation, 0, 150) ?></td>
                     <td>
                         <?php
                         if ($cv->status === 1) {
