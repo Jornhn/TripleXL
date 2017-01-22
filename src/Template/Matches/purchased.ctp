@@ -1,23 +1,24 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        var doc = new jsPDF();
-        var d = new Date();
-        var specialElementHandlers = {
-            '#editor': function (element, renderer) {
-                return true;
-            }
+        download = function(ele){
+            var doc = new jsPDF();
+            var d = new Date();
+            var specialElementHandlers = {
+                '#editor': function (element, renderer) {
+                    return true;
+                }
+            };
+            var div = '.' + ele;
+            console.log(div);
+
+            doc.fromHTML($(div).get(0), 15, 15, {
+                'width': 170,
+                'elementHandlers': specialElementHandlers
+            });
+
+            doc.save('4.pdf');
         };
     });
-    download = function(ele){
-        var div = '.' + ele;
-        // All units are in the set measurement for the document
-        // This can be changed to "pt" (points), "mm" (Default), "cm", "in"
-        doc.fromHTML($(div).get(0), 15, 15, {
-            'width': 170,
-            'elementHandlers': specialElementHandlers
-        });
-        doc.save('4.pdf');
-    }
 </script>
 <div class="offset"></div>
 
@@ -31,7 +32,6 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Titel</th>
                     <th></th>
                 </tr>
@@ -43,27 +43,40 @@
                 foreach($matches as $match){
                     ?>
                     <tr>
-                        <td><?=$match->id ?></td>
                         <td><?=$match->title?></td>
                         <td>
-                            <button onclick="download(cv<?=$match->id?>)" class="cv-button-open btn btn-info">Download</button>
+                            <button onClick="download('cv<?=$match->id?>')" class="cv-button-open btn btn-info">Download</button>
                         </td>
                     <tr>
                         <td colspan="3" class="hidden">
                             <div class="cv<?=$match->id?>">
-                                <div><h2>Title:</h2>
+                                <div><h1>Sollicitant gegevens:</h1>
+                                    <h4>Naam</h4>
+                                    <p><?= $match->applicant['salutation'] . " " . $match->applicant['firstname'] . " " . $match->applicant['insertion'] . " " . $match->applicant['lastname']?></p>
+                                </div>
+                                <div><h4>Email:</h4>
+                                    <p><?= $match->applicant['email'] ?></p>
+                                </div>
+                                <div><h4>Woongegevens:</h4>
+                                    <p><?= $match->applicant['adress'] ?></p>
+                                    <p><?= $match->applicant['zip_code'] ?></p>
+                                    <p><?= $match->applicant['place'] ?></p>
+                                </div>
+                                <div>
+                                    <h1>CV gegevens:</h1>
+                                    <h4>Title:</h4>
                                     <p><?= $match->title ?></p>
                                 </div>
                                 <div>
-                                    <h2>Tekst:</h2>
+                                    <h4>Tekst:</h4>
                                     <p><?= $match->text ?></p>
                                 </div>
                                 <div>
-                                    <h2>Motivatie:</h2>
+                                    <h4>Motivatie:</h4>
                                     <?= $match->motivation ?>
                                 </div>
                                 <div>
-                                    <h2>Categorie:</h2>
+                                    <h4>Categorie:</h4>
                                     <?php
                                     if ($match->category) {
                                         echo $match->category->category;
@@ -73,11 +86,11 @@
                                     ?>
                                 </div>
                                 <div>
-                                    <h2>Competenties:</h2>
+                                    <h4>Competenties:</h4>
                                     <?php
                                     if ($match->categories_competences) {
                                         foreach ($match->categories_competences as $competence) {
-                                            echo $competence->title;
+                                            echo $competence->title . " ";
                                         }
                                     } else {
                                         echo "Geen gekoppelde competenties";
@@ -85,7 +98,7 @@
                                     ?>
                                 </div>
                                 <div>
-                                    <h2>Status:</h2>
+                                    <h4>Status:</h4>
                                     <?php
                                     if ($match->status === 1) {
                                         echo "Actief";
