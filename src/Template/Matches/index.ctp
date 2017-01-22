@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1>
-            Mijn Matches
+            Matches
             <?php if ($this->request->session()->read('Auth.User.account_type') == 1) : ?>
                 <button class="btn btn-info btn-buy pull-right">Betalen</button>
             <?php endif; ?>
