@@ -50,7 +50,7 @@
                                 <img src="http://placekitten.com/242/200" alt="User Icon"/>
                             </div>
                             <div class="caption">
-                                <h3><?= $match->cv->title; ?></h3>
+                                <h3><?=$this->Html->link($match->cv->title, ['controller' => 'matches/', 'action' => 'cv/' . $match->cv->id])?></h3>
                                 <p><?= $match->vacancy->title; ?></p>
                                 <p class="score">Score: <?= $match->score; ?></p>
 
