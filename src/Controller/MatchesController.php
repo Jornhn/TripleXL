@@ -61,31 +61,37 @@ class MatchesController extends AppController
                 $purchase = $this->Purchases->newEntity();
                 $this->Purchases->patchEntity($purchase, $data);
                 if($this->Purchases->save($purchase)) {
-                    return $this->redirect(['controller' => 'matches', 'action' => 'purchased']);
+
                 } else {
                     $this->Flash->set('Er ging iets mis! Neem z.s.m contact op met de site owner.', ['key' => 'matches-error', 'params' => ['class' => 'alert alert-danger']]);
                 }
             }
-        } else {
             return $this->redirect(['controller' => 'matches', 'action' => 'purchased']);
+        } else {
+            return $this->redirect(['controller' => 'dashboard', 'action' => 'index']);
         }
     }
 
     public function purchased(){
-        if($this->Auth->user('account_type') == 1){
+        if($this->Auth->user('account_type') == 1) {
             $purchased = $this->Purchases->find()->where(["user_id" => $this->Auth->user('id')]);
             $results = $purchased->all();
-            $count= 0;
-            foreach($results as $result) {
+//            debug($results);
+            if(!$results->isEmpty()){
+
+            $count = 0;
+            foreach ($results as $result) {
                 $cvs[] = $this->Cvs->get($result->cv_id, ['contain' => ['Categories', 'CategoriesCompetences']]);
             }
-            foreach($cvs as $cv){
+            foreach ($cvs as $cv) {
                 $cvs[$count]["applicant"] = $this->Users->get($cv["user_id"]);
                 $count++;
             }
             $this->set('matches', $cvs);
-        }else{
-
+            }else{
+                $matches = NULL;
+                $this->set('matches', $matches);
+            }
         }
     }
 
