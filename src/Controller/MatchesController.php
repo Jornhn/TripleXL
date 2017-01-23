@@ -61,14 +61,13 @@ class MatchesController extends AppController
                 $purchase = $this->Purchases->newEntity();
                 $this->Purchases->patchEntity($purchase, $data);
                 if($this->Purchases->save($purchase)) {
-                    $this->Flash->set('De betaling is voltooid.', ['key' => 'matches-success', 'params' => ['class' => 'alert alert-success']]);
-                    return $this->redirect(['controller' => 'matches', 'action' => 'purchased']);
+                    echo "kleine tetten";
                 } else {
                     $this->Flash->set('Er ging iets mis! Neem z.s.m contact op met de site owner.', ['key' => 'matches-error', 'params' => ['class' => 'alert alert-danger']]);
                 }
             }
         } else {
-            return $this->redirect(['controller' => 'matches', 'action' => 'index']);
+//            return $this->redirect(['controller' => 'matches', 'action' => 'purchased']);
         }
     }
 
