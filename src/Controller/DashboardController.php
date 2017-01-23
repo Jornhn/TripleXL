@@ -7,6 +7,7 @@
  */
 
 namespace App\Controller;
+
 use App\Controller\AppController;
 
 class DashboardController extends AppController
@@ -15,6 +16,7 @@ class DashboardController extends AppController
     {
         $this->loadModel('Updates');
         $this->loadModel('Users');
+        $this->loadModel('VacanciesCvs');
 
         $username = $this->Auth->user()['firstname'] . ' ';
 
@@ -36,7 +38,6 @@ class DashboardController extends AppController
             'order' => ['Updates.date' => 'DESC'],
             'limit' => 20
         ]));
-
 
     }
 }

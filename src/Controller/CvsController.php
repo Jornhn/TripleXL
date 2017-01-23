@@ -21,10 +21,10 @@ class CvsController extends AppController
             $first_cv = $this->Cvs->find()->contain(['Users'])->first();
         }
 
-        if ($this->Auth->user('account_type') === 1){
+        if ($this->Auth->user('account_type') === 1) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
-        $this->set(compact('cvs', 'first_cv'));
+        $this->set(compact('cvs', 'first_cv', 'matches'));
     }
 
     public function view($id)
@@ -33,8 +33,7 @@ class CvsController extends AppController
 
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             $this->set('cvs', $cvs);
-        }
-        else {
+        } else {
             return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
     }
@@ -59,13 +58,12 @@ class CvsController extends AppController
             if ($this->Cvs->save($cvs)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
-            }
-            else {
+            } else {
                 $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
 
-        if ($this->Auth->user('account_type') === 1){
+        if ($this->Auth->user('account_type') === 1) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
@@ -76,9 +74,7 @@ class CvsController extends AppController
 
     public function edit($id = null)
     {
-        $cvs = $this->Cvs->get($id, [
-            'contain' => ['Categories']
-        ]);
+        $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {
@@ -102,12 +98,11 @@ class CvsController extends AppController
                     $this->Flash->set('Er ging iets mis! Controleer of alle velden correct ingevuld zijn.', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
                 }
             }
-        }
-        else {
+        } else {
             return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
 
-        if ($this->Auth->user('account_type') === 1){
+        if ($this->Auth->user('account_type') === 1) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
@@ -123,15 +118,14 @@ class CvsController extends AppController
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             $this->request->allowMethod(['post', 'delete', 'get']);
             if ($this->Cvs->delete($cvs)) {
-                $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success','params' => ['class' => 'alert alert-success']]);
+                $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
             }
-        }
-        else {
+        } else {
             return $this->redirect(['controller' => 'Cvs', 'action' => 'index']);
         }
 
-        if ($this->Auth->user('account_type') === 1){
+        if ($this->Auth->user('account_type') === 1) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
     }

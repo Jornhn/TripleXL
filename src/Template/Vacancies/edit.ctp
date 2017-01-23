@@ -3,16 +3,16 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> Vacature wijzigen
-            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Vacancies', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
-        <?php echo $this->Form->create($vacancies,['class'=>'form-horizontal', 'data-toggle' => 'validator']);?>
+        <?php echo $this->Form->create($vacancies, ['class' => 'form-horizontal', 'data-toggle' => 'validator']); ?>
 
         <!-- Text input-->
         <div class="form-group">
             <label class="col-md-3 control-label" for="title">Titel</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('title', ['type'=>'text', 'id'=>'title', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
+                <?php echo $this->Form->input('title', ['type' => 'text', 'id' => 'title', 'placeholder' => '', 'class' => 'form-control ', 'div' => false, 'label' => false, 'required']); ?>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="text">Tekst</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('text', ['type'=>'textarea', 'id'=>'text', 'placeholder'=>'', 'class'=>'form-control ', 'div'=>false, 'label'=>false, 'required']); ?>
+                <?php echo $this->Form->input('text', ['type' => 'textarea', 'id' => 'text', 'placeholder' => '', 'class' => 'form-control ', 'div' => false, 'label' => false, 'required']); ?>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -33,16 +33,23 @@
             <div class="col-md-6">
                 <?php
                 $uri = $this->Url->build(['controller' => 'app', 'action' => 'getCompetences']);
-                echo $this->Form->input('category_id',['type'=>'select', 'class'=>'form-control ', 'data-url' => $uri,'options'=> $categories,'multiple'=>false,'div'=>false,'label'=>false, 'empty' => [0 => 'Kies een categorie...'], 'required']); ?>
+                echo $this->Form->input('category_id', ['type' => 'select', 'class' => 'form-control ', 'data-url' => $uri, 'options' => $categories, 'multiple' => false, 'div' => false, 'label' => false, 'empty' => [0 => 'Kies een categorie...'], 'required']); ?>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
+
+        <?php
+        $competences = $vacancies->categories_competences;
+        foreach ($competences as $competence) {
+            echo '<div class="hidden" id="competences">'.$competence->id.'</div>';
+        }
+        ?>
 
         <!-- Select Basic -->
         <div class="form-group" id="competence-container">
             <label class="col-md-3 control-label" for="competentie">Competenties</label>
             <div class="col-md-6">
-                <?php echo $this->Form->input('categories_competences._ids', ['class' => 'form-control', 'options'=> '', 'div'=> false,'label' => false, 'required']); ?>
+                <?php echo $this->Form->input('categories_competences._ids', ['class' => 'form-control', 'options' => '', 'div' => false, 'label' => false, 'required']); ?>
                 <div class="help-block with-errors"></div>
             </div>
         </div>
@@ -53,7 +60,7 @@
             <div class="col-md-6">
                 <?php
                 $types = array(0 => 'Non actief', 1 => 'Actief');
-                echo $this->Form->input('status', ['type' => 'select', 'class' => 'form-control', 'options'=> $types, 'div'=> false,'label' => false, 'required']);
+                echo $this->Form->input('status', ['type' => 'select', 'class' => 'form-control', 'options' => $types, 'div' => false, 'label' => false, 'required']);
                 ?>
                 <div class="help-block with-errors"></div>
             </div>
@@ -64,7 +71,7 @@
         <!-- Button -->
         <div class="form-group">
             <div class="col-lg-12">
-                <?=$this->Form->button('Opslaan', ['class'=>'btn btn-primary']);?>
+                <?= $this->Form->button('Opslaan', ['class' => 'btn btn-primary']); ?>
             </div>
         </div>
         <?php echo $this->Form->end();
@@ -75,10 +82,21 @@
     var categoryId = $("#category-id").val();
     var url = $("#category-id").attr('data-url');
 
-    $.post(url, { categoryId: categoryId }, function(result) {
+    $.post(url, {categoryId: categoryId}, function (result) {
         var html = [];
+
+        var array = $("div #competences").map(function(){
+            return $.trim($(this).text());
+        }).get();
+        var ArrayOfInts = array.map(Number);
+
         for (var i = 0; i < result.result.length; i++) {
-            html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
+            if ($.inArray(+result.result[i].id, ArrayOfInts) >= 0) {
+                html.push('<option value="'+result.result[i].id+'" selected>'+result.result[i].title+'</option>');
+            }
+            else {
+                html.push('<option value="'+result.result[i].id+'">'+result.result[i].title+'</option>');
+            }
         }
 
         $('#competence-container').removeClass('hidden');

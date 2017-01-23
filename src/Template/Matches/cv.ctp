@@ -3,20 +3,20 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1> Details: <?= $cvs->title ?>
-            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'Cvs', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
+            <span class="pull-right"><?= $this->Html->link("Terug", ['controller' => 'matches', 'action' => 'index'], ['class' => 'btn btn-primary btn-lg']) ?></span>
         </h1>
         <hr>
         <table class="top-space col-lg-12 table table-striped">
             <tr>
-                <th>Title:</th>
+                <th>Title: </th>
                 <td><?= $cvs->title ?></td>
             </tr>
             <tr>
-                <th>Tekst:</th>
+                <th>Tekst: </th>
                 <td><?= $cvs->text ?></td>
             </tr>
             <tr>
-                <th>Motivatie:</th>
+                <th>Motivatie: </th>
                 <td><?= $cvs->motivation ?></td>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                     <?php if ($cvs->category) : ?>
                         <span class="label label-info"><?= $cvs->category->category ?></span>
                     <?php else : ?>
-                        <span class="label label-danger">Geen gekoppelde category</span>
+                        <span class="label label-danger">Geen gekoppelde categorie</span>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -42,28 +42,17 @@
                 </td>
             </tr>
             <tr>
-                <th>Video:</th>
+                <th>Video: </th>
                 <td>
                     <?php
-                    if (strlen($cvs->video) < 10) {
-                        echo 'U heeft helaas geen video! :(';
-                    } else {
-                        echo '
-                         <video width="320" height="240" controls>
-                            <source src="../../videos/' . $cvs->video . '" type="video/mp4">
-                        </video>';
+                    if(strlen($cvs->video) < 10 ) {
+                        echo 'Geen video :(';
                     }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>
-                    <?php
-                    if ($cvs->status === 1) {
-                        echo 'Actief';
-                    } else {
-                        echo 'Non actief';
+                    else {
+                        echo ' 
+                         <video width="320" height="240" controls> 
+                            <source src="../../videos/'.$cvs->video.'" type="video/mp4"> 
+                        </video>';
                     }
                     ?>
                 </td>
