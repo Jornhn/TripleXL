@@ -6,7 +6,7 @@
             <?php if ($this->request->session()->read('Auth.User.account_type') >= 2): ?>
                 Vacatures
             <?php else: ?>
-                Mijn Vacature('s)
+                Mijn Vacatures
             <?php endif; ?>
             <span class="pull-right">
                 <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
@@ -43,7 +43,7 @@
                         <td><?= $vacancy->user->company_name ?></td>
                     <?php endif; ?>
                     <td><?= $vacancy->title ?></td>
-                    <td><?= substr($vacancy->text, 0, 150) . '...' ?></td>
+                    <td class="td-max-width"><?= substr($vacancy->text, 0, 150) ?></td>
                     <td>
                         <?php
                         if ($vacancy->status == 1) {

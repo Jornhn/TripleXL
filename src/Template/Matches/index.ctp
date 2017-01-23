@@ -3,7 +3,7 @@
 <div class="container">
     <div class="col-md-12 default-container">
         <h1>
-            Mijn Matches
+            Matches
             <?php if ($this->request->session()->read('Auth.User.account_type') == 1) : ?>
                 <button class="btn btn-info btn-buy pull-right">Betalen</button>
             <?php endif; ?>
@@ -50,7 +50,7 @@
                                 <img src="http://placekitten.com/242/200" alt="User Icon"/>
                             </div>
                             <div class="caption">
-                                <h3><?= $match->cv->title; ?></h3>
+                                <h3><?=$this->Html->link($match->cv->title, ['controller' => 'matches/', 'action' => 'cv/' . $match->cv->id])?></h3>
                                 <p><?= $match->vacancy->title; ?></p>
                                 <p class="score">Score: <?= $match->score; ?></p>
 

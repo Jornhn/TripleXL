@@ -6,7 +6,7 @@
             <?php if ($this->request->session()->read('Auth.User.account_type') >= 2): ?>
                 CV's
             <?php else: ?>
-                Mijn CV('s)
+                Mijn CV's
             <?php endif; ?>
             <span class="pull-right">
                 <?= $this->Html->link("Toevoegen", ['action' => 'create'], ['class' => 'btn btn-primary btn-lg']) ?>
@@ -44,8 +44,8 @@
                         <td><?= $cv->user->firstname ?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
                     <?php endif; ?>
                     <td><?= $cv->title ?></td>
-                    <td><?= substr($cv->text, 0, 150) . '...' ?></td>
-                    <td><?= substr($cv->motivation, 0, 150) . '...' ?></td>
+                    <td class="td-max-width"><?= substr($cv->text, 0, 150) ?></td>
+                    <td class="td-max-width"><?= substr($cv->motivation, 0, 150) ?></td>
                     <td>
                         <?php
                         if ($cv->status === 1) {

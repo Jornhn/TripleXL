@@ -43,6 +43,8 @@ class VacanciesController extends AppController
             $vacancies = $this->Vacancies->patchEntity($vacancies, $this->request->data);
             $vacancies->user_id = $this->Auth->user('id');
 
+            dump($this->request->data);
+
             if ($this->Vacancies->save($vacancies)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
@@ -62,9 +64,7 @@ class VacanciesController extends AppController
 
     public function edit($id = null)
     {
-        $vacancies = $this->Vacancies->get($id, [
-            'contain' => ['Categories']
-        ]);
+        $vacancies = $this->Vacancies->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
         if ($this->Auth->user('id') === $vacancies->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {

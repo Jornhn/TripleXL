@@ -74,9 +74,7 @@ class CvsController extends AppController
 
     public function edit($id = null)
     {
-        $cvs = $this->Cvs->get($id, [
-            'contain' => ['Categories']
-        ]);
+        $cvs = $this->Cvs->get($id, ['contain' => ['Categories', 'CategoriesCompetences']]);
 
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             if ($this->request->is(['patch', 'post', 'put'])) {

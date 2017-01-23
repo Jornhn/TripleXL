@@ -1,19 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:500,600');
-
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat|Roboto|Source+Sans+Pro');
 html,
+
 body {
+    font-family: 'Lato', sans-serif !important;
     height: 100%;
-}
-
-body {
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500;
-
-    background: linear-gradient(
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7)
-    ),
-    url(https://static.pexels.com/photos/30342/pexels-photo-30342.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://static.pexels.com/photos/30342/pexels-photo-30342.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -442,7 +433,8 @@ body {
 
 }
 
-
-
+.td-max-width {
+    max-width: 180px !important;
+}
 
 
