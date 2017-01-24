@@ -5,7 +5,7 @@
         <h1>
             Matches
             <?php if ($this->request->session()->read('Auth.User.account_type') == 1) : ?>
-                <button class="btn btn-info btn-buy pull-right">Betalen</button>
+                <button onclick="confirmation(<?= $matches ?>)"class="btn btn-info btn-buy pull-right">Betalen</button>
             <?php endif; ?>
         </h1>
         <hr>
@@ -41,7 +41,7 @@
             elseif ($this->request->session()->read('Auth.User.account_type') == 1) :
                 $count = 1;
                 ?>
-                <?= $this->Form->create('', ['id' => 'buyForm']); ?>
+                <?= $this->Form->create('', array('url'=>array('action'=>'purchases'), 'id' => 'buyForm')); ?>
                 <?php
                 foreach ($matches as $key => $match) : ?>
                     <div class="col-xs-6 col-md-3">
@@ -55,9 +55,9 @@
                                 <p class="score">Score: <?= $match->score; ?></p>
 
                                 <div class="checkbox checkbox-danger">
-                                    <?= $this->Form->checkbox('buySelection', ['id' => 'checkbox', 'class' => 'styled', 'hiddenField' => false]); ?>
-                                    <label for="checkbox">
-                                        Kopen
+                                    <?= $this->Form->checkbox('buySelection.', ['id' => 'checkbox'.$key, 'value' => $match->cv->id,'class' => 'styled', 'hiddenField' => false]); ?>
+                                    <label for="checkbox<?=$key?>">
+                                    Kopen
                                     </label>
                                 </div>
                             </div>
