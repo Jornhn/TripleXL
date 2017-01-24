@@ -37,6 +37,7 @@ class MatchesController extends AppController
 
     public function index()
     {
+        /* Check account_type & get correct ViewVacanciesCvs */
         if ($this->Auth->user('account_type') == 0) {
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Cvs.user_id' => $this->Auth->user('id')])->where(['Cvs.status' => 1])->andWhere(['Vacancies.status' => 1])->order(['ViewVacanciesCvs.score' => 'DESC']);
         } else if ($this->Auth->user('account_type') == 1) {

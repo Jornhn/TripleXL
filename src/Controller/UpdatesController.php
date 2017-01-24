@@ -24,6 +24,7 @@ class UpdatesController extends AppController
 
     }
 
+    /* Create a global update */
     public function create(){
         if($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
@@ -50,6 +51,7 @@ class UpdatesController extends AppController
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
     }
 
+    /* Delete an update */
     public function delete($id = null) {
         if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
