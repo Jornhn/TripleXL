@@ -40,7 +40,7 @@
             <?php foreach ($cvs as $cv): ?>
                 <tr>
                     <td><?= $cv->id ?></td>
-                    <?php if (!empty($cv->user)) : ?>
+                    <?php if (!empty($first_cv)) : ?>
                         <td><?= $cv->user->firstname ?> <?= $cv->user->insertion ?> <?= $cv->user->lastname ?></td>
                     <?php endif; ?>
                     <td><?= $cv->title ?></td>
