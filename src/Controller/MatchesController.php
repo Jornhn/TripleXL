@@ -37,12 +37,15 @@ class MatchesController extends AppController
 
     public function index()
     {
-        /* Check account_type & get correct ViewVacanciesCvs */
+        /* Check account_type */
         if ($this->Auth->user('account_type') == 0) {
+            /* Get matches for user */
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Cvs.user_id' => $this->Auth->user('id')])->where(['Cvs.status' => 1])->andWhere(['Vacancies.status' => 1])->order(['ViewVacanciesCvs.score' => 'DESC']);
         } else if ($this->Auth->user('account_type') == 1) {
+            /* Get matches for companies */
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->where(['Vacancies.user_id' => $this->Auth->user('id')])->where(['Cvs.status' => 1])->andWhere(['Vacancies.status' => 1])->order(['ViewVacanciesCvs.score' => 'DESC']);
         } else {
+            /* Get all matches */
             $matches = $this->ViewVacanciesCvs->find()->contain(['Cvs.Users', 'Vacancies.Users'])->order(['ViewVacanciesCvs.score' => 'DESC']);
         }
 
