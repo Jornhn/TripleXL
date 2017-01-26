@@ -24,7 +24,9 @@ class UpdatesController extends AppController
 
     }
 
+    /* Create a global update */
     public function create(){
+        /* Check if user is authorized */
         if($this->isAuthorized($this->Auth->user())) {
             if ($this->request->is("post")) {
 
@@ -33,12 +35,16 @@ class UpdatesController extends AppController
                 $this->request->data['Updates']['global'] = true;
                 $this->request->data['Updates']['type'] = "U";
 
+                /* If no text is submitted return an error and redirect to dashboard */
                 if (empty($this->request->data['text'])) {
                     $this->Flash->set('Vul een bericht in.', ['key' => 'update-error', 'params' => ['class' => 'alert alert-warning']]);
                     return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
                 }
 
+                /* Create an new update entity and fill with data */
                 $entity = $this->Updates->newEntity($this->request->data());
+
+                /* Save update to database */
                 if ($this->Updates->save($entity)) {
                     $this->Flash->set('Uw update is geplaatst.', ['key' => 'update-success', 'params' => ['class' => 'alert alert-success']]);
                     return $this->redirect(['controller' => 'dashboard', 'action' => 'index']);
@@ -50,19 +56,23 @@ class UpdatesController extends AppController
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
     }
 
+    /* Delete an update */
     public function delete($id = null) {
+        /* Check if user is authorized */
         if ($this->isAuthorized($this->Auth->user())) {
             if (empty($id)) {
                 throw new NotFoundException;
             }
+            /* Get update with id $id */
             $update = $this->Updates->get($id);
 
+            /* Delete update from database */
             if ($this->Updates->delete($update)) {
                 $this->Flash->set('Update is succesvol verwijderd.', ['key' => 'update-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
             }
             $this->Flash->set('Kon de update niet verwijderen. Probeer het opnieuw.', ['key' => 'update-error', 'params' => ['class' => 'alert alert-danger']]);
-
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
     }
 
