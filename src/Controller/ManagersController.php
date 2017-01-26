@@ -11,7 +11,7 @@ class ManagersController extends AppController
     public function __construct($request = null, $response = null, $name = null, $eventManager = null, $components = null)
     {
         parent::__construct($request, $response, $name, $eventManager, $components);
-
+ 
         $this->loadModel('Users');
     }
 
@@ -26,13 +26,12 @@ class ManagersController extends AppController
     }
 
     // Function which gets all the managers from the database and send it to the index where it will be displayed
-    public function index()
-    {
+    public function index() {
         // If the user is allowed to acces the page
         if ($this->isAuthorized($this->Auth->user())) {
             // Get all the users with the account_type = 2 which are all the managers
             $query = $this->Users->find()->where(['account_type' => '2']);
-            // Execute the query so you get the data
+            // Execute the query so you get the data returns an object
             $results = $query->all();
 
             // Give the data to the view
@@ -41,15 +40,14 @@ class ManagersController extends AppController
     }
 
     // Function which makes the super user able to view the data of a manager
-    public function view($id = null)
-    {
+    public function view($id = null) {
         // If the user is allowed to acces the page
         if ($this->isAuthorized($this->Auth->user())) {
             // If there is no ID we cannot show the page so we give the user an error
             if (empty($id)) {
                 throw new NotFoundException;
             }
-            // Get the data from the wanted manager
+            // Get the data from the wanted manager returns an object
             $manager = $this->Users->get($id);
             // Give the data to the view to display the data
             $this->set('manager', $manager);
@@ -57,8 +55,7 @@ class ManagersController extends AppController
     }
 
     // Function which saves the manager data
-    public function create()
-    {
+    public function create() {
         // If the user is allowed to acces the page
         if ($this->isAuthorized($this->Auth->user())) {
             // If the user presses the submit button, make an entity from the data and save it after that redirect
@@ -110,8 +107,6 @@ class ManagersController extends AppController
             }
             // Gets the manager data
             $manager = $this->Users->get($id);
-            // Sends the data to the view
-            $this->set('manager', $manager);
 
             // Deletes the manager and returns the user to the index if succeeded
             if ($this->Users->delete($manager)) {
