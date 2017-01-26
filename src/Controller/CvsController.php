@@ -32,7 +32,7 @@ class CvsController extends AppController
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
-        // set objects / arrays
+        // set object
         $this->set(compact('cvs', 'first_cv'));
     }
 
@@ -102,7 +102,7 @@ class CvsController extends AppController
         // get all the categories and set them in $categories
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        // set all object / arrays
+        // set all objects
         $this->set(compact('cvs', 'categories', 'competences'));
     }
 
@@ -156,7 +156,7 @@ class CvsController extends AppController
         // get all the categories and set them in $categories
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        // set all object / arrays
+        // set all object
         $this->set(compact('cvs', 'categories'));
     }
 

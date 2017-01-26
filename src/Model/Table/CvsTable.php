@@ -19,9 +19,13 @@ class CvsTable extends Table
     {
         parent::initialize($config);
 
+        // Many cvs belong to a user.
         $this->belongsTo('Users');
+        // Many cvs belong to a category.
         $this->belongsTo('Categories');
+        // A cv can have multiple matches.
         $this->hasMany('ViewVacanciesCvs');
+        // Cvs belong to many competences
         $this->belongsToMany('CategoriesCompetences');
     }
 
