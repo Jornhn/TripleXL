@@ -60,7 +60,9 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="video">Video</label>
             <div class="col-lg-6">
-                <?php echo $this->Form->file('video'); ?>
+                <?php
+                    echo $this->Form->file('video');
+                ?>
             </div>
         </div>
 

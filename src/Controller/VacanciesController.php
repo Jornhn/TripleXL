@@ -12,7 +12,7 @@ class VacanciesController extends AppController
 {
     public function index()
     {
-        $vacancies = $this->Vacancies->find('all')->where(['vacancies.user_id' => $this->Auth->user('id')]);
+        $vacancies = $this->Vacancies->find('all')->where(['user_id' => $this->Auth->user('id')]);
 
         if ($this->Auth->user('account_type') >= 2) {
             $vacancies = $this->Vacancies->find()->contain(['Users']);
@@ -42,8 +42,6 @@ class VacanciesController extends AppController
         if ($this->request->is('post')) {
             $vacancies = $this->Vacancies->patchEntity($vacancies, $this->request->data);
             $vacancies->user_id = $this->Auth->user('id');
-
-            dump($this->request->data);
 
             if ($this->Vacancies->save($vacancies)) {
                 $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);

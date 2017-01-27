@@ -18,7 +18,7 @@ class CvsController extends AppController
     public function index()
     {
         // Get all the CV's matching the ID where u logged in with
-        $cvs = $this->Cvs->find()->where(['cvs.user_id' => $this->Auth->user('id')]);
+        $cvs = $this->Cvs->find()->where(['user_id' => $this->Auth->user('id')]);
 
         // If user logged in is admin / super admin
         if ($this->Auth->user('account_type') >= 2) {
@@ -32,7 +32,7 @@ class CvsController extends AppController
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
-        // set objects / arrays
+        // set object
         $this->set(compact('cvs', 'first_cv'));
     }
 
@@ -57,10 +57,10 @@ class CvsController extends AppController
     // This function creates a new CV.
     public function create()
     {
-        // Make a new Entity
-        $cvs = $this->Cvs->newEntity();
         // If request is a post
         if ($this->request->is('post')) {
+            // Make a new Entity
+            $cvs = $this->Cvs->newEntity();
             // get extention from video
             $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
             $arr_ext = array("mp3", "mp4", "wma");
@@ -73,6 +73,9 @@ class CvsController extends AppController
                 move_uploaded_file(($this->request->data['video']['tmp_name']), WWW_ROOT . '/videos/' . $setNewFileName . '.' . $ext);
                 // set the new filename in public $video
                 $this->video = $setNewFileName . '.' . $ext;
+            }
+            else {
+                $this->Flash->set('Alleen MP4 bestanden zijn toegestaan!', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-success']]);
             }
 
             $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
@@ -99,9 +102,8 @@ class CvsController extends AppController
         // get all the categories and set them in $categories
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        // set all object / arrays
+        // set all objects
         $this->set(compact('cvs', 'categories', 'competences'));
-        $this->set('_serialize', ['cvs']);
     }
 
 
@@ -115,7 +117,7 @@ class CvsController extends AppController
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
             // If request is patch / post or put
             if ($this->request->is(['patch', 'post', 'put'])) {
-                // get extention from video
+                $cv = $this->Cvs->patchEntity($cvs, $this->request->data);
                 $ext = substr(strtolower(strrchr($this->request->data['video']['name'], '.')), 1);
                 $arr_ext = array("mp3", "mp4", "wma");
                 // set a random new video name
@@ -128,14 +130,11 @@ class CvsController extends AppController
                     // set the new filename in public $video
                     $this->video = $setNewFileName . '.' . $ext;
                 }
-
                 // set video path to the path in $video
-                $cvs->video = $this->video;
 
-                $cvs = $this->Cvs->patchEntity($cvs, $this->request->data);
 
                 // if able to save, save the entity in database
-                if ($this->Cvs->save($cvs)) {
+                if ($this->Cvs->save($cv)) {
                     $this->Flash->set('De CV is succesvol opgeslagen!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
 
                     return $this->redirect(['action' => 'index']);
@@ -157,9 +156,8 @@ class CvsController extends AppController
         // get all the categories and set them in $categories
         $categories = $this->Cvs->Categories->find('list', ['keyField' => 'id', 'valueField' => 'category']);
 
-        // set all object / arrays
-        $this->set(compact('cvs', 'categories', 'competences'));
-        $this->set('_serialize', ['cvs']);
+        // set all object
+        $this->set(compact('cvs', 'categories'));
     }
 
 
@@ -170,12 +168,13 @@ class CvsController extends AppController
         $cvs = $this->Cvs->get($id);
         // If CV id = Auth ID or account_type is admin / super admin
         if ($this->Auth->user('id') === $cvs->user_id or $this->Auth->user('account_type') >= 2) {
-            // If request post / delete / get
-            $this->request->allowMethod(['post', 'delete', 'get']);
             // If cv is deleted
             if ($this->Cvs->delete($cvs)) {
                 $this->Flash->set('Uw CV is verwijderd!', ['key' => 'cv-success', 'params' => ['class' => 'alert alert-success']]);
                 return $this->redirect(['action' => 'index']);
+            }
+            else {
+                $this->Flash->set('Er ging iets mis!', ['key' => 'cv-error', 'params' => ['class' => 'alert alert-danger']]);
             }
         }
         else {

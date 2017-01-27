@@ -17,9 +17,11 @@ class UsersTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        //A user can have multiple updates.
         $this->hasMany('Updates');
+        //A user can have multiple Cvs.
         $this->hasMany('Cvs');
+        //A user can have multiple Vacancies.
         $this->hasMany('Vacancies');
     }
 
